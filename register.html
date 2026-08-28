@@ -4,7 +4,8 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Registration Form</title>
 
@@ -19,7 +20,7 @@
 body{
     font-family:Arial,sans-serif;
     background:#f1f5f9;
-    padding:25px 15px;
+    padding:20px 12px;
 }
 
 .container{
@@ -28,15 +29,26 @@ body{
     margin:auto;
 }
 
+/* ================= HEADER ================= */
+
 .header{
-    background:linear-gradient(135deg,#075985,#0ea5e9);
+    background:linear-gradient(
+        135deg,
+        #075985,
+        #0ea5e9
+    );
+
     color:white;
-    padding:25px;
+
+    padding:25px 20px;
+
     border-radius:20px 20px 0 0;
+
     text-align:center;
 }
 
 .header h1{
+    font-size:28px;
     margin-bottom:7px;
 }
 
@@ -44,11 +56,18 @@ body{
     line-height:1.6;
 }
 
+/* ================= FORM ================= */
+
 .form{
     background:white;
-    padding:25px;
+
+    padding:22px;
+
     border-radius:0 0 20px 20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.08);
 }
 
 .group{
@@ -57,66 +76,105 @@ body{
 
 label{
     display:block;
+
     margin-bottom:7px;
+
     font-weight:bold;
+
     color:#334155;
 }
 
 input,
 select{
     width:100%;
+
     height:48px;
+
     border:1px solid #cbd5e1;
+
     border-radius:10px;
+
     padding:0 12px;
+
     font-size:15px;
+
     outline:none;
 }
 
 input:focus,
 select:focus{
     border-color:#0ea5e9;
-    box-shadow:0 0 0 3px rgba(14,165,233,.10);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(14,165,233,.10);
 }
 
 .grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap:15px;
 }
 
+/* ================= CODE ================= */
+
 .codeBox{
+
     background:#f0f9ff;
+
     border:1px solid #bae6fd;
+
     border-radius:12px;
+
     padding:15px;
+
     margin-bottom:20px;
+
     text-align:center;
 }
 
 .codeBox small{
     display:block;
+
     color:#64748b;
+
     margin-bottom:5px;
 }
 
 .codeValue{
-    font-size:25px;
+    font-size:26px;
+
     font-weight:bold;
+
     letter-spacing:3px;
+
     color:#075985;
 }
 
+/* ================= BUTTON ================= */
+
 button{
     width:100%;
+
     height:52px;
+
     border:0;
+
     border-radius:11px;
+
     background:#075985;
+
     color:white;
+
     font-size:17px;
+
     font-weight:bold;
+
     cursor:pointer;
+
     margin-top:8px;
 }
 
@@ -125,40 +183,22 @@ button:hover{
 }
 
 button:disabled{
-    opacity:.6;
+    opacity:1;
+
     cursor:not-allowed;
 }
 
-#result{
-    display:none;
-    margin-top:20px;
-    padding:20px;
-    border-radius:12px;
-    background:#ecfdf5;
-    border:1px solid #86efac;
-    text-align:center;
-}
-
-.success{
-    color:#15803d;
-    font-weight:bold;
-    font-size:18px;
-    margin-bottom:10px;
-}
-
-.code{
-    font-size:30px;
-    font-weight:bold;
-    color:#075985;
-    margin:12px 0;
-    letter-spacing:3px;
-}
+/* ================= PREVIEW ================= */
 
 .preview{
     display:none;
+
     margin-top:10px;
+
     object-fit:cover;
+
     border-radius:10px;
+
     border:1px solid #cbd5e1;
 }
 
@@ -172,32 +212,228 @@ button:disabled{
     max-height:220px;
 }
 
-.back{
-    display:block;
-    text-align:center;
-    margin-top:18px;
-    color:#075985;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-.back:hover{
-    text-decoration:underline;
-}
+/* ================= ERROR ================= */
 
 .error{
+
     color:#dc2626;
+
     background:#fef2f2;
+
     border:1px solid #fecaca;
+
     padding:12px;
+
     border-radius:10px;
+
     margin-bottom:18px;
+
     display:none;
+
     text-align:center;
+
     font-weight:bold;
 }
 
+/* =====================================================
+   SUCCESS SCREEN
+===================================================== */
+
+#successScreen{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9999;
+
+    background:
+        linear-gradient(
+            135deg,
+            #075985,
+            #0ea5e9
+        );
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    text-align:center;
+}
+
+.successCard{
+
+    width:100%;
+
+    max-width:500px;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:38px 25px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.25);
+
+    animation:
+        successIn .5s ease;
+}
+
+@keyframes successIn{
+
+    from{
+        opacity:0;
+        transform:scale(.85);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* SUCCESS ICON */
+
+.successIcon{
+
+    width:90px;
+
+    height:90px;
+
+    margin:0 auto 20px;
+
+    border-radius:50%;
+
+    background:#dcfce7;
+
+    color:#16a34a;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:52px;
+
+    font-weight:bold;
+}
+
+.successCard h2{
+
+    color:#15803d;
+
+    font-size:26px;
+
+    margin-bottom:12px;
+}
+
+.successCard p{
+
+    color:#64748b;
+
+    line-height:1.7;
+
+    margin-bottom:20px;
+}
+
+.successCode{
+
+    background:#f0f9ff;
+
+    border:2px solid #bae6fd;
+
+    border-radius:15px;
+
+    padding:16px;
+
+    margin-bottom:20px;
+}
+
+.successCode small{
+
+    display:block;
+
+    color:#64748b;
+
+    margin-bottom:7px;
+}
+
+.successCode strong{
+
+    color:#075985;
+
+    font-size:34px;
+
+    letter-spacing:4px;
+}
+
+.profileBtn{
+
+    background:#075985;
+
+    margin-top:0;
+}
+
+.homeBtn{
+
+    background:#e2e8f0;
+
+    color:#334155;
+
+    margin-top:10px;
+}
+
+/* ================= LOADING ================= */
+
+.loadingBox{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+}
+
+.spinner{
+
+    width:24px;
+
+    height:24px;
+
+    border:3px solid
+        rgba(255,255,255,.35);
+
+    border-top-color:white;
+
+    border-radius:50%;
+
+    animation:
+        spin .8s linear infinite;
+}
+
+@keyframes spin{
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* ================= MOBILE ================= */
+
 @media(max-width:600px){
+
+    body{
+        padding:10px;
+    }
 
     .grid{
         grid-template-columns:1fr;
@@ -205,7 +441,23 @@ button:disabled{
     }
 
     .form{
-        padding:20px;
+        padding:18px;
+    }
+
+    .header h1{
+        font-size:25px;
+    }
+
+    .successCard{
+        padding:32px 20px;
+    }
+
+    .successCard h2{
+        font-size:23px;
+    }
+
+    .successCode strong{
+        font-size:30px;
     }
 
 }
@@ -216,7 +468,10 @@ button:disabled{
 
 <body>
 
+
 <div class="container">
+
+    <!-- HEADER -->
 
     <div class="header">
 
@@ -231,10 +486,12 @@ button:disabled{
     </div>
 
 
+    <!-- FORM -->
+
     <div class="form">
 
 
-        <!-- CODE FROM INDEX.HTML -->
+        <!-- CODE -->
 
         <div class="codeBox">
 
@@ -263,6 +520,8 @@ button:disabled{
         <form id="registrationForm">
 
 
+            <!-- NAME -->
+
             <div class="group">
 
                 <label>
@@ -278,6 +537,8 @@ button:disabled{
 
             </div>
 
+
+            <!-- GENDER / AGE -->
 
             <div class="grid">
 
@@ -328,6 +589,8 @@ button:disabled{
             </div>
 
 
+            <!-- DOB -->
+
             <div class="group">
 
                 <label>
@@ -342,6 +605,8 @@ button:disabled{
 
             </div>
 
+
+            <!-- ELMIS / PASSPORT -->
 
             <div class="grid">
 
@@ -375,6 +640,8 @@ button:disabled{
             </div>
 
 
+            <!-- PHONE -->
+
             <div class="group">
 
                 <label>
@@ -390,6 +657,8 @@ button:disabled{
             </div>
 
 
+            <!-- BIRTH -->
+
             <div class="group">
 
                 <label>
@@ -403,6 +672,8 @@ button:disabled{
 
             </div>
 
+
+            <!-- VISA / COUNTRY -->
 
             <div class="grid">
 
@@ -455,6 +726,8 @@ button:disabled{
             </div>
 
 
+            <!-- PROFILE PHOTO -->
+
             <div class="group">
 
                 <label>
@@ -475,6 +748,8 @@ button:disabled{
 
             </div>
 
+
+            <!-- DOCUMENT -->
 
             <div class="group">
 
@@ -497,6 +772,8 @@ button:disabled{
             </div>
 
 
+            <!-- REGISTER BUTTON -->
+
             <button
                 id="registerBtn"
                 type="submit"
@@ -504,48 +781,69 @@ button:disabled{
                 Register
             </button>
 
+
         </form>
 
+    </div>
 
-        <!-- RESULT -->
-
-        <div id="result">
-
-            <div class="success">
-                ✅ Registration Successful
-            </div>
-
-            <div>
-                Your Code:
-            </div>
-
-            <div
-                class="code"
-                id="generatedCode"
-            ></div>
-
-            <div>
-                ይህን Code ያስቀምጡ።
-            </div>
+</div>
 
 
-            <button
-                type="button"
-                onclick="goToProfile()"
-            >
-                View Personal Information
-            </button>
+<!-- =====================================================
+     SUCCESS SCREEN
+===================================================== -->
+
+<div id="successScreen">
+
+    <div class="successCard">
+
+        <div class="successIcon">
+            ✓
+        </div>
+
+
+        <h2>
+            ምዝገባዎ በተሳካ ሁኔታ
+            ተሳክቷል!
+        </h2>
+
+
+        <p>
+            Registration Successful
+            <br>
+            መረጃዎ በትክክል ተመዝግቧል።
+        </p>
+
+
+        <div class="successCode">
+
+            <small>
+                Your Registration Code
+            </small>
+
+            <strong
+                id="successCode"
+            ></strong>
 
         </div>
 
 
-        <a
-            class="back"
-            href="index.html"
+        <button
+            class="profileBtn"
+            type="button"
+            onclick="goToProfile()"
         >
-            ← Back to Code Verification
-        </a>
+            View Personal Information
+        </button>
 
+
+        <button
+            class="homeBtn"
+            type="button"
+            onclick="goHome()"
+        >
+            Back to Code Verification
+        </button>
 
     </div>
 
@@ -555,22 +853,22 @@ button:disabled{
 <script>
 
 /* =====================================================
-   GET CODE FROM INDEX.HTML
+   GET REGISTRATION CODE
 ===================================================== */
 
 const registrationCode =
     localStorage.getItem("vcode");
 
 const codeElement =
-    document.getElementById("registrationCode");
+    document.getElementById(
+        "registrationCode"
+    );
 
 const errorBox =
-    document.getElementById("errorBox");
+    document.getElementById(
+        "errorBox"
+    );
 
-
-/*
-   Code ከ index.html ካልመጣ
-*/
 
 if(!registrationCode){
 
@@ -584,8 +882,11 @@ if(!registrationCode){
         "❌ Code አልተገኘም። እባክዎ Index ገጽ ላይ Code ያስገቡ።";
 
     document
-    .getElementById("registrationForm")
-    .style.display="none";
+    .getElementById(
+        "registrationForm"
+    )
+    .style.display =
+        "none";
 
 }else{
 
@@ -596,44 +897,48 @@ if(!registrationCode){
 
 
 /* =====================================================
-   IMAGE TO BASE64
+   IMAGE → BASE64
 ===================================================== */
 
 function imageToBase64(file){
 
-    return new Promise((resolve,reject)=>{
+    return new Promise(
+        (resolve,reject)=>{
 
-        if(!file){
+            if(!file){
 
-            resolve("");
+                resolve("");
 
-            return;
+                return;
+            }
+
+            const reader =
+                new FileReader();
+
+            reader.onload =
+                function(){
+
+                    resolve(
+                        reader.result
+                    );
+
+                };
+
+            reader.onerror =
+                reject;
+
+            reader.readAsDataURL(
+                file
+            );
+
         }
-
-        const reader =
-            new FileReader();
-
-        reader.onload =
-            function(){
-
-                resolve(
-                    reader.result
-                );
-
-            };
-
-        reader.onerror =
-            reject;
-
-        reader.readAsDataURL(file);
-
-    });
+    );
 
 }
 
 
 /* =====================================================
-   PROFILE PHOTO PREVIEW
+   PHOTO PREVIEW
 ===================================================== */
 
 document
@@ -650,7 +955,6 @@ document
                 "photoPreview"
             );
 
-
         if(!file){
 
             preview.style.display =
@@ -658,7 +962,6 @@ document
 
             return;
         }
-
 
         preview.src =
             URL.createObjectURL(file);
@@ -671,7 +974,7 @@ document
 
 
 /* =====================================================
-   DOCUMENT PHOTO PREVIEW
+   DOCUMENT PREVIEW
 ===================================================== */
 
 document
@@ -688,7 +991,6 @@ document
                 "docPreview"
             );
 
-
         if(!file){
 
             preview.style.display =
@@ -696,7 +998,6 @@ document
 
             return;
         }
-
 
         preview.src =
             URL.createObjectURL(file);
@@ -733,20 +1034,38 @@ document
             );
 
 
+        /* ==========================
+           LOADING
+        ========================== */
+
         registerBtn.disabled =
             true;
 
-        registerBtn.textContent =
-            "Saving...";
+        registerBtn.innerHTML = `
+
+            <div class="loadingBox">
+
+                <span class="spinner"></span>
+
+                <span>
+                    Registering...
+                </span>
+
+            </div>
+
+        `;
 
 
         try{
+
+            /* ==========================
+               GET FILES
+            ========================== */
 
             const photoFile =
                 document
                 .getElementById("photo")
                 .files[0];
-
 
             const docFile =
                 document
@@ -754,11 +1073,14 @@ document
                 .files[0];
 
 
+            /* ==========================
+               CONVERT IMAGES
+            ========================== */
+
             const photo =
                 await imageToBase64(
                     photoFile
                 );
-
 
             const doc =
                 await imageToBase64(
@@ -766,14 +1088,9 @@ document
                 );
 
 
-            /*
-               IMPORTANT:
-               አዲስ Code አንፈጥርም።
-
-               ከ index.html የመጣውን
-               Code እንጠቀማለን።
-            */
-
+            /* ==========================
+               USER DATA
+            ========================== */
 
             const user = {
 
@@ -849,47 +1166,67 @@ document
             };
 
 
-            /*
-               SAVE:
-
-               user_123456
-               user_692122
-               etc.
-            */
+            /* ==========================
+               SAVE USER
+            ========================== */
 
             localStorage.setItem(
-                "user_" + registrationCode,
+
+                "user_" +
+                registrationCode,
+
                 JSON.stringify(user)
+
             );
 
 
-            /*
+            /* ==========================
                CURRENT USER
-            */
+            ========================== */
 
             localStorage.setItem(
+
                 "currentUser",
+
                 JSON.stringify(user)
+
             );
 
 
-            /*
-               CURRENT CODE
-            */
+            /* ==========================
+               KEEP CODE
+            ========================== */
 
             localStorage.setItem(
+
                 "vcode",
+
                 registrationCode
+
             );
 
 
             /*
-               SHOW RESULT
+               Small delay so the user
+               sees the loading animation.
             */
+
+            await new Promise(
+                resolve =>
+                    setTimeout(
+                        resolve,
+                        1800
+                    )
+            );
+
+
+            /* ==========================
+               SHOW SUCCESS SCREEN
+            ========================== */
 
             document
             .getElementById(
-                "generatedCode"
+                "successCode"
             )
             .textContent =
                 registrationCode;
@@ -897,29 +1234,23 @@ document
 
             document
             .getElementById(
-                "result"
+                "successScreen"
             )
             .style.display =
-                "block";
-
-
-            document
-            .getElementById(
-                "registrationForm"
-            )
-            .style.display =
-                "none";
+                "flex";
 
 
         }catch(error){
 
             console.error(error);
 
+
             errorBox.style.display =
                 "block";
 
             errorBox.textContent =
                 "❌ Registration failed. Please try again.";
+
 
             registerBtn.disabled =
                 false;
@@ -941,6 +1272,18 @@ function goToProfile(){
 
     window.location.href =
         "personal.html";
+
+}
+
+
+/* =====================================================
+   BACK HOME
+===================================================== */
+
+function goHome(){
+
+    window.location.href =
+        "index.html";
 
 }
 
