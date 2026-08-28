@@ -31,55 +31,84 @@ body{
     align-items:center;
     justify-content:center;
     font-family:Arial,sans-serif;
-    background:linear-gradient(135deg,#075985,#0ea5e9);
+
+    background:
+        linear-gradient(
+            135deg,
+            #075985,
+            #0ea5e9
+        );
+
     padding:20px;
 }
 
 .box{
     width:100%;
     max-width:430px;
+
     background:#fff;
-    padding:32px 25px;
+
+    padding:60px 25px 45px;
+
     border-radius:22px;
-    box-shadow:0 15px 40px rgba(0,0,0,.20);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.20);
+
     text-align:center;
 }
 
 .icon{
-    width:75px;
-    height:75px;
-    margin:0 auto 15px;
+    width:140px;
+    height:140px;
+
+    margin:0 auto 25px;
+
     border-radius:50%;
+
     background:#e0f2fe;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:32px;
+    font-size:65px;
 }
 
 h1{
     color:#075985;
-    margin-bottom:8px;
+
+    margin-bottom:10px;
+
+    font-size:42px;
 }
 
 p{
     color:#64748b;
-    margin-bottom:25px;
+
+    margin-bottom:28px;
+
     line-height:1.6;
+
+    font-size:18px;
 }
 
 input{
     width:100%;
-    height:52px;
 
-    border:1px solid #cbd5e1;
-    border-radius:12px;
+    height:58px;
+
+    border:
+        1px solid
+        #cbd5e1;
+
+    border-radius:14px;
 
     padding:0 15px;
 
-    font-size:18px;
+    font-size:21px;
+
     text-align:center;
 
     outline:none;
@@ -89,22 +118,29 @@ input{
 
 input:focus{
     border-color:#0ea5e9;
-    box-shadow:0 0 0 3px rgba(14,165,233,.12);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(14,165,233,.12);
 }
 
 button{
     width:100%;
-    height:52px;
 
-    margin-top:14px;
+    height:58px;
+
+    margin-top:16px;
 
     border:0;
-    border-radius:12px;
+
+    border-radius:14px;
 
     background:#075985;
+
     color:white;
 
-    font-size:17px;
+    font-size:19px;
+
     font-weight:bold;
 
     cursor:pointer;
@@ -122,36 +158,60 @@ button:disabled{
 }
 
 #msg{
-    min-height:25px;
-    margin-top:16px;
+    min-height:30px;
+
+    margin-top:18px;
+
     font-weight:bold;
+
+    font-size:18px;
 }
 
 .register{
     display:block;
 
-    margin-top:22px;
+    margin-top:25px;
 
     color:#075985;
 
     text-decoration:none;
 
     font-weight:bold;
+
+    font-size:18px;
 }
 
 .register:hover{
     text-decoration:underline;
 }
 
+@media(max-width:500px){
+
+    .box{
+        padding:55px 22px 40px;
+    }
+
+    h1{
+        font-size:36px;
+    }
+
+    .icon{
+        width:130px;
+        height:130px;
+        font-size:60px;
+    }
+
+}
+
 </style>
 
 </head>
-
 
 <body>
 
 
 <div class="box">
+
 
     <div class="icon">
         🔐
@@ -171,9 +231,10 @@ button:disabled{
     <input
         id="code"
         type="text"
-        placeholder="Enter Code"
         inputmode="numeric"
         autocomplete="off"
+        maxlength="6"
+        placeholder="Enter Code"
     >
 
 
@@ -195,6 +256,7 @@ button:disabled{
     >
         ➕ New Registration
     </a>
+
 
 </div>
 
@@ -218,19 +280,18 @@ function checkCode(){
         document.getElementById("continueBtn");
 
 
-    /*
-       Code ከ input እንወስዳለን
-    */
-
     const code =
         input.value.trim();
 
 
-    /* Empty */
+    /* ==========================
+       EMPTY
+    ========================== */
 
     if(!code){
 
-        msg.style.color = "red";
+        msg.style.color =
+            "#dc2626";
 
         msg.textContent =
             "❌ Please enter your code.";
@@ -241,102 +302,94 @@ function checkCode(){
     }
 
 
-    /*
-       Registration ሲደረግ
-       user_CODE በlocalStorage ውስጥ
-       መቀመጥ አለበት።
+    /* ==========================
+       ONLY NUMBERS
+    ========================== */
 
-       ለምሳሌ:
+    if(!/^[0-9]+$/.test(code)){
 
-       user_692122
-
-    */
-
-    const storageKey =
-        "user_" + code;
-
-
-    const savedData =
-        localStorage.getItem(storageKey);
-
-
-    /*
-       User ከተገኘ
-    */
-
-    if(savedData){
-
-        try{
-
-            /*
-               መረጃው JSON ከሆነ
-               እንደገና እንፈትሻለን
-            */
-
-            const user =
-                JSON.parse(savedData);
-
-
-            /*
-               ለpersonal.html
-               code እና user data እናስቀምጣለን
-            */
-
-            localStorage.setItem(
-                "vcode",
-                code
-            );
-
-
-            localStorage.setItem(
-                "currentUser",
-                JSON.stringify(user)
-            );
-
-
-        }catch(error){
-
-            /*
-               JSON ካልሆነም
-               code ብቻ በቂ ነው
-            */
-
-            localStorage.setItem(
-                "vcode",
-                code
-            );
-        }
-
-
-        msg.style.color = "green";
+        msg.style.color =
+            "#dc2626";
 
         msg.textContent =
-            "✅ Access Granted";
+            "❌ Code must contain numbers only.";
 
+        input.focus();
 
-        button.disabled = true;
-
-
-        /*
-           personal.html ይከፈታል
-        */
-
-        setTimeout(function(){
-
-            window.location.href =
-                "personal.html";
-
-        },600);
-
-
-    }else{
-
-        msg.style.color = "red";
-
-        msg.textContent =
-            "❌ Invalid Code";
-
+        return;
     }
+
+
+    /* ==========================
+       CODE LENGTH
+    ========================== */
+
+    if(code.length !== 6){
+
+        msg.style.color =
+            "#dc2626";
+
+        msg.textContent =
+            "❌ Code must be 6 digits.";
+
+        input.focus();
+
+        return;
+    }
+
+
+    /* =================================================
+       IMPORTANT
+       
+       እዚህ localStorage ውስጥ
+       user_692122 መኖሩን አንፈትሽም።
+
+       የገባውን Code ብቻ
+       እንይዛለን።
+    ================================================= */
+
+
+    localStorage.setItem(
+        "vcode",
+        code
+    );
+
+
+    /* Remove old current user */
+
+    localStorage.removeItem(
+        "currentUser"
+    );
+
+
+    /* ==========================
+       SUCCESS
+    ========================== */
+
+    msg.style.color =
+        "#16a34a";
+
+    msg.textContent =
+        "✅ Code Accepted";
+
+
+    button.disabled =
+        true;
+
+    button.textContent =
+        "Opening Registration...";
+
+
+    /* ==========================
+       OPEN REGISTER FORM
+    ========================== */
+
+    setTimeout(function(){
+
+        window.location.href =
+            "register.html";
+
+    },500);
 
 }
 
@@ -364,7 +417,7 @@ document
 
 
 /* =====================================================
-   CLEAR MESSAGE WHEN TYPING
+   CLEAR MESSAGE
 ===================================================== */
 
 document
