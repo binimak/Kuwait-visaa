@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="am">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="Code Verification System"
+>
+
 <title>Code Verification</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
 body{
     min-height:100vh;
@@ -24,7 +41,7 @@ body{
     background:#fff;
     padding:32px 25px;
     border-radius:22px;
-    box-shadow:0 15px 40px rgba(0,0,0,.2);
+    box-shadow:0 15px 40px rgba(0,0,0,.20);
     text-align:center;
 }
 
@@ -34,9 +51,11 @@ body{
     margin:0 auto 15px;
     border-radius:50%;
     background:#e0f2fe;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     font-size:32px;
 }
 
@@ -48,38 +67,58 @@ h1{
 p{
     color:#64748b;
     margin-bottom:25px;
+    line-height:1.6;
 }
 
 input{
     width:100%;
     height:52px;
+
     border:1px solid #cbd5e1;
     border-radius:12px;
+
     padding:0 15px;
+
     font-size:18px;
     text-align:center;
+
     outline:none;
+
+    transition:.2s;
 }
 
 input:focus{
     border-color:#0ea5e9;
+    box-shadow:0 0 0 3px rgba(14,165,233,.12);
 }
 
 button{
     width:100%;
     height:52px;
+
     margin-top:14px;
+
     border:0;
     border-radius:12px;
+
     background:#075985;
     color:white;
+
     font-size:17px;
     font-weight:bold;
+
     cursor:pointer;
+
+    transition:.2s;
 }
 
 button:hover{
     background:#0369a1;
+}
+
+button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
 }
 
 #msg{
@@ -90,23 +129,44 @@ button:hover{
 
 .register{
     display:block;
+
     margin-top:22px;
+
     color:#075985;
+
     text-decoration:none;
+
     font-weight:bold;
 }
+
+.register:hover{
+    text-decoration:underline;
+}
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="box">
 
-    <div class="icon">🔐</div>
+    <div class="icon">
+        🔐
+    </div>
 
-    <h1>Enter Your Code</h1>
 
-    <p>የግል መረጃዎን ለማየት Code ያስገቡ</p>
+    <h1>
+        Enter Your Code
+    </h1>
+
+
+    <p>
+        የግል መረጃዎን ለማየት Code ያስገቡ
+    </p>
+
 
     <input
         id="code"
@@ -116,70 +176,213 @@ button:hover{
         autocomplete="off"
     >
 
-    <button onclick="checkCode()">
+
+    <button
+        id="continueBtn"
+        type="button"
+        onclick="checkCode()"
+    >
         Continue
     </button>
 
+
     <div id="msg"></div>
 
-    <a class="register" href="register.html">
+
+    <a
+        class="register"
+        href="register.html"
+    >
         ➕ New Registration
     </a>
 
 </div>
 
+
+
 <script>
+
+/* =====================================================
+   CHECK CODE
+===================================================== */
 
 function checkCode(){
 
-    const code =
-        document.getElementById("code").value.trim();
+    const input =
+        document.getElementById("code");
 
     const msg =
         document.getElementById("msg");
 
+    const button =
+        document.getElementById("continueBtn");
+
+
+    /*
+       Code ከ input እንወስዳለን
+    */
+
+    const code =
+        input.value.trim();
+
+
+    /* Empty */
+
     if(!code){
 
-        msg.style.color="red";
-        msg.textContent="❌ Please enter your code.";
-        return;
+        msg.style.color = "red";
 
+        msg.textContent =
+            "❌ Please enter your code.";
+
+        input.focus();
+
+        return;
     }
 
-    const data =
-        localStorage.getItem("user_"+code);
 
-    if(data){
+    /*
+       Registration ሲደረግ
+       user_CODE በlocalStorage ውስጥ
+       መቀመጥ አለበት።
 
-        localStorage.setItem("vcode",code);
+       ለምሳሌ:
 
-        msg.style.color="green";
-        msg.textContent="✅ Access Granted";
+       user_692122
 
-        setTimeout(()=>{
-            window.location.href="personal.html";
+    */
+
+    const storageKey =
+        "user_" + code;
+
+
+    const savedData =
+        localStorage.getItem(storageKey);
+
+
+    /*
+       User ከተገኘ
+    */
+
+    if(savedData){
+
+        try{
+
+            /*
+               መረጃው JSON ከሆነ
+               እንደገና እንፈትሻለን
+            */
+
+            const user =
+                JSON.parse(savedData);
+
+
+            /*
+               ለpersonal.html
+               code እና user data እናስቀምጣለን
+            */
+
+            localStorage.setItem(
+                "vcode",
+                code
+            );
+
+
+            localStorage.setItem(
+                "currentUser",
+                JSON.stringify(user)
+            );
+
+
+        }catch(error){
+
+            /*
+               JSON ካልሆነም
+               code ብቻ በቂ ነው
+            */
+
+            localStorage.setItem(
+                "vcode",
+                code
+            );
+        }
+
+
+        msg.style.color = "green";
+
+        msg.textContent =
+            "✅ Access Granted";
+
+
+        button.disabled = true;
+
+
+        /*
+           personal.html ይከፈታል
+        */
+
+        setTimeout(function(){
+
+            window.location.href =
+                "personal.html";
+
         },600);
+
 
     }else{
 
-        msg.style.color="red";
-        msg.textContent="❌ Invalid Code";
+        msg.style.color = "red";
+
+        msg.textContent =
+            "❌ Invalid Code";
 
     }
+
 }
 
 
+/* =====================================================
+   ENTER KEY
+===================================================== */
+
 document
 .getElementById("code")
-.addEventListener("keydown",function(e){
+.addEventListener(
+    "keydown",
+    function(e){
 
-    if(e.key==="Enter"){
-        checkCode();
+        if(e.key === "Enter"){
+
+            e.preventDefault();
+
+            checkCode();
+
+        }
+
     }
+);
 
-});
+
+/* =====================================================
+   CLEAR MESSAGE WHEN TYPING
+===================================================== */
+
+document
+.getElementById("code")
+.addEventListener(
+    "input",
+    function(){
+
+        document
+        .getElementById("msg")
+        .textContent = "";
+
+    }
+);
 
 </script>
 
+
 </body>
+
 </html>
