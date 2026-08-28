@@ -1,1110 +1,167 @@
-
 <!DOCTYPE html>
 <html lang="am">
+
 <head>
 
 <meta charset="UTF-8">
 
 <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
+name="viewport"
+content="width=device-width, initial-scale=1.0"
 >
 
-<meta
-    name="description"
-    content="የውጭ ሀገር የሥራ መመዝገቢያ የግል ፎርም"
->
-
-<title>የውጭ ሀገር የሥራ መመዝገቢያ</title>
+<title>Personal Information</title>
 
 <style>
 
-/* =========================================================
-   RESET
-========================================================= */
-
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
 }
 
 body{
-    font-family:
-        "Noto Sans Ethiopic",
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-    background:
-        linear-gradient(
-            180deg,
-            #f1f6fc 0%,
-            #f7faff 45%,
-            #eef4fa 100%
-        );
-
-    color:#172033;
-    min-height:100vh;
+    font-family:Arial,sans-serif;
+    background:#f1f5f9;
+    color:#1e293b;
+    padding:20px;
 }
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-.header{
-    background:
-        linear-gradient(
-            135deg,
-            #063b78,
-            #087fca,
-            #10a4d8
-        );
-
-    color:#fff;
-
-    padding:20px 16px;
-
-    box-shadow:
-        0 8px 28px rgba(0,50,100,.20);
-
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.header-inner{
-    width:min(1120px,94%);
-    margin:auto;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    gap:20px;
-}
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:13px;
-}
-
-.logo{
-    width:52px;
-    height:52px;
-
-    border-radius:15px;
-
-    background:#fff;
-    color:#0758a0;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:20px;
-    font-weight:900;
-
-    box-shadow:
-        0 5px 18px rgba(0,0,0,.15);
-}
-
-.brand h1{
-    font-size:21px;
-    font-weight:800;
-}
-
-.brand p{
-    font-size:12px;
-    margin-top:4px;
-    opacity:.9;
-}
-
-.demo{
-    background:rgba(255,255,255,.13);
-
-    border:
-        1px solid
-        rgba(255,255,255,.28);
-
-    padding:9px 13px;
-
-    border-radius:30px;
-
-    font-size:10px;
-    font-weight:700;
-
-    letter-spacing:.3px;
-}
-
-
-/* =========================================================
-   PROGRESS
-========================================================= */
-
-.progress-wrapper{
-    background:#fff;
-
-    border-bottom:
-        1px solid #e4ebf3;
-
-    padding:14px 16px;
-
-    position:sticky;
-    top:92px;
-    z-index:900;
-}
-
-.progress-inner{
-    width:min(1120px,94%);
-    margin:auto;
-}
-
-.progress-top{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    margin-bottom:8px;
-
-    font-size:12px;
-    color:#657389;
-}
-
-.progress-bar{
-    width:100%;
-    height:7px;
-
-    background:#e7edf5;
-
-    border-radius:20px;
-
-    overflow:hidden;
-}
-
-.progress-fill{
-    width:10%;
-    height:100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            #087fca,
-            #19a9df
-        );
-
-    border-radius:20px;
-
-    transition:.3s ease;
-}
-
-
-/* =========================================================
-   MAIN
-========================================================= */
 
 .container{
-    width:min(1120px,94%);
-
-    margin:28px auto 50px;
+    max-width:850px;
+    margin:auto;
 }
 
-
-/* =========================================================
-   STATUS
-========================================================= */
-
-.status{
-    display:none;
-
-    margin-bottom:20px;
-
-    padding:16px 18px;
-
-    border-radius:14px;
-
-    background:#eaf8ef;
-
-    border:
-        1px solid
-        #bce6c8;
-
-    color:#176b35;
-
-    font-size:13px;
-
-    box-shadow:
-        0 5px 18px rgba(20,100,50,.06);
+.header{
+    background:linear-gradient(135deg,#075985,#0ea5e9);
+    color:white;
+    padding:25px;
+    text-align:center;
+    border-radius:20px 20px 0 0;
 }
-
-
-/* =========================================================
-   REGISTRATION ID
-========================================================= */
-
-.registration-card{
-    background:
-        linear-gradient(
-            135deg,
-            #ffffff,
-            #f2f9ff
-        );
-
-    border:
-        1px solid #dceaf5;
-
-    border-radius:20px;
-
-    padding:20px;
-
-    margin-bottom:20px;
-
-    box-shadow:
-        0 10px 35px rgba(30,70,110,.08);
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    gap:20px;
-}
-
-.registration-info small{
-    color:#718096;
-    font-size:11px;
-}
-
-.registration-info strong{
-    display:block;
-
-    margin-top:5px;
-
-    color:#075fa9;
-
-    font-size:20px;
-
-    letter-spacing:1px;
-}
-
-.registration-badge{
-    background:#e9f6ff;
-
-    color:#0875bb;
-
-    border-radius:30px;
-
-    padding:8px 13px;
-
-    font-size:11px;
-    font-weight:800;
-}
-
-
-/* =========================================================
-   CARD
-========================================================= */
 
 .card{
-    background:#fff;
-
-    border-radius:20px;
-
-    padding:26px;
-
-    margin-bottom:20px;
-
-    border:
-        1px solid #e5ebf2;
-
-    box-shadow:
-        0 9px 32px rgba(25,55,90,.07);
+    background:white;
+    padding:25px;
+    border-radius:0 0 20px 20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-
-/* =========================================================
-   SECTION TITLE
-========================================================= */
-
-.section-title{
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    margin-bottom:23px;
-
-    padding-bottom:14px;
-
-    border-bottom:
-        1px solid #e7edf4;
-}
-
-.section-icon{
-    width:42px;
-    height:42px;
-
-    flex:none;
-
-    border-radius:12px;
-
-    background:#eaf5ff;
-
-    color:#0873bd;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:19px;
-
-    box-shadow:
-        inset 0 0 0 1px #dcefff;
-}
-
-.section-title h2{
-    font-size:18px;
-
-    color:#1c2b40;
-}
-
-.section-title p{
-    color:#7a8799;
-
-    font-size:12px;
-
-    margin-top:3px;
-}
-
-
-/* =========================================================
-   GRID
-========================================================= */
-
-.grid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0,1fr));
-
-    gap:18px;
-}
-
-.field{
-    display:flex;
-
-    flex-direction:column;
-
-    gap:7px;
-
-    min-width:0;
-}
-
-.field.full{
-    grid-column:1/-1;
-}
-
-
-/* =========================================================
-   LABEL
-========================================================= */
-
-label{
-    font-size:13px;
-
-    font-weight:700;
-
-    color:#354158;
-}
-
-.required{
-    color:#e53935;
-}
-
-
-/* =========================================================
-   INPUT
-========================================================= */
-
-input,
-select,
-textarea{
-    width:100%;
-
-    border:
-        1px solid #d6e0eb;
-
-    background:#fbfcfe;
-
-    border-radius:11px;
-
-    padding:12px 13px;
-
-    font-size:14px;
-
-    color:#172033;
-
-    outline:none;
-
-    transition:.2s;
-
-    font-family:inherit;
-}
-
-input:hover,
-select:hover,
-textarea:hover{
-    border-color:#b9cadb;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-    border-color:#1685d2;
-
-    background:#fff;
-
-    box-shadow:
-        0 0 0 4px
-        rgba(22,133,210,.09);
-}
-
-input::placeholder,
-textarea::placeholder{
-    color:#a1adbd;
-}
-
-textarea{
-    min-height:110px;
-
-    resize:vertical;
-}
-
-
-/* =========================================================
-   VALIDATION
-========================================================= */
-
-.error-field{
-    border-color:#e53935 !important;
-
-    background:#fff8f8 !important;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(229,57,53,.08) !important;
-}
-
-
-/* =========================================================
-   PHOTO AREA
-========================================================= */
-
-.photo-area{
-    display:grid;
-
-    grid-template-columns:
-        200px minmax(0,1fr);
-
-    gap:28px;
-
-    align-items:center;
-}
-
-.photo-preview{
-    width:200px;
-    height:235px;
-
-    border:
-        2px dashed #b8c8da;
-
-    border-radius:16px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #f8fbff,
-            #eef6fd
-        );
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    overflow:hidden;
-
-    color:#8492a5;
-
+.profile{
     text-align:center;
-
-    font-size:13px;
-
-    position:relative;
+    padding-bottom:25px;
+    border-bottom:1px solid #e2e8f0;
 }
 
-.photo-preview img{
-    width:100%;
-    height:100%;
-
+.profile img{
+    width:145px;
+    height:145px;
     object-fit:cover;
-
-    display:block;
+    border-radius:50%;
+    border:5px solid #e0f2fe;
 }
 
-.photo-placeholder{
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:8px;
+.name{
+    margin-top:12px;
+    font-size:24px;
+    font-weight:bold;
 }
 
-.photo-placeholder .big-icon{
-    font-size:40px;
-    opacity:.65;
+.code{
+    color:#64748b;
+    margin-top:6px;
 }
 
-
-/* =========================================================
-   UPLOAD BOX
-========================================================= */
-
-.upload-box{
-    border:
-        1px dashed #b8c7d9;
-
-    padding:22px;
-
-    border-radius:16px;
-
-    background:#f9fbfe;
+.info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-top:25px;
 }
 
-.upload-box h3{
-    font-size:15px;
+.item{
+    padding:15px;
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+}
 
-    color:#2b3950;
-
+.label{
+    color:#64748b;
+    font-size:13px;
     margin-bottom:6px;
 }
 
-.upload-box p{
-    color:#748096;
-
-    font-size:12px;
-
-    line-height:1.6;
-
-    margin-bottom:15px;
-}
-
-.upload-buttons{
-    display:flex;
-
-    gap:9px;
-
-    flex-wrap:wrap;
-}
-
-.upload-label,
-.secondary-upload{
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:7px;
-
-    background:#087fca;
-
-    color:#fff;
-
-    padding:11px 16px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    font-size:13px;
-
-    font-weight:700;
-
-    border:none;
-}
-
-.upload-label:hover{
-    background:#066cae;
-}
-
-.secondary-upload{
-    background:#eef3f8;
-
-    color:#41526a;
-}
-
-.secondary-upload:hover{
-    background:#e1e9f1;
-}
-
-input[type=file]{
-    display:none;
-}
-
-
-/* =========================================================
-   PHOTO ACTIONS
-========================================================= */
-
-.photo-actions{
-    display:none;
-
-    margin-top:12px;
-
-    gap:8px;
-
-    flex-wrap:wrap;
-}
-
-.photo-actions button{
-    border:none;
-
-    padding:9px 13px;
-
-    border-radius:9px;
-
-    cursor:pointer;
-
-    font-size:12px;
-
-    font-weight:700;
-}
-
-.change-photo{
-    background:#eaf5ff;
-    color:#0875bb;
-}
-
-.remove-photo{
-    background:#fff0f0;
-    color:#d63030;
-}
-
-
-/* =========================================================
-   DOCUMENT UPLOAD
-========================================================= */
-
-.document-upload{
-    border:
-        1px solid #e2e9f1;
-
-    border-radius:14px;
-
-    padding:16px;
-
-    background:#fbfdff;
-
-    min-height:190px;
-}
-
-.document-upload .upload-label{
-    margin-top:5px;
-}
-
-.document-preview{
-    display:none;
-
-    margin-top:13px;
-
-    padding:10px;
-
-    border-radius:11px;
-
-    background:#eef8ff;
-
-    color:#14618f;
-
-    font-size:12px;
-
-    overflow:hidden;
-}
-
-.document-preview img{
-    width:100%;
-    max-height:190px;
-
-    object-fit:contain;
-
-    border-radius:9px;
-
-    display:block;
-}
-
-.file-name{
-    font-weight:700;
-
+.value{
+    font-weight:bold;
     word-break:break-word;
 }
 
+.document{
+    margin-top:30px;
+    text-align:center;
+}
 
-/* =========================================================
-   CHECKBOX
-========================================================= */
+.document h2{
+    margin-bottom:15px;
+}
 
-.check-row{
-    display:flex;
-
-    gap:10px;
-
-    align-items:flex-start;
-
-    margin-top:20px;
-
-    padding:15px;
-
-    background:#f7fafc;
-
+.document img{
+    max-width:100%;
+    max-height:600px;
     border-radius:12px;
-
-    border:
-        1px solid #e4ebf2;
+    border:1px solid #cbd5e1;
 }
 
-.check-row input{
-    width:18px;
-    height:18px;
-
-    margin-top:2px;
-
-    flex:none;
-}
-
-.check-row label{
-    font-size:12px;
-
-    line-height:1.6;
-
-    color:#59677b;
-
-    cursor:pointer;
-}
-
-
-/* =========================================================
-   ACTIONS
-========================================================= */
-
-.actions{
+.buttons{
     display:flex;
-
-    justify-content:flex-end;
-
-    gap:11px;
-
-    flex-wrap:wrap;
+    gap:12px;
+    margin-top:25px;
 }
 
 button{
-    border:none;
-
+    flex:1;
+    height:48px;
+    border:0;
+    border-radius:10px;
+    background:#075985;
+    color:white;
+    font-size:15px;
+    font-weight:bold;
     cursor:pointer;
-
-    border-radius:11px;
-
-    padding:13px 21px;
-
-    font-size:14px;
-
-    font-weight:800;
-
-    font-family:inherit;
-
-    transition:.2s;
 }
 
-button:active{
-    transform:scale(.98);
+.logout{
+    background:#dc2626;
 }
 
-.btn-clear{
-    background:#eef1f5;
-
-    color:#455267;
-}
-
-.btn-clear:hover{
-    background:#e2e7ed;
-}
-
-.btn-print{
-    background:#eef7ff;
-
-    color:#0871b8;
-}
-
-.btn-print:hover{
-    background:#e0f1ff;
-}
-
-.btn-save{
-    background:
-        linear-gradient(
-            135deg,
-            #087fca,
-            #0769ac
-        );
-
-    color:#fff;
-
-    box-shadow:
-        0 7px 18px
-        rgba(8,127,202,.22);
-}
-
-.btn-save:hover{
-    transform:translateY(-1px);
-
-    box-shadow:
-        0 9px 22px
-        rgba(8,127,202,.28);
-}
-
-
-/* =========================================================
-   TOAST
-========================================================= */
-
-.toast{
-    position:fixed;
-
-    left:50%;
-
-    bottom:25px;
-
-    transform:
-        translate(-50%,20px);
-
-    background:#172033;
-
-    color:#fff;
-
-    padding:13px 18px;
-
-    border-radius:12px;
-
-    font-size:13px;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.2);
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:.3s;
-
-    z-index:3000;
-
-    max-width:90%;
-
+.error{
     text-align:center;
+    padding:50px 20px;
 }
 
-.toast.show{
-    opacity:1;
-
-    transform:
-        translate(-50%,0);
+.error h2{
+    margin-bottom:10px;
 }
 
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.footer{
-    text-align:center;
-
-    color:#8490a3;
-
-    font-size:11px;
-
-    line-height:1.6;
-
-    padding:0 15px 35px;
+.back{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 20px;
+    background:#075985;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
 }
 
+@media(max-width:600px){
 
-/* =========================================================
-   PRINT
-========================================================= */
-
-@media print{
-
-    .header,
-    .progress-wrapper,
-    .actions,
-    .upload-box,
-    .photo-actions,
-    .footer,
-    .toast{
-        display:none !important;
-    }
-
-    body{
-        background:#fff;
-    }
-
-    .container{
-        width:100%;
-        margin:0;
-    }
-
-    .card,
-    .registration-card{
-        box-shadow:none;
-
-        border:1px solid #ccc;
-
-        page-break-inside:avoid;
-    }
-
-}
-
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media(max-width:760px){
-
-    .header{
-        position:relative;
-    }
-
-    .header-inner{
-        width:100%;
-    }
-
-    .brand h1{
-        font-size:17px;
-    }
-
-    .brand p{
-        font-size:10px;
-    }
-
-    .demo{
-        display:none;
-    }
-
-    .progress-wrapper{
-        position:relative;
-        top:auto;
-    }
-
-    .grid{
+    .info{
         grid-template-columns:1fr;
     }
 
-    .field.full{
-        grid-column:auto;
-    }
-
-    .card{
-        padding:18px;
-
-        border-radius:16px;
-    }
-
-    .registration-card{
-        padding:16px;
-
-        align-items:flex-start;
-
+    .buttons{
         flex-direction:column;
-    }
-
-    .photo-area{
-        grid-template-columns:1fr;
-    }
-
-    .photo-preview{
-        width:180px;
-        height:215px;
-
-        margin:auto;
-    }
-
-    .upload-box{
-        padding:17px;
-    }
-
-    .upload-buttons{
-        flex-direction:column;
-    }
-
-    .upload-label,
-    .secondary-upload{
-        width:100%;
-    }
-
-    .actions{
-        flex-direction:column;
-    }
-
-    .actions button{
-        width:100%;
-    }
-
-}
-
-
-/* =========================================================
-   VERY SMALL PHONES
-========================================================= */
-
-@media(max-width:400px){
-
-    .container{
-        width:94%;
-    }
-
-    .brand{
-        gap:9px;
-    }
-
-    .logo{
-        width:44px;
-        height:44px;
-    }
-
-    .brand h1{
-        font-size:15px;
-    }
-
-    .brand p{
-        font-size:9px;
-    }
-
-    .section-title h2{
-        font-size:16px;
-    }
-
-    input,
-    select,
-    textarea{
-        font-size:13px;
     }
 
 }
@@ -1116,2547 +173,243 @@ button:active{
 
 <body>
 
+<div class="container">
 
-<!-- =======================================================
-     HEADER
-======================================================= -->
-
-<header class="header">
-
-    <div class="header-inner">
-
-        <div class="brand">
-
-            <div class="logo">
-                OE
-            </div>
-
-            <div>
-
-                <h1>
-                    የውጭ ሀገር የሥራ መመዝገቢያ
-                </h1>
-
-                <p>
-                    Overseas Employment Registration
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="demo">
-            DEMO / TESTING INTERFACE
-        </div>
-
-    </div>
-
-</header>
-
-
-
-<!-- =======================================================
-     PROGRESS
-======================================================= -->
-
-<div class="progress-wrapper">
-
-    <div class="progress-inner">
-
-        <div class="progress-top">
-
-            <span>
-                የፎርሙ ሂደት
-            </span>
-
-            <span id="progressText">
-                10%
-            </span>
-
-        </div>
-
-        <div class="progress-bar">
-
-            <div
-                class="progress-fill"
-                id="progressFill">
-            </div>
-
-        </div>
-
-    </div>
-
+<div class="header">
+    <h1>Personal Information</h1>
+    <p>የተመዘገበ መረጃ</p>
 </div>
 
 
-
-<!-- =======================================================
-     MAIN
-======================================================= -->
-
-<main class="container">
-
-
-<!-- STATUS -->
-
-<div
-    id="status"
-    class="status">
-
-    ✓ የምዝገባ መረጃው በዚህ አሳሽ ውስጥ ተቀምጧል።
+<div class="card" id="content">
 
 </div>
 
-
-
-<!-- REGISTRATION NUMBER -->
-
-<div class="registration-card">
-
-    <div class="registration-info">
-
-        <small>
-            የመመዝገቢያ ቁጥር
-        </small>
-
-        <strong id="registrationNumber">
-            OE-2026-000001
-        </strong>
-
-    </div>
-
-    <div class="registration-badge">
-        የግል ምዝገባ
-    </div>
-
 </div>
-
-
-
-<!-- =======================================================
-     PERSONAL INFORMATION
-======================================================= -->
-
-<section class="card">
-
-    <div class="section-title">
-
-        <div class="section-icon">
-            👤
-        </div>
-
-        <div>
-
-            <h2>
-                የግል መረጃ
-            </h2>
-
-            <p>
-                Personal Information
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="grid">
-
-
-        <div class="field">
-
-            <label>
-                ስም
-                <span class="required">*</span>
-            </label>
-
-            <input
-                id="firstName"
-                type="text"
-                placeholder="ስም ያስገቡ"
-            >
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                የአባት ስም
-                <span class="required">*</span>
-            </label>
-
-            <input
-                id="middleName"
-                type="text"
-                placeholder="የአባት ስም ያስገቡ"
-            >
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                የአያት ስም
-                <span class="required">*</span>
-            </label>
-
-            <input
-                id="lastName"
-                type="text"
-                placeholder="የአያት ስም ያስገቡ"
-            >
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                ጾታ
-                <span class="required">*</span>
-            </label>
-
-            <select id="gender">
-
-                <option value="">
-                    ጾታ ይምረጡ
-                </option>
-
-                <option value="ወንድ">
-                    ወንድ
-                </option>
-
-                <option value="ሴት">
-                    ሴት
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                የትውልድ ቀን
-                <span class="required">*</span>
-            </label>
-
-            <input
-                id="dob"
-                type="date"
-            >
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                ዜግነት
-            </label>
-
-            <select id="nationality">
-
-                <option value="ኢትዮጵያዊ">
-                    ኢትዮጵያዊ
-                </option>
-
-                <option value="ሌላ">
-                    ሌላ
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                የጋብቻ ሁኔታ
-            </label>
-
-            <select id="marital">
-
-                <option value="">
-                    ይምረጡ
-                </option>
-
-                <option>
-                    ያላገባ / ያላገባች
-                </option>
-
-                <option>
-                    ያገባ / ያገባች
-                </option>
-
-                <option>
-                    የተፋታ / የተፋታች
-                </option>
-
-                <option>
-                    ባልቴት / ባልቴት
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                የብሔራዊ መታወቂያ ቁጥር
-            </label>
-
-            <input
-                id="nationalId"
-                type="text"
-                placeholder="የመታወቂያ ቁጥር"
-            >
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =======================================================
-     CONTACT
-======================================================= -->
-
-<section class="card">
-
-    <div class="section-title">
-
-        <div class="section-icon">
-            📞
-        </div>
-
-        <div>
-
-            <h2>
-                የመገኛ አድራሻ
-            </h2>
-
-            <p>
-                Contact Information
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="grid">
-
-
-        <div class="field">
-
-            <label>
-                ስልክ ቁጥር
-                <span class="required">*</span>
-            </label>
-
-            <input
-                id="phone"
-                type="tel"
-                inputmode="tel"
-                placeholder="+251 9XX XXX XXX"
-            >
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                ተጨማሪ ስልክ ቁጥር
-            </label>
-
-            <input
-                id="altPhone"
-                type="tel"
-                inputmode="tel"
-                placeholder="ተጨማሪ ስልክ"
-            >
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                ኢሜይል
-            </label>
-
-            <input
-                id="email"
-                type="email"
-                placeholder="example@email.com"
-            >
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                ከተማ
-            </label>
-
-            <input
-                id="city"
-                type="text"
-                placeholder="ከተማ"
-            >
-
-        </div>
-
-
-        <div class="field full">
-
-            <label>
-                ሙሉ አድራሻ
-            </label>
-
-            <textarea
-                id="address"
-                placeholder="ሙሉ አድራሻዎን ያስገቡ"
-            ></textarea>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =======================================================
-     PASSPORT
-======================================================= -->
-
-<section class="card">
-
-    <div class="section-title">
-
-        <div class="section-icon">
-            🛂
-        </div>
-
-        <div>
-
-            <h2>
-                የፓስፖርት መረጃ
-            </h2>
-
-            <p>
-                Passport Information
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="grid">
-
-
-        <div class="field">
-
-            <label>
-                የፓስፖርት ቁጥር
-                <span class="required">*</span>
-            </label>
-
-            <input
-                id="passport"
-                type="text"
-                placeholder="የፓስፖርት ቁጥር"
-            >
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                የፓስፖርት ዓይነት
-            </label>
-
-            <select id="passportType">
-
-                <option>
-                    መደበኛ
-                </option>
-
-                <option>
-                    ኦፊሴላዊ
-                </option>
-
-                <option>
-                    ዲፕሎማቲክ
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                የተሰጠበት ቀን
-            </label>
-
-            <input
-                id="issueDate"
-                type="date"
-            >
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                የሚያበቃበት ቀን
-                <span class="required">*</span>
-            </label>
-
-            <input
-                id="expiryDate"
-                type="date"
-            >
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =======================================================
-     EMPLOYMENT
-======================================================= -->
-
-<section class="card">
-
-    <div class="section-title">
-
-        <div class="section-icon">
-            💼
-        </div>
-
-        <div>
-
-            <h2>
-                የሥራ እና የሙያ መረጃ
-            </h2>
-
-            <p>
-                Employment & Professional Information
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="grid">
-
-
-        <div class="field">
-
-            <label>
-                የሥራ / የሙያ ዘርፍ
-                <span class="required">*</span>
-            </label>
-
-            <select id="profession">
-
-                <option value="">
-                    የሥራ ዘርፍ ይምረጡ
-                </option>
-
-                <option>
-                    የግንባታ ሠራተኛ
-                </option>
-
-                <option>
-                    ሹፌር
-                </option>
-
-                <option>
-                    ኤሌክትሪሺያን
-                </option>
-
-                <option>
-                    ዌልደር
-                </option>
-
-                <option>
-                    የውሃ ባለሙያ
-                </option>
-
-                <option>
-                    የጽዳት ሠራተኛ
-                </option>
-
-                <option>
-                    የጥበቃ ሠራተኛ
-                </option>
-
-                <option>
-                    ሆቴል እና ሬስቶራንት
-                </option>
-
-                <option>
-                    የቤት ሠራተኛ
-                </option>
-
-                <option>
-                    የጤና ባለሙያ
-                </option>
-
-                <option>
-                    የፋብሪካ ሠራተኛ
-                </option>
-
-                <option>
-                    የግብርና ሠራተኛ
-                </option>
-
-                <option>
-                    ሌላ
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                የሥራ ልምድ
-            </label>
-
-            <select id="experience">
-
-                <option value="">
-                    የሥራ ልምድ ይምረጡ
-                </option>
-
-                <option>
-                    ከ1 ዓመት በታች
-                </option>
-
-                <option>
-                    1 - 2 ዓመት
-                </option>
-
-                <option>
-                    3 - 5 ዓመት
-                </option>
-
-                <option>
-                    6 - 10 ዓመት
-                </option>
-
-                <option>
-                    ከ10 ዓመት በላይ
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                ከፍተኛ የትምህርት ደረጃ
-            </label>
-
-            <select id="education">
-
-                <option value="">
-                    የትምህርት ደረጃ ይምረጡ
-                </option>
-
-                <option>
-                    አንደኛ ደረጃ
-                </option>
-
-                <option>
-                    ሁለተኛ ደረጃ
-                </option>
-
-                <option>
-                    ሰርተፍኬት
-                </option>
-
-                <option>
-                    ዲፕሎማ
-                </option>
-
-                <option>
-                    የመጀመሪያ ዲግሪ
-                </option>
-
-                <option>
-                    ማስተርስ
-                </option>
-
-                <option>
-                    ሌላ
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                የአሁኑ የሥራ ሁኔታ
-            </label>
-
-            <select id="employmentStatus">
-
-                <option value="">
-                    ይምረጡ
-                </option>
-
-                <option>
-                    ሥራ የለኝም
-                </option>
-
-                <option>
-                    ተቀጣሪ
-                </option>
-
-                <option>
-                    የግል ሥራ
-                </option>
-
-            </select>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =======================================================
-     PREFERRED EMPLOYMENT
-======================================================= -->
-
-<section class="card">
-
-    <div class="section-title">
-
-        <div class="section-icon">
-            🌍
-        </div>
-
-        <div>
-
-            <h2>
-                የሚፈልጉት የውጭ ሀገር ሥራ
-            </h2>
-
-            <p>
-                Preferred Employment
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="grid">
-
-
-        <div class="field">
-
-            <label>
-                የሚፈልጉት ሀገር
-                <span class="required">*</span>
-            </label>
-
-            <select id="country">
-
-                <option value="">
-                    ሀገር ይምረጡ
-                </option>
-
-                <option>
-                    ሳውዲ አረቢያ
-                </option>
-
-                <option>
-                    የተባበሩት አረብ ኤምሬትስ
-                </option>
-
-                <option>
-                    ኩዌት
-                </option>
-
-                <option>
-                    ኳታር
-                </option>
-
-                <option>
-                    ኦማን
-                </option>
-
-                <option>
-                    ባህሬን
-                </option>
-
-                <option>
-                    ዮርዳኖስ
-                </option>
-
-                <option>
-                    ደቡብ ኮሪያ
-                </option>
-
-                <option>
-                    ሌላ
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                የሚፈልጉት የሥራ መደብ
-            </label>
-
-            <input
-                id="position"
-                type="text"
-                placeholder="ለምሳሌ፦ ሹፌር"
-            >
-
-        </div>
-
-
-        <div class="field full">
-
-            <label>
-                ተጨማሪ መረጃ
-            </label>
-
-            <textarea
-                id="additional"
-                placeholder="ተጨማሪ መረጃ ካለ ያስገቡ"
-            ></textarea>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =======================================================
-     PERSONAL PHOTO
-======================================================= -->
-
-<section class="card">
-
-    <div class="section-title">
-
-        <div class="section-icon">
-            📷
-        </div>
-
-        <div>
-
-            <h2>
-                የግል ፎቶ
-            </h2>
-
-            <p>
-                Personal Photo
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="photo-area">
-
-
-        <!-- PHOTO PREVIEW -->
-
-        <div
-            class="photo-preview"
-            id="photoPreview"
-        >
-
-            <div
-                class="photo-placeholder"
-                id="photoPlaceholder"
-            >
-
-                <div class="big-icon">
-                    👤
-                </div>
-
-                <div>
-                    ፎቶ አልተመረጠም
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- UPLOAD -->
-
-        <div class="upload-box">
-
-            <h3>
-                የግል ፎቶ ይምረጡ
-            </h3>
-
-            <p>
-                የቅርብ ጊዜ የፓስፖርት ዓይነት ፎቶ
-                ይምረጡ። JPG ወይም PNG ቢሆን ይመረጣል።
-                ፎቶውን ከመረጡ በኋላ በግራ በኩል
-                በቀጥታ ይታያል።
-            </p>
-
-
-            <div class="upload-buttons">
-
-                <label
-                    class="upload-label"
-                    for="photo"
-                >
-                    📷 ፎቶ ምረጥ
-                </label>
-
-                <input
-                    id="photo"
-                    type="file"
-                    accept="image/jpeg,image/png,image/webp"
-                >
-
-            </div>
-
-
-            <div
-                class="photo-actions"
-                id="photoActions"
-            >
-
-                <button
-                    type="button"
-                    class="change-photo"
-                    onclick="changePhoto()"
-                >
-                    🔄 ፎቶ ቀይር
-                </button>
-
-                <button
-                    type="button"
-                    class="remove-photo"
-                    onclick="removePhoto()"
-                >
-                    🗑️ ፎቶ አስወግድ
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =======================================================
-     DOCUMENTS
-======================================================= -->
-
-<section class="card">
-
-    <div class="section-title">
-
-        <div class="section-icon">
-            📄
-        </div>
-
-        <div>
-
-            <h2>
-                አስፈላጊ ሰነዶች
-            </h2>
-
-            <p>
-                Required Documents
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="grid">
-
-
-        <!-- PASSPORT COPY -->
-
-        <div class="field">
-
-            <div class="document-upload">
-
-                <label>
-                    የፓስፖርት ቅጂ
-                </label>
-
-                <br>
-
-                <label
-                    class="upload-label"
-                    for="passportFile"
-                >
-                    📄 ፓስፖርት ምረጥ
-                </label>
-
-                <input
-                    id="passportFile"
-                    type="file"
-                    accept="image/jpeg,image/png,image/webp,application/pdf"
-                >
-
-                <div
-                    id="passportPreview"
-                    class="document-preview"
-                ></div>
-
-            </div>
-
-        </div>
-
-
-        <!-- CV -->
-
-        <div class="field">
-
-            <div class="document-upload">
-
-                <label>
-                    CV / የሥራ ልምድ ማስረጃ
-                </label>
-
-                <br>
-
-                <label
-                    class="upload-label"
-                    for="cvFile"
-                >
-                    📄 CV ምረጥ
-                </label>
-
-                <input
-                    id="cvFile"
-                    type="file"
-                    accept=".pdf,.doc,.docx"
-                >
-
-                <div
-                    id="cvPreview"
-                    class="document-preview"
-                ></div>
-
-            </div>
-
-        </div>
-
-
-        <!-- CERTIFICATE -->
-
-        <div class="field">
-
-            <div class="document-upload">
-
-                <label>
-                    የትምህርት / የሙያ ሰርተፍኬት
-                </label>
-
-                <br>
-
-                <label
-                    class="upload-label"
-                    for="certificateFile"
-                >
-                    📄 ሰርተፍኬት ምረጥ
-                </label>
-
-                <input
-                    id="certificateFile"
-                    type="file"
-                    accept="image/jpeg,image/png,image/webp,application/pdf"
-                >
-
-                <div
-                    id="certificatePreview"
-                    class="document-preview"
-                ></div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="check-row">
-
-        <input
-            id="agreement"
-            type="checkbox"
-        >
-
-        <label for="agreement">
-
-            እኔ በዚህ ፎርም ያስገባሁት መረጃ
-            ትክክለኛ እና ሙሉ መሆኑን አረጋግጣለሁ።
-            የተሳሳተ መረጃ ካለ በራሴ ኃላፊነት
-            እንደምሆን ተረድቻለሁ።
-
-        </label>
-
-    </div>
-
-</section>
-
-
-
-<!-- =======================================================
-     ACTIONS
-======================================================= -->
-
-<section class="card">
-
-    <div class="actions">
-
-        <button
-            type="button"
-            class="btn-clear"
-            onclick="clearForm()"
-        >
-            🗑️ ፎርሙን አጽዳ
-        </button>
-
-
-        <button
-            type="button"
-            class="btn-print"
-            onclick="printRegistration()"
-        >
-            🖨️ አትም
-        </button>
-
-
-        <button
-            type="button"
-            class="btn-save"
-            onclick="saveForm()"
-        >
-            💾 ምዝገባውን አስቀምጥ
-        </button>
-
-    </div>
-
-</section>
-
-
-</main>
-
-
-
-<!-- =======================================================
-     FOOTER
-======================================================= -->
-
-<footer class="footer">
-
-    Overseas Employment Registration Interface
-    <br>
-
-    DEMO / TESTING USE ONLY
-
-    <br><br>
-
-    ይህ የማሳያ / የሙከራ የመመዝገቢያ ፎርም ነው።
-    የመንግስት ኦፊሴላዊ ድረገጽ አይደለም።
-
-</footer>
-
-
-
-<!-- TOAST -->
-
-<div
-    class="toast"
-    id="toast"
-></div>
-
 
 
 <script>
 
-/* =========================================================
-   GLOBAL
-========================================================= */
 
-const STORAGE_KEY =
-    "overseasEmploymentRegistration_v3";
+/* ==========================
+   GET CODE
+========================== */
 
-const PHOTO_KEY =
-    "overseasEmploymentPhoto_v3";
+const code =
+    localStorage.getItem("vcode");
 
-const registrationNumber =
-    document.getElementById(
-        "registrationNumber"
-    );
 
+const content =
+    document.getElementById("content");
 
-/* =========================================================
-   REGISTRATION NUMBER
-========================================================= */
 
-function createRegistrationNumber(){
+/* ==========================
+   NO CODE
+========================== */
 
-    let saved =
-        localStorage.getItem(
-            "overseasRegistrationNumber"
-        );
+if(!code){
 
-    if(saved){
+    content.innerHTML=`
 
-        registrationNumber.textContent =
-            saved;
+        <div class="error">
 
-        return saved;
-    }
+            <h2>❌ Access Denied</h2>
 
-    const year =
-        new Date().getFullYear();
+            <p>
+                Code አልተገኘም።
+            </p>
 
-    const random =
-        Math.floor(
-            100000 +
-            Math.random() * 900000
-        );
+            <a
+                class="back"
+                href="index.html"
+            >
+                Back
+            </a>
 
-    const number =
-        "OE-" +
-        year +
-        "-" +
-        random;
-
-    localStorage.setItem(
-        "overseasRegistrationNumber",
-        number
-    );
-
-    registrationNumber.textContent =
-        number;
-
-    return number;
-}
-
-
-/* =========================================================
-   TOAST
-========================================================= */
-
-let toastTimer;
-
-function showToast(message){
-
-    const toast =
-        document.getElementById("toast");
-
-    toast.textContent =
-        message;
-
-    toast.classList.add("show");
-
-    clearTimeout(toastTimer);
-
-    toastTimer =
-        setTimeout(function(){
-
-            toast.classList.remove("show");
-
-        },3000);
-}
-
-
-/* =========================================================
-   PHOTO PREVIEW
-========================================================= */
-
-document
-    .getElementById("photo")
-    .addEventListener(
-        "change",
-        function(event){
-
-            const file =
-                event.target.files[0];
-
-            if(!file){
-
-                return;
-            }
-
-            if(
-                !file.type.startsWith("image/")
-            ){
-
-                showToast(
-                    "እባክዎ የምስል ፋይል ይምረጡ።"
-                );
-
-                event.target.value = "";
-
-                return;
-            }
-
-            const maxSize =
-                5 * 1024 * 1024;
-
-            if(file.size > maxSize){
-
-                showToast(
-                    "ፎቶው ከ5MB መብለጥ የለበትም።"
-                );
-
-                event.target.value = "";
-
-                return;
-            }
-
-            const reader =
-                new FileReader();
-
-            reader.onload =
-                function(e){
-
-                    const preview =
-                        document.getElementById(
-                            "photoPreview"
-                        );
-
-                    preview.innerHTML =
-                        "";
-
-                    const img =
-                        document.createElement(
-                            "img"
-                        );
-
-                    img.src =
-                        e.target.result;
-
-                    img.alt =
-                        "የግል ፎቶ";
-
-                    preview.appendChild(
-                        img
-                    );
-
-                    document
-                        .getElementById(
-                            "photoPlaceholder"
-                        )
-                        ?.remove();
-
-                    document
-                        .getElementById(
-                            "photoActions"
-                        )
-                        .style.display =
-                        "flex";
-
-                    try{
-
-                        localStorage.setItem(
-                            PHOTO_KEY,
-                            e.target.result
-                        );
-
-                    }catch(error){
-
-                        console.log(
-                            "Photo is too large for local storage."
-                        );
-
-                    }
-
-                    showToast(
-                        "✓ ፎቶው በትክክል ገብቷል።"
-                    );
-
-                    updateProgress();
-
-                };
-
-            reader.readAsDataURL(file);
-
-        }
-    );
-
-
-/* =========================================================
-   CHANGE PHOTO
-========================================================= */
-
-function changePhoto(){
-
-    document
-        .getElementById("photo")
-        .click();
-
-}
-
-
-/* =========================================================
-   REMOVE PHOTO
-========================================================= */
-
-function removePhoto(){
-
-    const input =
-        document.getElementById(
-            "photo"
-        );
-
-    input.value = "";
-
-    const preview =
-        document.getElementById(
-            "photoPreview"
-        );
-
-    preview.innerHTML =
-        `
-        <div
-            class="photo-placeholder"
-            id="photoPlaceholder"
-        >
-            <div class="big-icon">
-                👤
-            </div>
-
-            <div>
-                ፎቶ አልተመረጠም
-            </div>
         </div>
-        `;
 
-    document
-        .getElementById(
-            "photoActions"
-        )
-        .style.display =
-        "none";
-
-    localStorage.removeItem(
-        PHOTO_KEY
-    );
-
-    showToast(
-        "ፎቶው ተወግዷል።"
-    );
+    `;
 
 }
 
 
-/* =========================================================
-   DOCUMENT FILE PREVIEW
-========================================================= */
-
-function setupDocumentPreview(
-    inputId,
-    previewId
-){
-
-    const input =
-        document.getElementById(
-            inputId
-        );
-
-    const preview =
-        document.getElementById(
-            previewId
-        );
-
-
-    input.addEventListener(
-        "change",
-        function(){
-
-            const file =
-                input.files[0];
-
-            if(!file){
-
-                preview.style.display =
-                    "none";
-
-                preview.innerHTML =
-                    "";
-
-                return;
-            }
-
-
-            const maxSize =
-                10 * 1024 * 1024;
-
-            if(file.size > maxSize){
-
-                showToast(
-                    "የሰነዱ መጠን ከ10MB መብለጥ የለበትም።"
-                );
-
-                input.value = "";
-
-                preview.style.display =
-                    "none";
-
-                return;
-            }
-
-
-            preview.style.display =
-                "block";
-
-
-            if(
-                file.type.startsWith(
-                    "image/"
-                )
-            ){
-
-                const reader =
-                    new FileReader();
-
-                reader.onload =
-                    function(e){
-
-                        preview.innerHTML =
-                            `
-                            <div class="file-name">
-                                ✓ ${escapeHTML(file.name)}
-                            </div>
-
-                            <br>
-
-                            <img
-                                src="${e.target.result}"
-                                alt="የሰነድ ምስል"
-                            >
-                            `;
-
-                    };
-
-                reader.readAsDataURL(file);
-
-            }else{
-
-                preview.innerHTML =
-                    `
-                    <div class="file-name">
-                        ✓ ${escapeHTML(file.name)}
-                    </div>
-
-                    <div
-                        style="
-                        margin-top:5px;
-                        color:#748096;
-                        "
-                    >
-                        ${formatFileSize(file.size)}
-                    </div>
-                    `;
-
-            }
-
-            showToast(
-                "✓ ሰነዱ ተመርጧል።"
-            );
-
-            updateProgress();
-
-        }
-    );
-
-}
-
-
-setupDocumentPreview(
-    "passportFile",
-    "passportPreview"
-);
-
-setupDocumentPreview(
-    "cvFile",
-    "cvPreview"
-);
-
-setupDocumentPreview(
-    "certificateFile",
-    "certificatePreview"
-);
-
-
-/* =========================================================
-   ESCAPE HTML
-========================================================= */
-
-function escapeHTML(value){
-
-    return String(value)
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
-
-
-/* =========================================================
-   FILE SIZE
-========================================================= */
-
-function formatFileSize(bytes){
-
-    if(bytes < 1024){
-
-        return bytes + " B";
-
-    }
-
-    if(bytes < 1024 * 1024){
-
-        return (
-            (bytes / 1024)
-                .toFixed(1)
-            + " KB"
-        );
-
-    }
-
-    return (
-        (bytes / (1024 * 1024))
-            .toFixed(1)
-        + " MB"
-    );
-
-}
-
-
-/* =========================================================
-   GET FORM DATA
-========================================================= */
-
-function getData(){
-
-    return {
-
-        registrationNumber:
-            registrationNumber.textContent,
-
-        firstName:
-            document
-                .getElementById(
-                    "firstName"
-                ).value.trim(),
-
-        middleName:
-            document
-                .getElementById(
-                    "middleName"
-                ).value.trim(),
-
-        lastName:
-            document
-                .getElementById(
-                    "lastName"
-                ).value.trim(),
-
-        gender:
-            document
-                .getElementById(
-                    "gender"
-                ).value,
-
-        dob:
-            document
-                .getElementById(
-                    "dob"
-                ).value,
-
-        nationality:
-            document
-                .getElementById(
-                    "nationality"
-                ).value,
-
-        marital:
-            document
-                .getElementById(
-                    "marital"
-                ).value,
-
-        nationalId:
-            document
-                .getElementById(
-                    "nationalId"
-                ).value.trim(),
-
-        phone:
-            document
-                .getElementById(
-                    "phone"
-                ).value.trim(),
-
-        altPhone:
-            document
-                .getElementById(
-                    "altPhone"
-                ).value.trim(),
-
-        email:
-            document
-                .getElementById(
-                    "email"
-                ).value.trim(),
-
-        city:
-            document
-                .getElementById(
-                    "city"
-                ).value.trim(),
-
-        address:
-            document
-                .getElementById(
-                    "address"
-                ).value.trim(),
-
-        passport:
-            document
-                .getElementById(
-                    "passport"
-                ).value.trim(),
-
-        passportType:
-            document
-                .getElementById(
-                    "passportType"
-                ).value,
-
-        issueDate:
-            document
-                .getElementById(
-                    "issueDate"
-                ).value,
-
-        expiryDate:
-            document
-                .getElementById(
-                    "expiryDate"
-                ).value,
-
-        profession:
-            document
-                .getElementById(
-                    "profession"
-                ).value,
-
-        experience:
-            document
-                .getElementById(
-                    "experience"
-                ).value,
-
-        education:
-            document
-                .getElementById(
-                    "education"
-                ).value,
-
-        employmentStatus:
-            document
-                .getElementById(
-                    "employmentStatus"
-                ).value,
-
-        country:
-            document
-                .getElementById(
-                    "country"
-                ).value,
-
-        position:
-            document
-                .getElementById(
-                    "position"
-                ).value.trim(),
-
-        additional:
-            document
-                .getElementById(
-                    "additional"
-                ).value.trim(),
-
-        agreement:
-            document
-                .getElementById(
-                    "agreement"
-                ).checked,
-
-        savedAt:
-            new Date().toISOString()
-
-    };
-
-}
-
-
-/* =========================================================
-   REQUIRED VALIDATION
-========================================================= */
-
-function validateForm(){
-
-    const required = [
-
-        [
-            "firstName",
-            "ስም"
-        ],
-
-        [
-            "middleName",
-            "የአባት ስም"
-        ],
-
-        [
-            "lastName",
-            "የአያት ስም"
-        ],
-
-        [
-            "gender",
-            "ጾታ"
-        ],
-
-        [
-            "dob",
-            "የትውልድ ቀን"
-        ],
-
-        [
-            "phone",
-            "ስልክ ቁጥር"
-        ],
-
-        [
-            "passport",
-            "የፓስፖርት ቁጥር"
-        ],
-
-        [
-            "expiryDate",
-            "የፓስፖርት ማብቂያ ቀን"
-        ],
-
-        [
-            "profession",
-            "የሥራ / የሙያ ዘርፍ"
-        ],
-
-        [
-            "country",
-            "የሚፈልጉት ሀገር"
-        ]
-
-    ];
-
-
-    document
-        .querySelectorAll(
-            ".error-field"
-        )
-        .forEach(
-            function(el){
-
-                el.classList.remove(
-                    "error-field"
-                );
-
-            }
-        );
-
-
-    for(
-        const item of required
-    ){
-
-        const element =
-            document.getElementById(
-                item[0]
-            );
-
-
-        if(
-            !element.value.trim()
-        ){
-
-            element.classList.add(
-                "error-field"
-            );
-
-            element.focus();
-
-            showToast(
-                "እባክዎ «" +
-                item[1] +
-                "» ይሙሉ።"
-            );
-
-            return false;
-        }
-
-    }
-
-
-    const phone =
-        document
-            .getElementById(
-                "phone"
-            )
-            .value
-            .trim();
-
-
-    if(
-        phone.length < 9
-    ){
-
-        const element =
-            document.getElementById(
-                "phone"
-            );
-
-        element.classList.add(
-            "error-field"
-        );
-
-        element.focus();
-
-        showToast(
-            "እባክዎ ትክክለኛ የስልክ ቁጥር ያስገቡ።"
-        );
-
-        return false;
-
-    }
-
-
-    if(
-        !document
-            .getElementById(
-                "agreement"
-            )
-            .checked
-    ){
-
-        showToast(
-            "እባክዎ የሰጡትን መረጃ ያረጋግጡ።"
-        );
-
-        document
-            .getElementById(
-                "agreement"
-            )
-            .focus();
-
-        return false;
-
-    }
-
-
-    return true;
-
-}
-
-
-/* =========================================================
-   SAVE FORM
-========================================================= */
-
-function saveForm(){
-
-    if(!validateForm()){
-
-        return;
-
-    }
-
-
-    const data =
-        getData();
-
-
-    try{
-
-        localStorage.setItem(
-            STORAGE_KEY,
-            JSON.stringify(data)
-        );
-
-    }catch(error){
-
-        showToast(
-            "መረጃውን ማስቀመጥ አልተቻለም።"
-        );
-
-        return;
-
-    }
-
-
-    const status =
-        document.getElementById(
-            "status"
-        );
-
-
-    status.innerHTML =
-        `
-        ✓ ምዝገባው በተሳካ ሁኔታ
-        በዚህ አሳሽ ውስጥ ተቀምጧል።
-        <br><br>
-        <strong>
-        የመመዝገቢያ ቁጥር፦
-        ${escapeHTML(
-            registrationNumber.textContent
-        )}
-        </strong>
-        `;
-
-
-    status.style.display =
-        "block";
-
-
-    showToast(
-        "✓ ምዝገባው ተቀምጧል።"
-    );
-
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-}
-
-
-/* =========================================================
-   LOAD SAVED FORM
-========================================================= */
-
-function loadSavedData(){
+/* ==========================
+   GET USER
+========================== */
+
+else{
 
     const saved =
-        localStorage.getItem(
-            STORAGE_KEY
-        );
+        localStorage.getItem("user_"+code);
 
 
-    if(saved){
+    if(!saved){
 
-        try{
+        content.innerHTML=`
 
-            const data =
-                JSON.parse(saved);
+            <div class="error">
 
+                <h2>❌ User Not Found</h2>
 
-            Object.keys(data)
-                .forEach(
-                    function(key){
+                <p>
+                    የተመዘገበ መረጃ አልተገኘም።
+                </p>
 
-                        const element =
-                            document.getElementById(
-                                key
-                            );
+                <a
+                    class="back"
+                    href="index.html"
+                >
+                    Back
+                </a>
 
-
-                        if(
-                            element &&
-                            element.type !== "checkbox"
-                        ){
-
-                            element.value =
-                                data[key];
-
-                        }
-
-
-                        if(
-                            element &&
-                            element.type === "checkbox"
-                        ){
-
-                            element.checked =
-                                Boolean(
-                                    data[key]
-                                );
-
-                        }
-
-                    }
-                );
-
-
-            if(
-                data.registrationNumber
-            ){
-
-                registrationNumber
-                    .textContent =
-                    data.registrationNumber;
-
-            }
-
-
-            if(
-                data.savedAt
-            ){
-
-                const status =
-                    document.getElementById(
-                        "status"
-                    );
-
-                status.innerHTML =
-                    `
-                    ℹ️ የቀድሞ የተቀመጠ
-                    መረጃ ተጭኗል።
-                    `;
-
-                status.style.display =
-                    "block";
-
-            }
-
-        }catch(error){
-
-            console.log(
-                "Saved data could not be loaded."
-            );
-
-        }
-
-    }
-
-
-    loadSavedPhoto();
-
-}
-
-
-/* =========================================================
-   LOAD SAVED PHOTO
-========================================================= */
-
-function loadSavedPhoto(){
-
-    const savedPhoto =
-        localStorage.getItem(
-            PHOTO_KEY
-        );
-
-
-    if(!savedPhoto){
-
-        return;
-
-    }
-
-
-    const preview =
-        document.getElementById(
-            "photoPreview"
-        );
-
-
-    preview.innerHTML =
-        "";
-
-
-    const img =
-        document.createElement(
-            "img"
-        );
-
-
-    img.src =
-        savedPhoto;
-
-    img.alt =
-        "የግል ፎቶ";
-
-
-    preview.appendChild(
-        img
-    );
-
-
-    document
-        .getElementById(
-            "photoActions"
-        )
-        .style.display =
-        "flex";
-
-}
-
-
-/* =========================================================
-   CLEAR FORM
-========================================================= */
-
-function clearForm(){
-
-    const answer =
-        confirm(
-            "ሁሉንም የገባ መረጃ ማጥፋት ይፈልጋሉ?"
-        );
-
-
-    if(!answer){
-
-        return;
-
-    }
-
-
-    document
-        .querySelectorAll(
-            "input, select, textarea"
-        )
-        .forEach(
-            function(element){
-
-                if(
-                    element.type ===
-                    "checkbox"
-                ){
-
-                    element.checked =
-                        false;
-
-                }else if(
-                    element.type ===
-                    "file"
-                ){
-
-                    element.value =
-                        "";
-
-                }else{
-
-                    element.value =
-                        "";
-
-                }
-
-            }
-        );
-
-
-    document
-        .querySelectorAll(
-            ".error-field"
-        )
-        .forEach(
-            function(element){
-
-                element.classList.remove(
-                    "error-field"
-                );
-
-            }
-        );
-
-
-    document
-        .getElementById(
-            "photoPreview"
-        )
-        .innerHTML =
-        `
-        <div
-            class="photo-placeholder"
-            id="photoPlaceholder"
-        >
-            <div class="big-icon">
-                👤
             </div>
 
-            <div>
-                ፎቶ አልተመረጠም
-            </div>
-        </div>
         `;
 
+    }
 
-    document
-        .getElementById(
-            "photoActions"
-        )
-        .style.display =
-        "none";
+    else{
+
+        const user =
+            JSON.parse(saved);
 
 
-    document
-        .querySelectorAll(
-            ".document-preview"
-        )
-        .forEach(
-            function(box){
+        content.innerHTML=`
 
-                box.style.display =
-                    "none";
+            <div class="profile">
 
-                box.innerHTML =
-                    "";
+                ${
+                    user.photo
+                    ?
+                    `<img src="${user.photo}" alt="Profile Photo">`
+                    :
+                    `<div style="
+                        width:145px;
+                        height:145px;
+                        margin:auto;
+                        border-radius:50%;
+                        background:#e2e8f0;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        font-size:50px;
+                    ">👤</div>`
+                }
 
+                <div class="name">
+                    ${user.name}
+                </div>
+
+                <div class="code">
+                    Code: ${code}
+                </div>
+
+            </div>
+
+
+            <div class="info">
+
+                <div class="item">
+                    <div class="label">Gender</div>
+                    <div class="value">${user.gender || "-"}</div>
+                </div>
+
+                <div class="item">
+                    <div class="label">Age</div>
+                    <div class="value">${user.age || "-"}</div>
+                </div>
+
+                <div class="item">
+                    <div class="label">Date of Birth</div>
+                    <div class="value">${user.dob || "-"}</div>
+                </div>
+
+                <div class="item">
+                    <div class="label">ELMIS</div>
+                    <div class="value">${user.elmis || "-"}</div>
+                </div>
+
+                <div class="item">
+                    <div class="label">Passport</div>
+                    <div class="value">${user.passport || "-"}</div>
+                </div>
+
+                <div class="item">
+                    <div class="label">Phone</div>
+                    <div class="value">${user.phone || "-"}</div>
+                </div>
+
+                <div class="item">
+                    <div class="label">Birth Country</div>
+                    <div class="value">${user.birth || "-"}</div>
+                </div>
+
+                <div class="item">
+                    <div class="label">Visa Type</div>
+                    <div class="value">${user.visa || "-"}</div>
+                </div>
+
+                <div class="item">
+                    <div class="label">Destination</div>
+                    <div class="value">${user.country || "-"}</div>
+                </div>
+
+            </div>
+
+
+            ${
+                user.doc
+                ?
+                `
+                <div class="document">
+
+                    <h2>Document</h2>
+
+                    <img
+                        src="${user.doc}"
+                        alt="Document"
+                    >
+
+                </div>
+                `
+                :
+                ""
             }
-        );
 
 
-    document
-        .getElementById(
-            "status"
-        )
-        .style.display =
-        "none";
+            <div class="buttons">
 
+                <button onclick="window.print()">
+                    🖨️ Print
+                </button>
 
-    localStorage.removeItem(
-        STORAGE_KEY
-    );
+                <button
+                    class="logout"
+                    onclick="logout()"
+                >
+                    Exit
+                </button>
 
-    localStorage.removeItem(
-        PHOTO_KEY
-    );
+            </div>
 
-    localStorage.removeItem(
-        "overseasRegistrationNumber"
-    );
-
-
-    createRegistrationNumber();
-
-
-    updateProgress();
-
-
-    showToast(
-        "ፎርሙ ተጠርጓል።"
-    );
-
-}
-
-
-/* =========================================================
-   PRINT
-========================================================= */
-
-function printRegistration(){
-
-    if(!validateForm()){
-
-        return;
+        `;
 
     }
 
-    window.print();
-
 }
 
 
-/* =========================================================
-   PROGRESS
-========================================================= */
+/* ==========================
+   LOGOUT
+========================== */
 
-function updateProgress(){
+function logout(){
 
-    const fields = [
+    localStorage.removeItem("vcode");
 
-        "firstName",
-        "middleName",
-        "lastName",
-        "gender",
-        "dob",
-        "phone",
-        "passport",
-        "expiryDate",
-        "profession",
-        "country"
-
-    ];
-
-
-    let completed = 0;
-
-
-    fields.forEach(
-        function(id){
-
-            const element =
-                document.getElementById(
-                    id
-                );
-
-
-            if(
-                element &&
-                element.value.trim()
-            ){
-
-                completed++;
-
-            }
-
-        }
-    );
-
-
-    let percentage =
-        Math.round(
-            (completed /
-            fields.length) *
-            100
-        );
-
-
-    if(
-        percentage < 10
-    ){
-
-        percentage = 10;
-
-    }
-
-
-    document
-        .getElementById(
-            "progressFill"
-        )
-        .style.width =
-        percentage + "%";
-
-
-    document
-        .getElementById(
-            "progressText"
-        )
-        .textContent =
-        percentage + "%";
+    window.location.href="index.html";
 
 }
-
-
-/* =========================================================
-   LIVE PROGRESS
-========================================================= */
-
-document
-    .querySelectorAll(
-        "input, select, textarea"
-    )
-    .forEach(
-        function(element){
-
-            element.addEventListener(
-                "input",
-                updateProgress
-            );
-
-            element.addEventListener(
-                "change",
-                updateProgress
-            );
-
-        }
-    );
-
-
-/* =========================================================
-   INIT
-========================================================= */
-
-createRegistrationNumber();
-
-loadSavedData();
-
-updateProgress();
 
 </script>
 
