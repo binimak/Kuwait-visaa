@@ -5,7 +5,10 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <meta
     name="description"
@@ -31,28 +34,51 @@
 
 <style>
 
+/* =========================================================
+   ROOT
+========================================================= */
+
 :root{
+
     --primary:#0b63ce;
     --primary-dark:#084b9b;
     --primary-light:#eaf3ff;
+
     --secondary:#00a878;
     --secondary-dark:#087b5c;
+
     --danger:#dc3545;
+
     --dark:#10233f;
     --text:#40516a;
     --muted:#728096;
+
     --white:#fff;
     --light:#f6f9fd;
     --border:#e4eaf2;
-    --shadow-sm:0 5px 18px rgba(16,35,63,.07);
-    --shadow-md:0 12px 35px rgba(16,35,63,.10);
-    --shadow-lg:0 20px 55px rgba(16,35,63,.14);
+
+    --shadow-sm:
+        0 5px 18px rgba(16,35,63,.07);
+
+    --shadow-md:
+        0 12px 35px rgba(16,35,63,.10);
+
+    --shadow-lg:
+        0 20px 55px rgba(16,35,63,.14);
+
     --radius-md:16px;
     --radius-lg:24px;
     --radius-xl:32px;
+
     --transition:all .3s ease;
+
     --container:1180px;
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     margin:0;
@@ -66,14 +92,19 @@ html{
 }
 
 body{
+
     font-family:
         "Noto Sans Ethiopic",
         "Poppins",
         Arial,
         sans-serif;
+
     background:#fff;
+
     color:var(--text);
+
     line-height:1.8;
+
     overflow-x:hidden;
 }
 
@@ -88,8 +119,7 @@ a{
 }
 
 button,
-input,
-select{
+input{
     font:inherit;
 }
 
@@ -102,10 +132,3141 @@ ul{
 }
 
 .container{
+
     width:min(92%,var(--container));
+
     margin:auto;
 }
 
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    background:rgba(255,255,255,.96);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:
+        0 5px 25px rgba(16,35,63,.05);
+}
+
+.nav-container{
+
+    min-height:78px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:25px;
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-shrink:0;
+}
+
+.logo img{
+    width:155px;
+}
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:27px;
+}
+
+.nav-links a{
+
+    position:relative;
+
+    padding:8px 0;
+
+    color:var(--dark);
+
+    font-size:14px;
+
+    font-weight:700;
+
+    transition:var(--transition);
+}
+
+.nav-links a:hover{
+    color:var(--primary);
+}
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--primary);
+
+    transition:var(--transition);
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.menu-toggle{
+
+    display:none;
+
+    width:44px;
+
+    height:44px;
+
+    border:1px solid var(--border);
+
+    border-radius:11px;
+
+    background:#fff;
+
+    color:var(--dark);
+
+    font-size:20px;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.btn{
+
+    min-height:48px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
+
+    padding:11px 20px;
+
+    border:0;
+
+    border-radius:12px;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    transition:var(--transition);
+}
+
+.btn-primary{
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary-dark)
+        );
+
+    box-shadow:
+        0 8px 22px rgba(11,99,206,.22);
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(11,99,206,.30);
+}
+
+.btn-outline{
+
+    color:var(--primary);
+
+    background:transparent;
+
+    border:1.5px solid var(--primary);
+}
+
+.btn-outline:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    position:relative;
+
+    min-height:650px;
+
+    display:flex;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(11,99,206,.14),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f7fbff,
+            #edf5ff,
+            #fff
+        );
+}
+
+.hero-container{
+
+    display:grid;
+
+    grid-template-columns:
+        1.08fr .92fr;
+
+    align-items:center;
+
+    gap:60px;
+}
+
+.hero-content{
+
+    max-width:680px;
+}
+
+.hero-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 15px;
+
+    border-radius:50px;
+
+    background:#e7f8f2;
+
+    color:var(--secondary-dark);
+
+    font-size:13px;
+
+    font-weight:800;
+
+    margin-bottom:20px;
+}
+
+.hero h1{
+
+    color:var(--dark);
+
+    font-size:
+        clamp(35px,5vw,60px);
+
+    line-height:1.2;
+
+    font-weight:900;
+
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:var(--primary);
+}
+
+.hero-description{
+
+    max-width:630px;
+
+    color:var(--text);
+
+    font-size:17px;
+
+    margin-bottom:30px;
+}
+
+.hero-actions{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+}
+
+.hero-image img{
+
+    height:430px;
+
+    object-fit:cover;
+
+    border-radius:var(--radius-xl);
+
+    box-shadow:var(--shadow-lg);
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+
+    position:relative;
+
+    z-index:5;
+
+    margin-top:-45px;
+}
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.stat-card{
+
+    padding:25px;
+
+    text-align:center;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    box-shadow:var(--shadow-md);
+
+    transition:var(--transition);
+}
+
+.stat-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-lg);
+}
+
+.stat-card h3{
+
+    color:var(--primary);
+
+    font-size:32px;
+
+    font-weight:900;
+}
+
+.stat-card p{
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+section{
+    padding:90px 0;
+}
+
+.section-header{
+
+    max-width:760px;
+
+    margin:
+        0 auto 55px;
+
+    text-align:center;
+}
+
+.eyebrow{
+
+    display:inline-block;
+
+    padding:7px 16px;
+
+    border-radius:50px;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-size:13px;
+
+    font-weight:800;
+
+    margin-bottom:15px;
+}
+
+.section-header h2{
+
+    color:var(--dark);
+
+    font-size:
+        clamp(28px,4vw,44px);
+
+    line-height:1.3;
+
+    font-weight:900;
+
+    margin-bottom:15px;
+}
+
+.section-header p{
+
+    color:var(--muted);
+
+    font-size:16px;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        .9fr 1.1fr;
+
+    align-items:center;
+
+    gap:70px;
+}
+
+.about-image img{
+
+    min-height:440px;
+
+    object-fit:cover;
+
+    border-radius:var(--radius-xl);
+
+    box-shadow:var(--shadow-lg);
+}
+
+.about-content > p{
+    margin-bottom:25px;
+}
+
+.about-features{
+
+    display:grid;
+
+    gap:15px;
+}
+
+.about-feature{
+
+    display:flex;
+
+    gap:14px;
+
+    padding:15px;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    background:var(--light);
+}
+
+.about-feature-icon{
+
+    width:45px;
+
+    height:45px;
+
+    flex-shrink:0;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:12px;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+}
+
+.about-feature h4{
+
+    color:var(--dark);
+
+    font-size:16px;
+}
+
+.about-feature p{
+
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   JOBS
+========================================================= */
+
+.jobs{
+    background:var(--light);
+}
+
+.jobs-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+}
+
+.job-card{
+
+    padding:28px;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+}
+
+.job-card:hover{
+
+    transform:translateY(-7px);
+
+    box-shadow:var(--shadow-lg);
+}
+
+.job-icon{
+
+    width:60px;
+
+    height:60px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:16px;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-size:26px;
+
+    margin-bottom:20px;
+}
+
+.job-card h3{
+
+    color:var(--dark);
+
+    font-size:19px;
+
+    margin-bottom:9px;
+}
+
+.job-card p{
+
+    color:var(--muted);
+
+    font-size:14px;
+}
+
+
+/* =========================================================
+   REQUIREMENTS
+========================================================= */
+
+.requirements-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.requirement-card{
+
+    display:flex;
+
+    gap:16px;
+
+    padding:23px;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+}
+
+.requirement-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-md);
+}
+
+.requirement-number{
+
+    width:42px;
+
+    height:42px;
+
+    flex-shrink:0;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:12px;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    font-weight:900;
+}
+
+.requirement-card h3{
+
+    color:var(--dark);
+
+    font-size:16px;
+}
+
+.requirement-card p{
+
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   COUNTRIES
+========================================================= */
+
+.countries{
+
+    background:
+        linear-gradient(
+            135deg,
+            #082d5e,
+            #0b63ce
+        );
+}
+
+.countries .section-header h2{
+    color:#fff;
+}
+
+.countries .section-header p{
+    color:rgba(255,255,255,.75);
+}
+
+.countries-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:16px;
+}
+
+.country-card{
+
+    padding:25px 15px;
+
+    text-align:center;
+
+    border-radius:18px;
+
+    background:
+        rgba(255,255,255,.10);
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    transition:var(--transition);
+}
+
+.country-card:hover{
+
+    transform:translateY(-6px);
+
+    background:
+        rgba(255,255,255,.18);
+}
+
+.country-card .flag{
+
+    font-size:35px;
+
+    margin-bottom:10px;
+}
+
+.country-card h3{
+
+    color:#fff;
+
+    font-size:15px;
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery{
+
+    background:var(--light);
+}
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.gallery-item{
+
+    position:relative;
+
+    overflow:hidden;
+
+    height:270px;
+
+    border-radius:20px;
+
+    background:#e8eef6;
+}
+
+.gallery-item.large{
+    grid-column:span 2;
+}
+
+.gallery-item img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.6s ease;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.08);
+}
+
+.gallery-overlay{
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    padding:
+        40px 20px 20px;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.75)
+        );
+}
+
+.gallery-overlay h3{
+    font-size:17px;
+}
+
+
+/* =========================================================
+   ENTER CODE
+========================================================= */
+
+.access-section{
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef6ff,
+            #fff
+        );
+}
+
+.access-wrapper{
+
+    max-width:760px;
+
+    margin:auto;
+}
+
+.access-card{
+
+    padding:35px;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    box-shadow:var(--shadow-lg);
+
+    text-align:center;
+}
+
+.access-icon{
+
+    width:70px;
+
+    height:70px;
+
+    display:grid;
+
+    place-items:center;
+
+    margin:
+        0 auto 18px;
+
+    border-radius:20px;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-size:30px;
+}
+
+.access-card h2{
+
+    color:var(--dark);
+
+    font-size:28px;
+
+    margin-bottom:7px;
+}
+
+.access-card > p{
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    margin-bottom:25px;
+}
+
+.code-input-wrapper{
+
+    position:relative;
+
+    max-width:520px;
+
+    margin:auto;
+}
+
+.code-input-wrapper i{
+
+    position:absolute;
+
+    left:17px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:var(--muted);
+
+    z-index:2;
+}
+
+.code-input{
+
+    width:100%;
+
+    min-height:58px;
+
+    padding:
+        12px
+        145px
+        12px
+        48px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:14px;
+
+    outline:none;
+
+    color:var(--dark);
+
+    background:#fbfcfe;
+
+    font-family:"Poppins",sans-serif;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    transition:var(--transition);
+}
+
+.code-input:focus{
+
+    border-color:var(--primary);
+
+    background:#fff;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(11,99,206,.08);
+}
+
+.code-btn{
+
+    position:absolute;
+
+    right:6px;
+
+    top:6px;
+
+    bottom:6px;
+
+    min-height:46px;
+
+    padding:8px 18px;
+}
+
+.code-message{
+
+    min-height:24px;
+
+    margin-top:15px;
+
+    font-size:13px;
+
+    font-weight:700;
+}
+
+.code-message.error{
+    color:var(--danger);
+}
+
+.code-message.success{
+    color:var(--secondary-dark);
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+
+    margin-bottom:35px;
+}
+
+.contact-card{
+
+    padding:25px;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+}
+
+.contact-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-md);
+}
+
+.contact-icon{
+
+    width:52px;
+
+    height:52px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:14px;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-size:21px;
+
+    margin-bottom:15px;
+}
+
+.contact-card h3{
+
+    color:var(--dark);
+
+    font-size:16px;
+
+    margin-bottom:7px;
+}
+
+.contact-card p,
+.contact-card a{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    word-break:break-word;
+}
+
+.contact-card a:hover{
+    color:var(--primary);
+}
+
+
+/* =========================================================
+   MAP
+========================================================= */
+
+.map-container{
+
+    overflow:hidden;
+
+    min-height:350px;
+
+    border-radius:var(--radius-lg);
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow-md);
+}
+
+.map-container iframe{
+
+    width:100%;
+
+    height:350px;
+
+    border:0;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    padding-top:60px;
+
+    background:#081b33;
+
+    color:
+        rgba(255,255,255,.75);
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.3fr 1fr 1fr 1fr;
+
+    gap:40px;
+
+    padding-bottom:45px;
+}
+
+.footer-logo{
+
+    width:150px;
+
+    margin-bottom:17px;
+}
+
+.footer-brand p{
+
+    max-width:330px;
+
+    color:
+        rgba(255,255,255,.60);
+
+    font-size:13px;
+}
+
+.footer-column h3{
+
+    color:#fff;
+
+    font-size:15px;
+
+    margin-bottom:18px;
+}
+
+.footer-links{
+
+    display:grid;
+
+    gap:10px;
+}
+
+.footer-links a{
+
+    color:
+        rgba(255,255,255,.60);
+
+    font-size:13px;
+
+    transition:var(--transition);
+}
+
+.footer-links a:hover{
+
+    color:#fff;
+
+    transform:translateX(4px);
+}
+
+.footer-bottom{
+
+    padding:20px 0;
+
+    text-align:center;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+    color:
+        rgba(255,255,255,.50);
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp{
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:20px;
+
+    z-index:999;
+
+    width:58px;
+
+    height:58px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:50%;
+
+    background:#25d366;
+
+    color:#fff;
+
+    font-size:27px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(37,211,102,.35);
+
+    transition:var(--transition);
+}
+
+.whatsapp:hover{
+
+    transform:
+        translateY(-5px)
+        scale(1.05);
+}
+
+
+/* =========================================================
+   TOP BUTTON
+========================================================= */
+
+#topBtn{
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:90px;
+
+    z-index:998;
+
+    width:42px;
+
+    height:42px;
+
+    display:grid;
+
+    place-items:center;
+
+    border:0;
+
+    border-radius:11px;
+
+    background:var(--dark);
+
+    color:#fff;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(10px);
+
+    transition:var(--transition);
+}
+
+#topBtn.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        gap:17px;
+    }
+
+    .hero-container{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+    }
+
+    .hero-content{
+        margin:auto;
+    }
+
+    .hero-actions{
+        justify-content:center;
+    }
+
+    .hero-image{
+
+        max-width:700px;
+
+        margin:auto;
+
+        width:100%;
+    }
+
+    .about-grid{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+    }
+
+    .about-image{
+
+        max-width:700px;
+
+        margin:auto;
+    }
+
+    .jobs-grid,
+    .requirements-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .countries-grid{
+
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .footer-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+}
+
+
+@media(max-width:760px){
+
+    section{
+        padding:65px 0;
+    }
+
+    .logo img{
+        width:135px;
+    }
+
+    .menu-toggle{
+
+        display:grid;
+
+        place-items:center;
+    }
+
+    .nav-links{
+
+        position:absolute;
+
+        left:4%;
+
+        right:4%;
+
+        top:75px;
+
+        display:none;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:3px;
+
+        padding:12px;
+
+        background:#fff;
+
+        border:1px solid var(--border);
+
+        border-radius:16px;
+
+        box-shadow:var(--shadow-lg);
+    }
+
+    .nav-links.open{
+        display:flex;
+    }
+
+    .nav-links a{
+
+        padding:12px 14px;
+
+        border-radius:9px;
+    }
+
+    .nav-links a:hover{
+        background:var(--primary-light);
+    }
+
+    .nav-links a::after{
+        display:none;
+    }
+
+    .hero{
+
+        min-height:auto;
+
+        padding:
+            75px 0 80px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero-description{
+        font-size:15px;
+    }
+
+    .hero-actions{
+
+        flex-direction:column;
+    }
+
+    .hero-actions .btn{
+        width:100%;
+    }
+
+    .hero-image img{
+
+        height:300px;
+
+        border-radius:22px;
+    }
+
+    .stats{
+
+        margin-top:-25px;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-header{
+        margin-bottom:35px;
+    }
+
+    .section-header h2{
+        font-size:28px;
+    }
+
+    .jobs-grid,
+    .requirements-grid,
+    .countries-grid,
+    .contact-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-item.large{
+        grid-column:span 1;
+    }
+
+    .access-card{
+        padding:25px 18px;
+    }
+
+    .access-card h2{
+        font-size:24px;
+    }
+
+    .code-input-wrapper{
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:10px;
+    }
+
+    .code-input{
+
+        padding:
+            12px
+            15px
+            12px
+            45px;
+
+        min-height:54px;
+    }
+
+    .code-btn{
+
+        position:static;
+
+        width:100%;
+
+        min-height:50px;
+    }
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+        gap:30px;
+    }
+
+    .whatsapp{
+
+        right:15px;
+
+        bottom:15px;
+
+        width:52px;
+
+        height:52px;
+    }
+
+    #topBtn{
+
+        right:15px;
+
+        bottom:78px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="container nav-container">
+
+
+<a href="#home" class="logo">
+
+<img
+    src="https://res.cloudinary.com/dwclusteb/image/upload/v1784188519/photo_3_2025-11-26_21-51-36_si3kam.jpg"
+    alt="ስራና ክህሎት"
+>
+
+</a>
+
+
+<button
+    class="menu-toggle"
+    id="menuToggle"
+    aria-label="Menu"
+>
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
+
+<nav
+    class="nav-links"
+    id="navLinks"
+>
+
+<a href="#home">መነሻ</a>
+
+<a href="#about">ስለ እኛ</a>
+
+<a href="#jobs">ስራዎች</a>
+
+<a href="#requirements">መስፈርቶች</a>
+
+<a href="#gallery">ጋለሪ</a>
+
+<a href="#access">Enter Code</a>
+
+<a href="#contact">ያግኙን</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section
+    class="hero"
+    id="home"
+>
+
+<div class="container hero-container">
+
+
+<div class="hero-content">
+
+
+<div class="hero-badge">
+
+<i class="fa-solid fa-circle-check"></i>
+
+የውጭ ሀገር የስራ እድል
+
+</div>
+
+
+<h1>
+
+ስራና ክህሎት
+
+<span>
+የውጭ ሀገር ስራ
+</span>
+
+</h1>
+
+
+<p class="hero-description">
+
+ህጋዊ፣ ታማኝ እና ፈጣን
+የስራ ስምሪት መረጃና
+የምዝገባ አገልግሎት።
+
+<br><br>
+
+ለቤት ሰራተኞች፣ ሹፌሮች፣
+ነርሶች፣ ምግብ አብሳዮች
+እና ተንከባካቢዎች
+የስራ እድል።
+
+</p>
+
+
+<div class="hero-actions">
+
+
+<a
+    href="#access"
+    class="btn btn-primary"
+>
+
+<i class="fa-solid fa-key"></i>
+
+Enter Code
+
+</a>
+
+
+<a
+    href="#jobs"
+    class="btn btn-outline"
+>
+
+<i class="fa-solid fa-briefcase"></i>
+
+የስራ እድሎች
+
+</a>
+
+
+</div>
+
+</div>
+
+
+<div class="hero-image">
+
+<img
+    src="https://res.cloudinary.com/dwclusteb/image/upload/v1787217907/images_3_osman9.jpg"
+    alt="Husaso Foreign Employment"
+>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<div class="stats">
+
+<div class="container stats-grid">
+
+
+<div class="stat-card">
+
+<h3>1000+</h3>
+
+<p>
+የተመዘገቡ ሰዎች
+</p>
+
+</div>
+
+
+<div class="stat-card">
+
+<h3>5+</h3>
+
+<p>
+የስራ መዳረሻ ሀገራት
+</p>
+
+</div>
+
+
+<div class="stat-card">
+
+<h3>24/7</h3>
+
+<p>
+የመረጃ መዳረሻ
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about">
+
+<div class="container">
+
+
+<div class="section-header">
+
+<span class="eyebrow">
+ስራና ክህሎት
+</span>
+
+
+<h2>
+
+የወደፊት ስራዎን
+ከታማኝ አጋር ጋር ይጀምሩ
+
+</h2>
+
+</div>
+
+
+<div class="about-grid">
+
+
+<div class="about-image">
+
+<img
+    src="https://res.cloudinary.com/dwclusteb/image/upload/v1787833095/images_3_kj0j59.jpg"
+    alt="የስራ ስምሪት"
+>
+
+</div>
+
+
+<div class="about-content">
+
+
+<p>
+
+ዜጎች የስራ እድሎችን
+በቀላሉ እንዲያገኙ
+እና የምዝገባ መረጃቸውን
+በተደራጀ ሁኔታ
+እንዲያስቀምጡ የሚያግዝ
+የዲጂታል ምዝገባ መድረክ ነው።
+
+</p>
+
+
+<div class="about-features">
+
+
+<div class="about-feature">
+
+<div class="about-feature-icon">
+
+<i class="fa-solid fa-id-card"></i>
+
+</div>
+
+
+<div>
+
+<h4>
+የግል ኮድ
+</h4>
+
+<p>
+
+ለእያንዳንዱ ተመዝጋቢ
+የተለየ PERSON ኮድ ይፈጠራል።
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="about-feature">
+
+<div class="about-feature-icon">
+
+<i class="fa-solid fa-key"></i>
+
+</div>
+
+
+<div>
+
+<h4>
+Enter Code
+</h4>
+
+<p>
+
+የግል ኮድዎን በማስገባት
+ወደ የግል ገጽዎ መግባት ይችላሉ።
+
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     JOBS
+===================================================== -->
+
+<section
+    id="jobs"
+    class="jobs"
+>
+
+<div class="container">
+
+
+<div class="section-header">
+
+<span class="eyebrow">
+የስራ እድሎች
+</span>
+
+<h2>
+ዋና ዋና የስራ እድሎች
+</h2>
+
+<p>
+የተለያዩ የስራ ዘርፎች
+</p>
+
+</div>
+
+
+<div class="jobs-grid">
+
+
+<div class="job-card">
+
+<div class="job-icon">
+
+<i class="fa-solid fa-house"></i>
+
+</div>
+
+<h3>
+የቤት ሰራተኛ
+</h3>
+
+<p>
+የቤት አያያዝና
+የቤት ውስጥ ስራዎች።
+</p>
+
+</div>
+
+
+<div class="job-card">
+
+<div class="job-icon">
+
+<i class="fa-solid fa-car"></i>
+
+</div>
+
+<h3>
+ሹፌር
+</h3>
+
+<p>
+የመንጃ ፍቃድ ያላቸው
+ሹፌሮች።
+</p>
+
+</div>
+
+
+<div class="job-card">
+
+<div class="job-icon">
+
+<i class="fa-solid fa-utensils"></i>
+
+</div>
+
+<h3>
+ምግብ አብሳይ
+</h3>
+
+<p>
+የተለያዩ ምግቦችን
+ማዘጋጀት የሚችሉ።
+</p>
+
+</div>
+
+
+<div class="job-card">
+
+<div class="job-icon">
+
+<i class="fa-solid fa-user-nurse"></i>
+
+</div>
+
+<h3>
+ነርስ
+</h3>
+
+<p>
+የህክምና እውቀት
+ያላቸው ባለሙያዎች።
+</p>
+
+</div>
+
+
+<div class="job-card">
+
+<div class="job-icon">
+
+<i class="fa-solid fa-hands-holding-child"></i>
+
+</div>
+
+<h3>
+ተንከባካቢ
+</h3>
+
+<p>
+ህጻናትንና አረጋውያንን
+የሚንከባከቡ።
+</p>
+
+</div>
+
+
+<div class="job-card">
+
+<div class="job-icon">
+
+<i class="fa-solid fa-seedling"></i>
+
+</div>
+
+<h3>
+አትክልተኛ
+</h3>
+
+<p>
+የአትክልትና
+የግቢ አያያዝ ስራ።
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     REQUIREMENTS
+===================================================== -->
+
+<section id="requirements">
+
+<div class="container">
+
+
+<div class="section-header">
+
+<span class="eyebrow">
+የጉዞ ዝግጅት
+</span>
+
+<h2>
+ዋና ዋና መስፈርቶች
+</h2>
+
+</div>
+
+
+<div class="requirements-grid">
+
+
+<div class="requirement-card">
+
+<div class="requirement-number">
+01
+</div>
+
+<div>
+
+<h3>
+ፓስፖርት
+</h3>
+
+<p>
+ተገቢ የጉዞ ሰነድ።
+</p>
+
+</div>
+
+</div>
+
+
+<div class="requirement-card">
+
+<div class="requirement-number">
+02
+</div>
+
+<div>
+
+<h3>
+ቪዛ
+</h3>
+
+<p>
+ተገቢው የጉዞ ወይም
+የስራ ሰነድ።
+</p>
+
+</div>
+
+</div>
+
+
+<div class="requirement-card">
+
+<div class="requirement-number">
+03
+</div>
+
+<div>
+
+<h3>
+COC
+</h3>
+
+<p>
+የሙያ ብቃት ሰርተፍኬት
+ካስፈለገ።
+</p>
+
+</div>
+
+</div>
+
+
+<div class="requirement-card">
+
+<div class="requirement-number">
+04
+</div>
+
+<div>
+
+<h3>
+የጤና ምርመራ
+</h3>
+
+<p>
+ተገቢ የጤና
+ማረጋገጫ።
+</p>
+
+</div>
+
+</div>
+
+
+<div class="requirement-card">
+
+<div class="requirement-number">
+05
+</div>
+
+<div>
+
+<h3>
+የአሻራ ምዝገባ
+</h3>
+
+<p>
+አስፈላጊ ከሆነ
+የአሻራ ማረጋገጫ።
+</p>
+
+</div>
+
+</div>
+
+
+<div class="requirement-card">
+
+<div class="requirement-number">
+06
+</div>
+
+<div>
+
+<h3>
+የፋይዳ መታወቂያ
+</h3>
+
+<p>
+የብሔራዊ ዲጂታል
+መታወቂያ።
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     COUNTRIES
+===================================================== -->
+
+<section class="countries">
+
+<div class="container">
+
+
+<div class="section-header">
+
+<span class="eyebrow">
+የስራ መዳረሻ
+</span>
+
+<h2>
+የምንልክባቸው ሀገራት
+</h2>
+
+<p>
+የስራ እድሎች
+በሚገኙባቸው መዳረሻዎች።
+</p>
+
+</div>
+
+
+<div class="countries-grid">
+
+
+<div class="country-card">
+
+<div class="flag">
+🇸🇦
+</div>
+
+<h3>
+ሳውዲ አረቢያ
+</h3>
+
+</div>
+
+
+<div class="country-card">
+
+<div class="flag">
+🇦🇪
+</div>
+
+<h3>
+UAE
+</h3>
+
+</div>
+
+
+<div class="country-card">
+
+<div class="flag">
+🇶🇦
+</div>
+
+<h3>
+ኳታር
+</h3>
+
+</div>
+
+
+<div class="country-card">
+
+<div class="flag">
+🇰🇼
+</div>
+
+<h3>
+ኩዌት
+</h3>
+
+</div>
+
+
+<div class="country-card">
+
+<div class="flag">
+🇯🇴
+</div>
+
+<h3>
+ዮርዳኖስ
+</h3>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     GALLERY
+===================================================== -->
+
+<section
+    id="gallery"
+    class="gallery"
+>
+
+<div class="container">
+
+
+<div class="section-header">
+
+<span class="eyebrow">
+ጋለሪ
+</span>
+
+<h2>
+ፎቶ እና ቪዲዮ
+</h2>
+
+<p>
+የኤጀንሲው የፎቶና
+ቪዲዮ መረጃ።
+</p>
+
+</div>
+
+
+<div class="gallery-grid">
+
+
+<div class="gallery-item large">
+
+<img
+    src="https://res.cloudinary.com/dwclusteb/image/upload/v1787833456/images_4_hugdgn.jpg"
+    alt="የጉዞ ዝግጅት"
+>
+
+<div class="gallery-overlay">
+
+<h3>
+የጉዞ ዝግጅት
+</h3>
+
+</div>
+
+</div>
+
+
+<div class="gallery-item">
+
+<img
+    src="https://res.cloudinary.com/dwclusteb/image/upload/v1787833684/images_5_zv6lb0.jpg"
+    alt="Preparation"
+>
+
+<div class="gallery-overlay">
+
+<h3>
+Preparation
+</h3>
+
+</div>
+
+</div>
+
+
+<div class="gallery-item">
+
+<img
+    src="https://res.cloudinary.com/dwclusteb/image/upload/v1787833809/images_6_svqyac.jpg"
+    alt="Office"
+>
+
+<div class="gallery-overlay">
+
+<h3>
+Office
+</h3>
+
+</div>
+
+</div>
+
+
+<div class="gallery-item large">
+
+<iframe
+    style="
+        width:100%;
+        height:100%;
+        border:0;
+    "
+    src="https://www.youtube.com/embed/"
+    title="Husaso Video"
+    allowfullscreen>
+</iframe>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ENTER CODE
+===================================================== -->
+
+<section
+    id="access"
+    class="access-section"
+>
+
+<div class="container">
+
+
+<div class="access-wrapper">
+
+
+<div class="access-card">
+
+
+<div class="access-icon">
+
+<i class="fa-solid fa-key"></i>
+
+</div>
+
+
+<h2>
+Enter Code
+</h2>
+
+
+<p>
+
+የግል የምዝገባ ኮድዎን
+በማስገባት ወደ Personal Page
+ይግቡ።
+
+</p>
+
+
+<div class="code-input-wrapper">
+
+
+<i class="fa-solid fa-id-card"></i>
+
+
+<input
+    type="text"
+    id="enterCode"
+    class="code-input"
+    placeholder="PERSON1"
+    maxlength="50"
+    autocomplete="off"
+    spellcheck="false"
+>
+
+
+<button
+    type="button"
+    id="verifyCodeBtn"
+    class="btn btn-primary code-btn"
+>
+
+<i class="fa-solid fa-right-to-bracket"></i>
+
+Enter
+
+</button>
+
+
+</div>
+
+
+<div
+    id="codeMessage"
+    class="code-message">
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact">
+
+<div class="container">
+
+
+<div class="section-header">
+
+<span class="eyebrow">
+ያግኙን
+</span>
+
+<h2>
+የኤጀንሲያችን አድራሻ
+</h2>
+
+</div>
+
+
+<div class="contact-grid">
+
+
+<div class="contact-card">
+
+<div class="contact-icon">
+
+<i class="fa-solid fa-location-dot"></i>
+
+</div>
+
+<h3>
+ዋና ቢሮ
+</h3>
+
+<p>
+
+አዲስ አበባ፣ ኢትዮጵያ
+<br>
+
+መሳለሚያ ሸዋጸጋ ህንጻ፣
+4ኛ ፎቅ፣ ቢሮ 402
+
+</p>
+
+</div>
+
+
+<div class="contact-card">
+
+<div class="contact-icon">
+
+<i class="fa-solid fa-phone"></i>
+
+</div>
+
+<h3>
+ስልክ ቁጥሮች
+</h3>
+
+<p>
+
+
+<a href="tel:+251911436434">
+
++251 911 43 64 34
+
+</a>
+
+
+<br>
+
+
+<a href="tel:+251904196666">
+
++251 904 19 66 66
+
+</a>
+
+
+<br>
+
+
+<a href="tel:+251904199966">
+
++251 904 19 99 66
+
+</a>
+
+
+</p>
+
+</div>
+
+
+<div class="contact-card">
+
+<div class="contact-icon">
+
+<i class="fa-solid fa-envelope"></i>
+
+</div>
+
+<h3>
+ኢሜይል
+</h3>
+
+<p>
+
+
+<a
+    href="mailto:husasoprvtempagency@gmail.com"
+>
+
+husasoprvtempagency@gmail.com
+
+</a>
+
+
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="map-container">
+
+<iframe
+    src="https://www.google.com/maps?q=Meskel%20Square%20Addis%20Ababa&output=embed"
+    loading="lazy"
+    title="Map">
+</iframe>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="container">
+
+
+<div class="footer-grid">
+
+
+<div class="footer-brand">
+
+<img
+    src="https://res.cloudinary.com/dwclusteb/image/upload/v1784188519/photo_3_2025-11-26_21-51-36_si3kam.jpg"
+    class="footer-logo"
+    alt="Husaso"
+>
+
+<p>
+
+ሁሳሶ የውጭ ሀገር
+ስራና ሰራተኛ
+አገናኝ ኤጀንሲ።
+
+</p>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>
+አገልግሎቶች
+</h3>
+
+<div class="footer-links">
+
+<a href="#jobs">
+የስራ እድሎች
+</a>
+
+<a href="#requirements">
+መስፈርቶች
+</a>
+
+<a href="#access">
+Enter Code
+</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>
+ፈጣን አገናኞች
+</h3>
+
+<div class="footer-links">
+
+<a href="#home">
+መነሻ
+</a>
+
+<a href="#about">
+ስለ እኛ
+</a>
+
+<a href="#gallery">
+ጋለሪ
+</a>
+
+<a href="#access">
+Enter Code
+</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>
+አግኙን
+</h3>
+
+<div class="footer-links">
+
+
+<a href="tel:+251911436434">
++251 911 43 64 34
+</a>
+
+
+<a href="tel:+251904196666">
++251 904 19 66 66
+</a>
+
+
+<a href="mailto:husasoprvtempagency@gmail.com">
+Email
+</a>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 Husaso Foreign Employment Agency.
+All Rights Reserved.
+
+</div>
+
+
+</div>
+
+</footer>
+
+
+<!-- =====================================================
+     WHATSAPP
+===================================================== -->
+
+<a
+    href="https://wa.me/251911436434"
+    class="whatsapp"
+    target="_blank"
+    rel="noopener"
+    aria-label="WhatsApp"
+>
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+
+<!-- =====================================================
+     BACK TO TOP
+===================================================== -->
+
+<button
+    id="topBtn"
+    aria-label="Back to top"
+>
+
+<i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuToggle.addEventListener(
+    "click",
+    function(){
+
+        navLinks.classList.toggle("open");
+
+
+        const icon =
+            menuToggle.querySelector("i");
+
+
+        if(
+            navLinks.classList.contains("open")
+        ){
+
+            icon.className =
+                "fa-solid fa-xmark";
+
+        }else{
+
+            icon.className =
+                "fa-solid fa-bars";
+
+        }
+
+    }
+);
+
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(
+        function(link){
+
+            link.addEventListener(
+                "click",
+                function(){
+
+                    navLinks
+                        .classList
+                        .remove("open");
+
+
+                    menuToggle
+                        .querySelector("i")
+                        .className =
+                        "fa-solid fa-bars";
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+const topBtn =
+    document.getElementById("topBtn");
+
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        if(window.scrollY > 500){
+
+            topBtn.classList.add("show");
+
+        }else{
+
+            topBtn.classList.remove("show");
+
+        }
+
+    }
+);
+
+
+topBtn.addEventListener(
+    "click",
+    function(){
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+    }
+);
+
+
+/* =========================================================
+   ENTER CODE
+=========================================================
+
+   index.html ላይ Registration Form የለም።
+
+   ተጠቃሚው እዚህ የሚያስገባውን
+   PERSON code ወደ personalhtml.html
+   እንልካለን።
+
+   Example:
+
+   PERSON1
+
+   becomes:
+
+   personalhtml.html?code=PERSON1
+
+========================================================= */
+
+
+const enterCode =
+    document.getElementById("enterCode");
+
+
+const verifyCodeBtn =
+    document.getElementById("verifyCodeBtn");
+
+
+const codeMessage =
+    document.getElementById("codeMessage");
+
+
+function normalizeCode(value){
+
+    return value
+        .trim()
+        .toUpperCase()
+        .replace(/\s+/g,"");
+
+}
+
+
+function openPersonalPage(code){
+
+    window.location.href =
+        "personalhtml.html?code=" +
+        encodeURIComponent(code);
+
+}
+
+
+function verifyPersonalCode(){
+
+    const code =
+        normalizeCode(
+            enterCode.value
+        );
+
+
+    codeMessage.className =
+        "code-message";
+
+
+    codeMessage.textContent =
+        "";
+
+
+    if(!code){
+
+        codeMessage.className =
+            "code-message error";
+
+
+        codeMessage.textContent =
+            "❌ እባክዎ የግል ኮድዎን ያስገቡ።";
+
+
+        enterCode.focus();
+
+        return;
+
+    }
+
+
+    codeMessage.className =
+        "code-message success";
+
+
+    codeMessage.textContent =
+        "✓ ኮዱ ተቀብሏል። ወደ Personal Page በመግባት ላይ...";
+
+
+    setTimeout(
+        function(){
+
+            openPersonalPage(code);
+
+        },
+        350
+    );
+
+}
+
+
+/* =========================================================
+   ENTER BUTTON
+========================================================= */
+
+verifyCodeBtn.addEventListener(
+    "click",
+    verifyPersonalCode
+);
+
+
+/* =========================================================
+   ENTER KEY
+========================================================= */
+
+enterCode.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            event.preventDefault();
+
+            verifyPersonalCode();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CODE INPUT
+========================================================= */
+
+enterCode.addEventListener(
+    "input",
+    function(){
+
+        this.value =
+            this.value
+                .toUpperCase()
+                .replace(/\s/g,"");
+
+    }
+);
+
+
+/* =========================================================
+   CLOSE MENU WHEN CLICKING OUTSIDE
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            window.innerWidth <= 760 &&
+            navLinks.classList.contains("open") &&
+            !navLinks.contains(event.target) &&
+            !menuToggle.contains(event.target)
+        ){
+
+            navLinks.classList.remove("open");
+
+            menuToggle
+                .querySelector("i")
+                .className =
+                "fa-solid fa-bars";
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
 /* HEADER */
 
 header{
