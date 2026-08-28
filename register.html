@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="am">
+
 <head>
 
 <meta charset="UTF-8">
@@ -39,6 +40,10 @@ body{
     margin-bottom:7px;
 }
 
+.header p{
+    line-height:1.6;
+}
+
 .form{
     background:white;
     padding:25px;
@@ -57,7 +62,8 @@ label{
     color:#334155;
 }
 
-input,select{
+input,
+select{
     width:100%;
     height:48px;
     border:1px solid #cbd5e1;
@@ -67,14 +73,38 @@ input,select{
     outline:none;
 }
 
-input:focus,select:focus{
+input:focus,
+select:focus{
     border-color:#0ea5e9;
+    box-shadow:0 0 0 3px rgba(14,165,233,.10);
 }
 
 .grid{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:15px;
+}
+
+.codeBox{
+    background:#f0f9ff;
+    border:1px solid #bae6fd;
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.codeBox small{
+    display:block;
+    color:#64748b;
+    margin-bottom:5px;
+}
+
+.codeValue{
+    font-size:25px;
+    font-weight:bold;
+    letter-spacing:3px;
+    color:#075985;
 }
 
 button{
@@ -94,6 +124,11 @@ button:hover{
     background:#0369a1;
 }
 
+button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
 #result{
     display:none;
     margin-top:20px;
@@ -104,27 +139,37 @@ button:hover{
     text-align:center;
 }
 
+.success{
+    color:#15803d;
+    font-weight:bold;
+    font-size:18px;
+    margin-bottom:10px;
+}
+
 .code{
-    font-size:28px;
+    font-size:30px;
     font-weight:bold;
     color:#075985;
     margin:12px 0;
+    letter-spacing:3px;
+}
+
+.preview{
+    display:none;
+    margin-top:10px;
+    object-fit:cover;
+    border-radius:10px;
+    border:1px solid #cbd5e1;
 }
 
 #photoPreview{
-    max-width:120px;
-    max-height:120px;
-    margin-top:10px;
-    border-radius:10px;
-    display:none;
+    width:120px;
+    height:120px;
 }
 
 #docPreview{
-    max-width:100%;
-    max-height:200px;
-    margin-top:10px;
-    border-radius:10px;
-    display:none;
+    width:100%;
+    max-height:220px;
 }
 
 .back{
@@ -136,6 +181,22 @@ button:hover{
     font-weight:bold;
 }
 
+.back:hover{
+    text-decoration:underline;
+}
+
+.error{
+    color:#dc2626;
+    background:#fef2f2;
+    border:1px solid #fecaca;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:18px;
+    display:none;
+    text-align:center;
+    font-weight:bold;
+}
+
 @media(max-width:600px){
 
     .grid{
@@ -143,169 +204,426 @@ button:hover{
         gap:0;
     }
 
+    .form{
+        padding:20px;
+    }
+
 }
 
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<div class="header">
-    <h1>Registration Form</h1>
-    <p>የተጠቃሚ መረጃ መመዝገቢያ</p>
-</div>
+    <div class="header">
 
-<div class="form">
+        <h1>
+            Registration Form
+        </h1>
 
-<form id="registrationForm">
+        <p>
+            የተጠቃሚ መረጃ መመዝገቢያ
+        </p>
 
-<div class="group">
-<label>Full Name</label>
-<input id="name" required placeholder="ሙሉ ስም">
-</div>
-
-<div class="grid">
-
-<div class="group">
-<label>Gender</label>
-
-<select id="gender" required>
-<option value="">Select</option>
-<option value="ወንድ">ወንድ</option>
-<option value="ሴት">ሴት</option>
-</select>
-</div>
-
-<div class="group">
-<label>Age</label>
-<input id="age" type="number" required>
-</div>
-
-</div>
-
-<div class="group">
-<label>Date of Birth</label>
-<input id="dob" type="date" required>
-</div>
-
-<div class="grid">
-
-<div class="group">
-<label>ELMIS Number</label>
-<input id="elmis" placeholder="ELMIS-XXXXXX">
-</div>
-
-<div class="group">
-<label>Passport Number</label>
-<input id="passport" placeholder="Passport Number">
-</div>
-
-</div>
-
-<div class="group">
-<label>Phone</label>
-<input id="phone" type="tel" placeholder="Phone Number">
-</div>
-
-<div class="group">
-<label>Birth Country</label>
-<input id="birth" value="ኢትዮጵያ">
-</div>
-
-<div class="grid">
-
-<div class="group">
-<label>Visa Type</label>
-
-<select id="visa">
-<option value="">Select Visa</option>
-<option value="ስራ ቪዛ">ስራ ቪዛ</option>
-<option value="የቱሪስት ቪዛ">የቱሪስት ቪዛ</option>
-<option value="የቤተሰብ ቪዛ">የቤተሰብ ቪዛ</option>
-<option value="የተማሪ ቪዛ">የተማሪ ቪዛ</option>
-</select>
-
-</div>
-
-<div class="group">
-<label>Destination</label>
-<input id="country" placeholder="ለምሳሌ ካናዳ 🇨🇦">
-</div>
-
-</div>
-
-<div class="group">
-<label>Profile Photo</label>
-<input id="photo" type="file" accept="image/*">
-<img id="photoPreview">
-</div>
-
-<div class="group">
-<label>Document Photo</label>
-<input id="doc" type="file" accept="image/*">
-<img id="docPreview">
-</div>
-
-<button type="submit">
-    Register
-</button>
-
-</form>
-
-
-<div id="result">
-
-    <div>✅ Registration Successful</div>
-
-    <div>Your Code:</div>
-
-    <div class="code" id="generatedCode"></div>
-
-    <div>
-        ይህን Code ያስቀምጡ።
     </div>
 
-    <button onclick="goToProfile()">
-        View Personal Information
-    </button>
 
-</div>
+    <div class="form">
 
-<a class="back" href="index.html">
-    ← Back to Code Verification
-</a>
 
-</div>
+        <!-- CODE FROM INDEX.HTML -->
+
+        <div class="codeBox">
+
+            <small>
+                Registration Code
+            </small>
+
+            <div
+                class="codeValue"
+                id="registrationCode"
+            >
+                Loading...
+            </div>
+
+        </div>
+
+
+        <!-- ERROR -->
+
+        <div
+            class="error"
+            id="errorBox"
+        ></div>
+
+
+        <form id="registrationForm">
+
+
+            <div class="group">
+
+                <label>
+                    Full Name
+                </label>
+
+                <input
+                    id="name"
+                    type="text"
+                    required
+                    placeholder="ሙሉ ስም"
+                >
+
+            </div>
+
+
+            <div class="grid">
+
+                <div class="group">
+
+                    <label>
+                        Gender
+                    </label>
+
+                    <select
+                        id="gender"
+                        required
+                    >
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="ወንድ">
+                            ወንድ
+                        </option>
+
+                        <option value="ሴት">
+                            ሴት
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="group">
+
+                    <label>
+                        Age
+                    </label>
+
+                    <input
+                        id="age"
+                        type="number"
+                        min="1"
+                        max="120"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="group">
+
+                <label>
+                    Date of Birth
+                </label>
+
+                <input
+                    id="dob"
+                    type="date"
+                    required
+                >
+
+            </div>
+
+
+            <div class="grid">
+
+                <div class="group">
+
+                    <label>
+                        ELMIS Number
+                    </label>
+
+                    <input
+                        id="elmis"
+                        placeholder="ELMIS-XXXXXX"
+                    >
+
+                </div>
+
+
+                <div class="group">
+
+                    <label>
+                        Passport Number
+                    </label>
+
+                    <input
+                        id="passport"
+                        placeholder="Passport Number"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="group">
+
+                <label>
+                    Phone
+                </label>
+
+                <input
+                    id="phone"
+                    type="tel"
+                    placeholder="Phone Number"
+                >
+
+            </div>
+
+
+            <div class="group">
+
+                <label>
+                    Birth Country
+                </label>
+
+                <input
+                    id="birth"
+                    value="ኢትዮጵያ"
+                >
+
+            </div>
+
+
+            <div class="grid">
+
+                <div class="group">
+
+                    <label>
+                        Visa Type
+                    </label>
+
+                    <select id="visa">
+
+                        <option value="">
+                            Select Visa
+                        </option>
+
+                        <option value="ስራ ቪዛ">
+                            ስራ ቪዛ
+                        </option>
+
+                        <option value="የቱሪስት ቪዛ">
+                            የቱሪስት ቪዛ
+                        </option>
+
+                        <option value="የቤተሰብ ቪዛ">
+                            የቤተሰብ ቪዛ
+                        </option>
+
+                        <option value="የተማሪ ቪዛ">
+                            የተማሪ ቪዛ
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="group">
+
+                    <label>
+                        Destination
+                    </label>
+
+                    <input
+                        id="country"
+                        placeholder="ለምሳሌ ካናዳ 🇨🇦"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="group">
+
+                <label>
+                    Profile Photo
+                </label>
+
+                <input
+                    id="photo"
+                    type="file"
+                    accept="image/*"
+                >
+
+                <img
+                    id="photoPreview"
+                    class="preview"
+                    alt="Profile Preview"
+                >
+
+            </div>
+
+
+            <div class="group">
+
+                <label>
+                    Document Photo
+                </label>
+
+                <input
+                    id="doc"
+                    type="file"
+                    accept="image/*"
+                >
+
+                <img
+                    id="docPreview"
+                    class="preview"
+                    alt="Document Preview"
+                >
+
+            </div>
+
+
+            <button
+                id="registerBtn"
+                type="submit"
+            >
+                Register
+            </button>
+
+        </form>
+
+
+        <!-- RESULT -->
+
+        <div id="result">
+
+            <div class="success">
+                ✅ Registration Successful
+            </div>
+
+            <div>
+                Your Code:
+            </div>
+
+            <div
+                class="code"
+                id="generatedCode"
+            ></div>
+
+            <div>
+                ይህን Code ያስቀምጡ።
+            </div>
+
+
+            <button
+                type="button"
+                onclick="goToProfile()"
+            >
+                View Personal Information
+            </button>
+
+        </div>
+
+
+        <a
+            class="back"
+            href="index.html"
+        >
+            ← Back to Code Verification
+        </a>
+
+
+    </div>
+
 </div>
 
 
 <script>
 
-let createdCode="";
+/* =====================================================
+   GET CODE FROM INDEX.HTML
+===================================================== */
+
+const registrationCode =
+    localStorage.getItem("vcode");
+
+const codeElement =
+    document.getElementById("registrationCode");
+
+const errorBox =
+    document.getElementById("errorBox");
 
 
-/* ==========================
+/*
+   Code ከ index.html ካልመጣ
+*/
+
+if(!registrationCode){
+
+    codeElement.textContent =
+        "NO CODE";
+
+    errorBox.style.display =
+        "block";
+
+    errorBox.textContent =
+        "❌ Code አልተገኘም። እባክዎ Index ገጽ ላይ Code ያስገቡ።";
+
+    document
+    .getElementById("registrationForm")
+    .style.display="none";
+
+}else{
+
+    codeElement.textContent =
+        registrationCode;
+
+}
+
+
+/* =====================================================
    IMAGE TO BASE64
-========================== */
+===================================================== */
 
 function imageToBase64(file){
 
     return new Promise((resolve,reject)=>{
 
         if(!file){
+
             resolve("");
+
             return;
         }
 
-        const reader=new FileReader();
+        const reader =
+            new FileReader();
 
-        reader.onload=()=>{
-            resolve(reader.result);
-        };
+        reader.onload =
+            function(){
 
-        reader.onerror=reject;
+                resolve(
+                    reader.result
+                );
+
+            };
+
+        reader.onerror =
+            reject;
 
         reader.readAsDataURL(file);
 
@@ -314,193 +632,320 @@ function imageToBase64(file){
 }
 
 
-/* ==========================
-   PREVIEW PHOTO
-========================== */
+/* =====================================================
+   PROFILE PHOTO PREVIEW
+===================================================== */
 
 document
 .getElementById("photo")
-.addEventListener("change",function(){
+.addEventListener(
+    "change",
+    function(){
 
-    const file=this.files[0];
+        const file =
+            this.files[0];
 
-    if(!file)return;
-
-    const preview=
-        document.getElementById("photoPreview");
-
-    preview.src=URL.createObjectURL(file);
-
-    preview.style.display="block";
-
-});
+        const preview =
+            document.getElementById(
+                "photoPreview"
+            );
 
 
-/* ==========================
-   PREVIEW DOCUMENT
-========================== */
+        if(!file){
+
+            preview.style.display =
+                "none";
+
+            return;
+        }
+
+
+        preview.src =
+            URL.createObjectURL(file);
+
+        preview.style.display =
+            "block";
+
+    }
+);
+
+
+/* =====================================================
+   DOCUMENT PHOTO PREVIEW
+===================================================== */
 
 document
 .getElementById("doc")
-.addEventListener("change",function(){
+.addEventListener(
+    "change",
+    function(){
 
-    const file=this.files[0];
+        const file =
+            this.files[0];
 
-    if(!file)return;
-
-    const preview=
-        document.getElementById("docPreview");
-
-    preview.src=URL.createObjectURL(file);
-
-    preview.style.display="block";
-
-});
+        const preview =
+            document.getElementById(
+                "docPreview"
+            );
 
 
-/* ==========================
-   CREATE UNIQUE CODE
-========================== */
+        if(!file){
 
-function createCode(){
+            preview.style.display =
+                "none";
 
-    let code;
-
-    do{
-
-        code =
-            Math.floor(
-                100000 +
-                Math.random()*900000
-            ).toString();
-
-    }while(
-        localStorage.getItem("user_"+code)
-    );
-
-    return code;
-
-}
+            return;
+        }
 
 
-/* ==========================
+        preview.src =
+            URL.createObjectURL(file);
+
+        preview.style.display =
+            "block";
+
+    }
+);
+
+
+/* =====================================================
    REGISTER
-========================== */
+===================================================== */
 
 document
 .getElementById("registrationForm")
-.addEventListener("submit",async function(e){
+.addEventListener(
+    "submit",
+    async function(e){
 
-    e.preventDefault();
-
-
-    const photoFile =
-        document.getElementById("photo").files[0];
-
-    const docFile =
-        document.getElementById("doc").files[0];
+        e.preventDefault();
 
 
-    const photo =
-        await imageToBase64(photoFile);
+        if(!registrationCode){
 
-    const doc =
-        await imageToBase64(docFile);
-
-
-    createdCode=createCode();
+            return;
+        }
 
 
-    const user={
-
-        name:
-        document.getElementById("name").value.trim(),
-
-        gender:
-        document.getElementById("gender").value,
-
-        age:
-        document.getElementById("age").value,
-
-        dob:
-        document.getElementById("dob").value,
-
-        elmis:
-        document.getElementById("elmis").value.trim(),
-
-        passport:
-        document.getElementById("passport").value.trim(),
-
-        phone:
-        document.getElementById("phone").value.trim(),
-
-        birth:
-        document.getElementById("birth").value.trim(),
-
-        visa:
-        document.getElementById("visa").value,
-
-        country:
-        document.getElementById("country").value.trim(),
-
-        photo:photo,
-
-        doc:doc,
-
-        createdAt:
-        new Date().toISOString()
-
-    };
+        const registerBtn =
+            document.getElementById(
+                "registerBtn"
+            );
 
 
-    /*
-       SAVE USER
-    */
+        registerBtn.disabled =
+            true;
 
-    localStorage.setItem(
-        "user_"+createdCode,
-        JSON.stringify(user)
-    );
+        registerBtn.textContent =
+            "Saving...";
 
 
-    /*
-       SAVE CURRENT CODE
-    */
+        try{
 
-    localStorage.setItem(
-        "vcode",
-        createdCode
-    );
+            const photoFile =
+                document
+                .getElementById("photo")
+                .files[0];
 
 
-    document
-    .getElementById("generatedCode")
-    .textContent=createdCode;
+            const docFile =
+                document
+                .getElementById("doc")
+                .files[0];
 
 
-    document
-    .getElementById("result")
-    .style.display="block";
+            const photo =
+                await imageToBase64(
+                    photoFile
+                );
 
 
-    document
-    .getElementById("registrationForm")
-    .style.display="none";
+            const doc =
+                await imageToBase64(
+                    docFile
+                );
 
-});
+
+            /*
+               IMPORTANT:
+               አዲስ Code አንፈጥርም።
+
+               ከ index.html የመጣውን
+               Code እንጠቀማለን።
+            */
 
 
-/* ==========================
-   VIEW PROFILE
-========================== */
+            const user = {
+
+                code:
+                    registrationCode,
+
+                name:
+                    document
+                    .getElementById("name")
+                    .value
+                    .trim(),
+
+                gender:
+                    document
+                    .getElementById("gender")
+                    .value,
+
+                age:
+                    document
+                    .getElementById("age")
+                    .value,
+
+                dob:
+                    document
+                    .getElementById("dob")
+                    .value,
+
+                elmis:
+                    document
+                    .getElementById("elmis")
+                    .value
+                    .trim(),
+
+                passport:
+                    document
+                    .getElementById("passport")
+                    .value
+                    .trim(),
+
+                phone:
+                    document
+                    .getElementById("phone")
+                    .value
+                    .trim(),
+
+                birth:
+                    document
+                    .getElementById("birth")
+                    .value
+                    .trim(),
+
+                visa:
+                    document
+                    .getElementById("visa")
+                    .value,
+
+                country:
+                    document
+                    .getElementById("country")
+                    .value
+                    .trim(),
+
+                photo:
+                    photo,
+
+                doc:
+                    doc,
+
+                createdAt:
+                    new Date()
+                    .toISOString()
+
+            };
+
+
+            /*
+               SAVE:
+
+               user_123456
+               user_692122
+               etc.
+            */
+
+            localStorage.setItem(
+                "user_" + registrationCode,
+                JSON.stringify(user)
+            );
+
+
+            /*
+               CURRENT USER
+            */
+
+            localStorage.setItem(
+                "currentUser",
+                JSON.stringify(user)
+            );
+
+
+            /*
+               CURRENT CODE
+            */
+
+            localStorage.setItem(
+                "vcode",
+                registrationCode
+            );
+
+
+            /*
+               SHOW RESULT
+            */
+
+            document
+            .getElementById(
+                "generatedCode"
+            )
+            .textContent =
+                registrationCode;
+
+
+            document
+            .getElementById(
+                "result"
+            )
+            .style.display =
+                "block";
+
+
+            document
+            .getElementById(
+                "registrationForm"
+            )
+            .style.display =
+                "none";
+
+
+        }catch(error){
+
+            console.error(error);
+
+            errorBox.style.display =
+                "block";
+
+            errorBox.textContent =
+                "❌ Registration failed. Please try again.";
+
+            registerBtn.disabled =
+                false;
+
+            registerBtn.textContent =
+                "Register";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   VIEW PERSONAL INFORMATION
+===================================================== */
 
 function goToProfile(){
 
-    window.location.href="personal.html";
+    window.location.href =
+        "personal.html";
 
 }
 
 </script>
 
 </body>
+
 </html>
