@@ -6,162 +6,738 @@
 <meta charset="UTF-8">
 
 <meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
 >
 
-<title>Personal Information</title>
+<meta
+    name="description"
+    content="Personal Information Demo"
+>
+
+<title>Personal Information — Demo</title>
 
 <style>
 
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:#f1f5f9;
-    color:#1e293b;
-    padding:20px;
+    font-family:
+        Arial,
+        "Noto Sans Ethiopic",
+        sans-serif;
+
+    background:#eef5f9;
+
+    color:#172033;
+
+    -webkit-font-smoothing:antialiased;
+
+    padding:8px;
 }
 
-.container{
-    max-width:850px;
-    margin:auto;
+
+/* =====================================================
+   MAIN PAGE
+===================================================== */
+
+.page{
+
+    width:100%;
+
+    max-width:560px;
+
+    min-height:calc(100dvh - 16px);
+
+    margin:0 auto;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 8px 28px
+        rgba(15,23,42,.12);
+
+    display:flex;
+
+    flex-direction:column;
 }
+
+
+/* =====================================================
+   DEMO NOTICE
+===================================================== */
+
+.demo{
+
+    background:#fff7ed;
+
+    color:#9a3412;
+
+    border-bottom:
+        1px solid #fed7aa;
+
+    text-align:center;
+
+    font-size:10px;
+
+    font-weight:bold;
+
+    letter-spacing:.4px;
+
+    padding:6px 10px;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 .header{
-    background:linear-gradient(135deg,#075985,#0ea5e9);
-    color:white;
-    padding:25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #075985 0%,
+            #0284c7 55%,
+            #0ea5e9 100%
+        );
+
+    color:#fff;
+
     text-align:center;
-    border-radius:20px 20px 0 0;
+
+    padding:
+        17px
+        15px
+        16px;
 }
 
-.card{
-    background:white;
-    padding:25px;
-    border-radius:0 0 20px 20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+.header h1{
+
+    font-size:29px;
+
+    line-height:1.05;
+
+    font-weight:800;
+
+    margin-bottom:5px;
 }
+
+.header p{
+
+    font-size:14px;
+
+    line-height:1.3;
+
+    opacity:.96;
+}
+
+
+/* =====================================================
+   PROFILE
+===================================================== */
 
 .profile{
+
     text-align:center;
-    padding-bottom:25px;
-    border-bottom:1px solid #e2e8f0;
+
+    padding:
+        12px
+        15px
+        9px;
 }
 
-.profile img{
-    width:145px;
-    height:145px;
-    object-fit:cover;
+.avatar{
+
+    width:76px;
+
+    height:76px;
+
+    margin:0 auto 7px;
+
     border-radius:50%;
-    border:5px solid #e0f2fe;
+
+    overflow:hidden;
+
+    background:#e2e8f0;
+
+    border:
+        3px solid #fff;
+
+    box-shadow:
+        0 4px 15px
+        rgba(15,23,42,.15);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+.avatar img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:none;
+}
+
+.avatar .default{
+
+    font-size:38px;
+
+    line-height:1;
 }
 
 .name{
-    margin-top:12px;
-    font-size:24px;
-    font-weight:bold;
+
+    font-size:22px;
+
+    font-weight:800;
+
+    color:#172033;
+
+    line-height:1.15;
+
+    margin-bottom:3px;
 }
 
 .code{
+
     color:#64748b;
-    margin-top:6px;
+
+    font-size:13px;
 }
+
+.code strong{
+
+    color:#0284c7;
+
+    font-size:15px;
+
+    letter-spacing:1px;
+}
+
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.divider{
+
+    height:1px;
+
+    background:#e2e8f0;
+
+    margin:
+        0
+        15px
+        8px;
+}
+
+
+/* =====================================================
+   INFORMATION GRID
+===================================================== */
 
 .info{
+
+    padding:
+        0
+        12px;
+
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-    margin-top:25px;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:7px;
 }
 
-.item{
-    padding:15px;
+.card{
+
+    min-width:0;
+
     background:#f8fafc;
-    border:1px solid #e2e8f0;
-    border-radius:12px;
+
+    border:
+        1px solid #e2e8f0;
+
+    border-radius:11px;
+
+    padding:
+        8px
+        10px;
+
+    min-height:56px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+.card.full{
+
+    grid-column:
+        1 / -1;
+}
+
+.icon{
+
+    flex:
+        0 0 31px;
+
+    width:31px;
+
+    height:31px;
+
+    border-radius:9px;
+
+    background:#e0f2fe;
+
+    color:#0284c7;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:16px;
+}
+
+.card:nth-child(2) .icon{
+    background:#ecfdf5;
+    color:#059669;
+}
+
+.card:nth-child(3) .icon{
+    background:#fff7ed;
+    color:#ea580c;
+}
+
+.card:nth-child(4) .icon{
+    background:#f3e8ff;
+    color:#9333ea;
+}
+
+.card:nth-child(5) .icon{
+    background:#e0f2fe;
+    color:#2563eb;
+}
+
+.card:nth-child(6) .icon{
+    background:#ecfdf5;
+    color:#16a34a;
+}
+
+.card:nth-child(7) .icon{
+    background:#fff7ed;
+    color:#ea580c;
+}
+
+.card:nth-child(8) .icon{
+    background:#f3e8ff;
+    color:#9333ea;
+}
+
+.card:nth-child(9) .icon{
+    background:#fef2f2;
+    color:#dc2626;
+}
+
+.card-content{
+
+    min-width:0;
+
+    flex:1;
 }
 
 .label{
+
     color:#64748b;
-    font-size:13px;
-    margin-bottom:6px;
+
+    font-size:10px;
+
+    margin-bottom:2px;
+
+    line-height:1.1;
 }
 
 .value{
-    font-weight:bold;
-    word-break:break-word;
+
+    color:#172033;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    line-height:1.2;
+
+    overflow-wrap:anywhere;
 }
 
-.document{
-    margin-top:30px;
+
+/* =====================================================
+   PHOTOS
+===================================================== */
+
+.photos{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:8px;
+
+    padding:
+        9px
+        12px
+        5px;
+}
+
+.photo-box{
+
+    min-width:0;
+
     text-align:center;
 }
 
-.document h2{
-    margin-bottom:15px;
+.photo-title{
+
+    color:#334155;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    margin-bottom:4px;
 }
 
-.document img{
-    max-width:100%;
-    max-height:600px;
-    border-radius:12px;
-    border:1px solid #cbd5e1;
-}
+.photo-frame{
 
-.buttons{
-    display:flex;
-    gap:12px;
-    margin-top:25px;
-}
+    width:100%;
 
-button{
-    flex:1;
-    height:48px;
-    border:0;
+    height:82px;
+
     border-radius:10px;
-    background:#075985;
-    color:white;
-    font-size:15px;
-    font-weight:bold;
+
+    overflow:hidden;
+
+    background:#f1f5f9;
+
+    border:
+        1px solid #dbe3eb;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+.photo-frame img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:none;
+}
+
+.photo-placeholder{
+
+    color:#94a3b8;
+
+    font-size:11px;
+}
+
+
+/* =====================================================
+   FOOTER / ACTIONS
+===================================================== */
+
+.actions{
+
+    padding:
+        6px
+        12px
+        12px;
+}
+
+.action-btn{
+
+    width:100%;
+
+    height:40px;
+
+    border:0;
+
+    border-radius:9px;
+
+    background:#0284c7;
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:700;
+
     cursor:pointer;
+
+    margin-bottom:6px;
 }
 
-.logout{
-    background:#dc2626;
+.action-btn:active{
+
+    transform:scale(.99);
 }
 
-.error{
-    text-align:center;
-    padding:50px 20px;
-}
+.delete-btn{
 
-.error h2{
-    margin-bottom:10px;
+    background:#fff;
+
+    color:#dc2626;
+
+    border:
+        1px solid #fecaca;
 }
 
 .back{
-    display:inline-block;
-    margin-top:20px;
-    padding:12px 20px;
-    background:#075985;
-    color:white;
+
+    display:block;
+
+    text-align:center;
+
     text-decoration:none;
-    border-radius:10px;
+
+    color:#0284c7;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    padding:2px 0 4px;
 }
 
-@media(max-width:600px){
 
-    .info{
-        grid-template-columns:1fr;
+/* =====================================================
+   HIDDEN DOWNLOAD AREA
+===================================================== */
+
+#printArea{
+
+    display:none;
+}
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media(max-width:390px){
+
+    body{
+        padding:4px;
     }
 
-    .buttons{
-        flex-direction:column;
+    .page{
+        min-height:calc(100dvh - 8px);
+        border-radius:17px;
+    }
+
+    .header{
+        padding:
+            13px
+            12px;
+    }
+
+    .header h1{
+        font-size:25px;
+    }
+
+    .header p{
+        font-size:12px;
+    }
+
+    .profile{
+        padding:
+            8px
+            12px
+            6px;
+    }
+
+    .avatar{
+        width:65px;
+        height:65px;
+    }
+
+    .avatar .default{
+        font-size:32px;
+    }
+
+    .name{
+        font-size:19px;
+    }
+
+    .info{
+        gap:5px;
+        padding:
+            0
+            8px;
+    }
+
+    .card{
+        min-height:51px;
+        padding:
+            6px
+            7px;
+            gap:6px;
+    }
+
+    .icon{
+        flex-basis:27px;
+        width:27px;
+        height:27px;
+        font-size:14px;
+    }
+
+    .label{
+        font-size:9px;
+    }
+
+    .value{
+        font-size:12px;
+    }
+
+    .photos{
+        padding:
+            7px
+            8px
+            4px;
+    }
+
+    .photo-frame{
+        height:70px;
+    }
+
+    .actions{
+        padding:
+            4px
+            8px
+            8px;
+    }
+
+    .action-btn{
+        height:36px;
+        font-size:12px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SHORT SCREEN
+===================================================== */
+
+@media(max-height:700px){
+
+    .header{
+        padding:
+            10px
+            12px;
+    }
+
+    .header h1{
+        font-size:24px;
+    }
+
+    .profile{
+        padding:
+            7px
+            12px
+            5px;
+    }
+
+    .avatar{
+        width:58px;
+        height:58px;
+        margin-bottom:4px;
+    }
+
+    .avatar .default{
+        font-size:28px;
+    }
+
+    .name{
+        font-size:18px;
+    }
+
+    .card{
+        min-height:47px;
+        padding:5px 7px;
+    }
+
+    .photo-frame{
+        height:60px;
+    }
+
+    .actions{
+        padding-bottom:6px;
+    }
+
+}
+
+
+/* =====================================================
+   PRINT / SCREENSHOT CLEAN MODE
+===================================================== */
+
+@media print{
+
+    body{
+        background:#fff;
+        padding:0;
+    }
+
+    .page{
+        max-width:none;
+        min-height:100vh;
+        box-shadow:none;
+        border-radius:0;
+    }
+
+    .demo,
+    .actions,
+    .back{
+        display:none;
     }
 
 }
@@ -173,245 +749,733 @@ button{
 
 <body>
 
-<div class="container">
 
-<div class="header">
-    <h1>Personal Information</h1>
-    <p>የተመዘገበ መረጃ</p>
-</div>
+<div class="page">
 
 
-<div class="card" id="content">
+    <!-- DEMO NOTICE -->
 
-</div>
+    <div class="demo">
+        DEMO / TESTING INTERFACE — NOT AN OFFICIAL GOVERNMENT WEBSITE
+    </div>
+
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <h1>
+            Personal Information
+        </h1>
+
+        <p>
+            የግል መረጃ
+        </p>
+
+    </header>
+
+
+    <!-- PROFILE -->
+
+    <section class="profile">
+
+        <div class="avatar">
+
+            <span
+                class="default"
+                id="defaultAvatar"
+            >
+                👤
+            </span>
+
+            <img
+                id="profileImage"
+                alt="Profile Photo"
+            >
+
+        </div>
+
+
+        <div
+            class="name"
+            id="userName"
+        >
+            Loading...
+        </div>
+
+
+        <div class="code">
+
+            Code:
+
+            <strong id="userCode">
+                ------
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <div class="divider"></div>
+
+
+    <!-- INFORMATION -->
+
+    <section class="info">
+
+
+        <!-- Gender -->
+
+        <div class="card">
+
+            <div class="icon">
+                👤
+            </div>
+
+            <div class="card-content">
+
+                <div class="label">
+                    Gender
+                </div>
+
+                <div
+                    class="value"
+                    id="gender"
+                >
+                    —
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Age -->
+
+        <div class="card">
+
+            <div class="icon">
+                🎂
+            </div>
+
+            <div class="card-content">
+
+                <div class="label">
+                    Age
+                </div>
+
+                <div
+                    class="value"
+                    id="age"
+                >
+                    —
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Date of Birth -->
+
+        <div class="card">
+
+            <div class="icon">
+                📅
+            </div>
+
+            <div class="card-content">
+
+                <div class="label">
+                    Date of Birth
+                </div>
+
+                <div
+                    class="value"
+                    id="dob"
+                >
+                    —
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ELMIS -->
+
+        <div class="card">
+
+            <div class="icon">
+                🪪
+            </div>
+
+            <div class="card-content">
+
+                <div class="label">
+                    ELMIS Number
+                </div>
+
+                <div
+                    class="value"
+                    id="elmis"
+                >
+                    —
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Passport -->
+
+        <div class="card">
+
+            <div class="icon">
+                🛂
+            </div>
+
+            <div class="card-content">
+
+                <div class="label">
+                    Passport Number
+                </div>
+
+                <div
+                    class="value"
+                    id="passport"
+                >
+                    —
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Phone -->
+
+        <div class="card">
+
+            <div class="icon">
+                📱
+            </div>
+
+            <div class="card-content">
+
+                <div class="label">
+                    Phone
+                </div>
+
+                <div
+                    class="value"
+                    id="phone"
+                >
+                    —
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Birth Country -->
+
+        <div class="card">
+
+            <div class="icon">
+                🌍
+            </div>
+
+            <div class="card-content">
+
+                <div class="label">
+                    Birth Country
+                </div>
+
+                <div
+                    class="value"
+                    id="birth"
+                >
+                    —
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Visa -->
+
+        <div class="card">
+
+            <div class="icon">
+                💼
+            </div>
+
+            <div class="card-content">
+
+                <div class="label">
+                    Visa Type
+                </div>
+
+                <div
+                    class="value"
+                    id="visa"
+                >
+                    —
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Destination -->
+
+        <div class="card full">
+
+            <div class="icon">
+                📍
+            </div>
+
+            <div class="card-content">
+
+                <div class="label">
+                    Destination
+                </div>
+
+                <div
+                    class="value"
+                    id="country"
+                >
+                    —
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- PHOTOS -->
+
+    <section class="photos">
+
+
+        <div class="photo-box">
+
+            <div class="photo-title">
+                Profile Photo
+            </div>
+
+            <div class="photo-frame">
+
+                <span
+                    class="photo-placeholder"
+                    id="profilePlaceholder"
+                >
+                    No Photo
+                </span>
+
+                <img
+                    id="profilePhoto"
+                    alt="Profile Photo"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="photo-box">
+
+            <div class="photo-title">
+                Document Photo
+            </div>
+
+            <div class="photo-frame">
+
+                <span
+                    class="photo-placeholder"
+                    id="documentPlaceholder"
+                >
+                    No Document
+                </span>
+
+                <img
+                    id="documentPhoto"
+                    alt="Document Photo"
+                >
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ACTIONS -->
+
+    <section class="actions">
+
+        <button
+            class="action-btn"
+            type="button"
+            onclick="window.print()"
+        >
+            🖨️ View / Print Information
+        </button>
+
+
+        <button
+            class="action-btn delete-btn"
+            type="button"
+            onclick="deleteInformation()"
+        >
+            🗑️ Delete My Information
+        </button>
+
+
+        <a
+            class="back"
+            href="index.html"
+        >
+            ← Back to Code Verification
+        </a>
+
+    </section>
+
 
 </div>
 
 
 <script>
 
-
-/* ==========================
-   GET CODE
-========================== */
+/* =====================================================
+   GET CURRENT CODE
+===================================================== */
 
 const code =
     localStorage.getItem("vcode");
 
 
-const content =
-    document.getElementById("content");
+/* =====================================================
+   GET USER DATA
+===================================================== */
+
+let user = null;
 
 
-/* ==========================
-   NO CODE
-========================== */
+/*
+   First try currentUser
+*/
 
-if(!code){
+const currentUser =
+    localStorage.getItem("currentUser");
 
-    content.innerHTML=`
 
-        <div class="error">
+if(currentUser){
 
-            <h2>❌ Access Denied</h2>
+    try{
 
-            <p>
-                Code አልተገኘም።
-            </p>
+        user =
+            JSON.parse(currentUser);
 
-            <a
-                class="back"
-                href="index.html"
-            >
-                Back
-            </a>
+    }catch(error){
 
-        </div>
+        user = null;
 
-    `;
+    }
 
 }
 
 
-/* ==========================
-   GET USER
-========================== */
+/*
+   If currentUser does not exist,
+   find user by code.
+*/
 
-else{
+if(!user && code){
 
     const saved =
-        localStorage.getItem("user_"+code);
+        localStorage.getItem(
+            "user_" + code
+        );
 
+    if(saved){
 
-    if(!saved){
+        try{
 
-        content.innerHTML=`
+            user =
+                JSON.parse(saved);
 
-            <div class="error">
+        }catch(error){
 
-                <h2>❌ User Not Found</h2>
+            user = null;
 
-                <p>
-                    የተመዘገበ መረጃ አልተገኘም።
-                </p>
-
-                <a
-                    class="back"
-                    href="index.html"
-                >
-                    Back
-                </a>
-
-            </div>
-
-        `;
-
-    }
-
-    else{
-
-        const user =
-            JSON.parse(saved);
-
-
-        content.innerHTML=`
-
-            <div class="profile">
-
-                ${
-                    user.photo
-                    ?
-                    `<img src="${user.photo}" alt="Profile Photo">`
-                    :
-                    `<div style="
-                        width:145px;
-                        height:145px;
-                        margin:auto;
-                        border-radius:50%;
-                        background:#e2e8f0;
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        font-size:50px;
-                    ">👤</div>`
-                }
-
-                <div class="name">
-                    ${user.name}
-                </div>
-
-                <div class="code">
-                    Code: ${code}
-                </div>
-
-            </div>
-
-
-            <div class="info">
-
-                <div class="item">
-                    <div class="label">Gender</div>
-                    <div class="value">${user.gender || "-"}</div>
-                </div>
-
-                <div class="item">
-                    <div class="label">Age</div>
-                    <div class="value">${user.age || "-"}</div>
-                </div>
-
-                <div class="item">
-                    <div class="label">Date of Birth</div>
-                    <div class="value">${user.dob || "-"}</div>
-                </div>
-
-                <div class="item">
-                    <div class="label">ELMIS</div>
-                    <div class="value">${user.elmis || "-"}</div>
-                </div>
-
-                <div class="item">
-                    <div class="label">Passport</div>
-                    <div class="value">${user.passport || "-"}</div>
-                </div>
-
-                <div class="item">
-                    <div class="label">Phone</div>
-                    <div class="value">${user.phone || "-"}</div>
-                </div>
-
-                <div class="item">
-                    <div class="label">Birth Country</div>
-                    <div class="value">${user.birth || "-"}</div>
-                </div>
-
-                <div class="item">
-                    <div class="label">Visa Type</div>
-                    <div class="value">${user.visa || "-"}</div>
-                </div>
-
-                <div class="item">
-                    <div class="label">Destination</div>
-                    <div class="value">${user.country || "-"}</div>
-                </div>
-
-            </div>
-
-
-            ${
-                user.doc
-                ?
-                `
-                <div class="document">
-
-                    <h2>Document</h2>
-
-                    <img
-                        src="${user.doc}"
-                        alt="Document"
-                    >
-
-                </div>
-                `
-                :
-                ""
-            }
-
-
-            <div class="buttons">
-
-                <button onclick="window.print()">
-                    🖨️ Print
-                </button>
-
-                <button
-                    class="logout"
-                    onclick="logout()"
-                >
-                    Exit
-                </button>
-
-            </div>
-
-        `;
+        }
 
     }
 
 }
 
 
-/* ==========================
-   LOGOUT
-========================== */
+/* =====================================================
+   SHOW USER
+===================================================== */
 
-function logout(){
+if(user){
 
-    localStorage.removeItem("vcode");
+    showUser(user);
 
-    window.location.href="index.html";
+}else{
+
+    document
+        .getElementById("userName")
+        .textContent =
+        "No Information";
+
+    document
+        .getElementById("userCode")
+        .textContent =
+        code || "------";
+
+}
+
+
+/* =====================================================
+   SHOW USER FUNCTION
+===================================================== */
+
+function showUser(data){
+
+    /* Code */
+
+    document
+        .getElementById("userCode")
+        .textContent =
+        data.code || code || "------";
+
+
+    /* Name */
+
+    document
+        .getElementById("userName")
+        .textContent =
+        data.name || "—";
+
+
+    /* Gender */
+
+    document
+        .getElementById("gender")
+        .textContent =
+        data.gender || "—";
+
+
+    /* Age */
+
+    document
+        .getElementById("age")
+        .textContent =
+        data.age || "—";
+
+
+    /* DOB */
+
+    document
+        .getElementById("dob")
+        .textContent =
+        data.dob || "—";
+
+
+    /* ELMIS */
+
+    document
+        .getElementById("elmis")
+        .textContent =
+        data.elmis || "—";
+
+
+    /* Passport */
+
+    document
+        .getElementById("passport")
+        .textContent =
+        data.passport || "—";
+
+
+    /* Phone */
+
+    document
+        .getElementById("phone")
+        .textContent =
+        data.phone || "—";
+
+
+    /* Birth Country */
+
+    document
+        .getElementById("birth")
+        .textContent =
+        data.birth || "—";
+
+
+    /* Visa */
+
+    document
+        .getElementById("visa")
+        .textContent =
+        data.visa || "—";
+
+
+    /* Destination */
+
+    document
+        .getElementById("country")
+        .textContent =
+        data.country || "—";
+
+
+    /* =================================================
+       PROFILE PHOTO
+    ================================================= */
+
+    if(data.photo){
+
+        const avatar =
+            document.getElementById(
+                "profileImage"
+            );
+
+        avatar.src =
+            data.photo;
+
+        avatar.style.display =
+            "block";
+
+        document
+            .getElementById(
+                "defaultAvatar"
+            )
+            .style.display =
+            "none";
+
+
+        const profilePhoto =
+            document.getElementById(
+                "profilePhoto"
+            );
+
+        profilePhoto.src =
+            data.photo;
+
+        profilePhoto.style.display =
+            "block";
+
+        document
+            .getElementById(
+                "profilePlaceholder"
+            )
+            .style.display =
+            "none";
+
+    }
+
+
+    /* =================================================
+       DOCUMENT PHOTO
+    ================================================= */
+
+    if(data.doc){
+
+        const documentPhoto =
+            document.getElementById(
+                "documentPhoto"
+            );
+
+        documentPhoto.src =
+            data.doc;
+
+        documentPhoto.style.display =
+            "block";
+
+        document
+            .getElementById(
+                "documentPlaceholder"
+            )
+            .style.display =
+            "none";
+
+    }
+
+}
+
+
+/* =====================================================
+   DELETE INFORMATION
+===================================================== */
+
+function deleteInformation(){
+
+    if(!code){
+
+        alert(
+            "No registration code found."
+        );
+
+        return;
+
+    }
+
+
+    const confirmed =
+        confirm(
+            "Are you sure you want to delete this registration?"
+        );
+
+
+    if(!confirmed){
+
+        return;
+
+    }
+
+
+    localStorage.removeItem(
+        "user_" + code
+    );
+
+
+    localStorage.removeItem(
+        "currentUser"
+    );
+
+
+    localStorage.removeItem(
+        "vcode"
+    );
+
+
+    alert(
+        "Registration information deleted."
+    );
+
+
+    window.location.href =
+        "index.html";
 
 }
 
 </script>
 
+
 </body>
+
 </html>
