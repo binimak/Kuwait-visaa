@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Registration Form</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f1f5f9;
+    padding:25px 15px;
+}
+
+.container{
+    width:100%;
+    max-width:700px;
+    margin:auto;
+}
+
+.header{
+    background:linear-gradient(135deg,#075985,#0ea5e9);
+    color:white;
+    padding:25px;
+    border-radius:20px 20px 0 0;
+    text-align:center;
+}
+
+.header h1{
+    margin-bottom:7px;
+}
+
+.form{
+    background:white;
+    padding:25px;
+    border-radius:0 0 20px 20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.group{
+    margin-bottom:17px;
+}
+
+label{
+    display:block;
+    margin-bottom:7px;
+    font-weight:bold;
+    color:#334155;
+}
+
+input,select{
+    width:100%;
+    height:48px;
+    border:1px solid #cbd5e1;
+    border-radius:10px;
+    padding:0 12px;
+    font-size:15px;
+    outline:none;
+}
+
+input:focus,select:focus{
+    border-color:#0ea5e9;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+button{
+    width:100%;
+    height:52px;
+    border:0;
+    border-radius:11px;
+    background:#075985;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:8px;
+}
+
+button:hover{
+    background:#0369a1;
+}
+
+#result{
+    display:none;
+    margin-top:20px;
+    padding:20px;
+    border-radius:12px;
+    background:#ecfdf5;
+    border:1px solid #86efac;
+    text-align:center;
+}
+
+.code{
+    font-size:28px;
+    font-weight:bold;
+    color:#075985;
+    margin:12px 0;
+}
+
+#photoPreview{
+    max-width:120px;
+    max-height:120px;
+    margin-top:10px;
+    border-radius:10px;
+    display:none;
+}
+
+#docPreview{
+    max-width:100%;
+    max-height:200px;
+    margin-top:10px;
+    border-radius:10px;
+    display:none;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:18px;
+    color:#075985;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+@media(max-width:600px){
+
+    .grid{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+    <h1>Registration Form</h1>
+    <p>የተጠቃሚ መረጃ መመዝገቢያ</p>
+</div>
+
+<div class="form">
+
+<form id="registrationForm">
+
+<div class="group">
+<label>Full Name</label>
+<input id="name" required placeholder="ሙሉ ስም">
+</div>
+
+<div class="grid">
+
+<div class="group">
+<label>Gender</label>
+
+<select id="gender" required>
+<option value="">Select</option>
+<option value="ወንድ">ወንድ</option>
+<option value="ሴት">ሴት</option>
+</select>
+</div>
+
+<div class="group">
+<label>Age</label>
+<input id="age" type="number" required>
+</div>
+
+</div>
+
+<div class="group">
+<label>Date of Birth</label>
+<input id="dob" type="date" required>
+</div>
+
+<div class="grid">
+
+<div class="group">
+<label>ELMIS Number</label>
+<input id="elmis" placeholder="ELMIS-XXXXXX">
+</div>
+
+<div class="group">
+<label>Passport Number</label>
+<input id="passport" placeholder="Passport Number">
+</div>
+
+</div>
+
+<div class="group">
+<label>Phone</label>
+<input id="phone" type="tel" placeholder="Phone Number">
+</div>
+
+<div class="group">
+<label>Birth Country</label>
+<input id="birth" value="ኢትዮጵያ">
+</div>
+
+<div class="grid">
+
+<div class="group">
+<label>Visa Type</label>
+
+<select id="visa">
+<option value="">Select Visa</option>
+<option value="ስራ ቪዛ">ስራ ቪዛ</option>
+<option value="የቱሪስት ቪዛ">የቱሪስት ቪዛ</option>
+<option value="የቤተሰብ ቪዛ">የቤተሰብ ቪዛ</option>
+<option value="የተማሪ ቪዛ">የተማሪ ቪዛ</option>
+</select>
+
+</div>
+
+<div class="group">
+<label>Destination</label>
+<input id="country" placeholder="ለምሳሌ ካናዳ 🇨🇦">
+</div>
+
+</div>
+
+<div class="group">
+<label>Profile Photo</label>
+<input id="photo" type="file" accept="image/*">
+<img id="photoPreview">
+</div>
+
+<div class="group">
+<label>Document Photo</label>
+<input id="doc" type="file" accept="image/*">
+<img id="docPreview">
+</div>
+
+<button type="submit">
+    Register
+</button>
+
+</form>
+
+
+<div id="result">
+
+    <div>✅ Registration Successful</div>
+
+    <div>Your Code:</div>
+
+    <div class="code" id="generatedCode"></div>
+
+    <div>
+        ይህን Code ያስቀምጡ።
+    </div>
+
+    <button onclick="goToProfile()">
+        View Personal Information
+    </button>
+
+</div>
+
+<a class="back" href="index.html">
+    ← Back to Code Verification
+</a>
+
+</div>
+</div>
+
+
+<script>
+
+let createdCode="";
+
+
+/* ==========================
+   IMAGE TO BASE64
+========================== */
+
+function imageToBase64(file){
+
+    return new Promise((resolve,reject)=>{
+
+        if(!file){
+            resolve("");
+            return;
+        }
+
+        const reader=new FileReader();
+
+        reader.onload=()=>{
+            resolve(reader.result);
+        };
+
+        reader.onerror=reject;
+
+        reader.readAsDataURL(file);
+
+    });
+
+}
+
+
+/* ==========================
+   PREVIEW PHOTO
+========================== */
+
+document
+.getElementById("photo")
+.addEventListener("change",function(){
+
+    const file=this.files[0];
+
+    if(!file)return;
+
+    const preview=
+        document.getElementById("photoPreview");
+
+    preview.src=URL.createObjectURL(file);
+
+    preview.style.display="block";
+
+});
+
+
+/* ==========================
+   PREVIEW DOCUMENT
+========================== */
+
+document
+.getElementById("doc")
+.addEventListener("change",function(){
+
+    const file=this.files[0];
+
+    if(!file)return;
+
+    const preview=
+        document.getElementById("docPreview");
+
+    preview.src=URL.createObjectURL(file);
+
+    preview.style.display="block";
+
+});
+
+
+/* ==========================
+   CREATE UNIQUE CODE
+========================== */
+
+function createCode(){
+
+    let code;
+
+    do{
+
+        code =
+            Math.floor(
+                100000 +
+                Math.random()*900000
+            ).toString();
+
+    }while(
+        localStorage.getItem("user_"+code)
+    );
+
+    return code;
+
+}
+
+
+/* ==========================
+   REGISTER
+========================== */
+
+document
+.getElementById("registrationForm")
+.addEventListener("submit",async function(e){
+
+    e.preventDefault();
+
+
+    const photoFile =
+        document.getElementById("photo").files[0];
+
+    const docFile =
+        document.getElementById("doc").files[0];
+
+
+    const photo =
+        await imageToBase64(photoFile);
+
+    const doc =
+        await imageToBase64(docFile);
+
+
+    createdCode=createCode();
+
+
+    const user={
+
+        name:
+        document.getElementById("name").value.trim(),
+
+        gender:
+        document.getElementById("gender").value,
+
+        age:
+        document.getElementById("age").value,
+
+        dob:
+        document.getElementById("dob").value,
+
+        elmis:
+        document.getElementById("elmis").value.trim(),
+
+        passport:
+        document.getElementById("passport").value.trim(),
+
+        phone:
+        document.getElementById("phone").value.trim(),
+
+        birth:
+        document.getElementById("birth").value.trim(),
+
+        visa:
+        document.getElementById("visa").value,
+
+        country:
+        document.getElementById("country").value.trim(),
+
+        photo:photo,
+
+        doc:doc,
+
+        createdAt:
+        new Date().toISOString()
+
+    };
+
+
+    /*
+       SAVE USER
+    */
+
+    localStorage.setItem(
+        "user_"+createdCode,
+        JSON.stringify(user)
+    );
+
+
+    /*
+       SAVE CURRENT CODE
+    */
+
+    localStorage.setItem(
+        "vcode",
+        createdCode
+    );
+
+
+    document
+    .getElementById("generatedCode")
+    .textContent=createdCode;
+
+
+    document
+    .getElementById("result")
+    .style.display="block";
+
+
+    document
+    .getElementById("registrationForm")
+    .style.display="none";
+
+});
+
+
+/* ==========================
+   VIEW PROFILE
+========================== */
+
+function goToProfile(){
+
+    window.location.href="personal.html";
+
+}
+
+</script>
+
+</body>
+</html>
