@@ -1,318 +1,78 @@
-<!DOCTYPE html>
-<html lang="am">
+<!DOCTYPE html><html lang="am"><head><meta charset="UTF-8"><meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<head>
+<meta name="description"
+content="Foreign Country Registration Form">
 
-<meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<title>Foreign Registration Form</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
 
-<title>Registration Form</title>
-
-<style>
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:#f1f5f9;
-    padding:20px 12px;
-}
 
-.container{
-    width:100%;
-    max-width:700px;
-    margin:auto;
-}
+    min-height:100vh;
 
-/* ================= HEADER ================= */
-
-.header{
-    background:linear-gradient(
-        135deg,
-        #075985,
-        #0ea5e9
-    );
-
-    color:white;
-
-    padding:25px 20px;
-
-    border-radius:20px 20px 0 0;
-
-    text-align:center;
-}
-
-.header h1{
-    font-size:28px;
-    margin-bottom:7px;
-}
-
-.header p{
-    line-height:1.6;
-}
-
-/* ================= FORM ================= */
-
-.form{
-    background:white;
-
-    padding:22px;
-
-    border-radius:0 0 20px 20px;
-
-    box-shadow:
-        0 10px 30px
-        rgba(0,0,0,.08);
-}
-
-.group{
-    margin-bottom:17px;
-}
-
-label{
-    display:block;
-
-    margin-bottom:7px;
-
-    font-weight:bold;
-
-    color:#334155;
-}
-
-input,
-select{
-    width:100%;
-
-    height:48px;
-
-    border:1px solid #cbd5e1;
-
-    border-radius:10px;
-
-    padding:0 12px;
-
-    font-size:15px;
-
-    outline:none;
-}
-
-input:focus,
-select:focus{
-    border-color:#0ea5e9;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(14,165,233,.10);
-}
-
-.grid{
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:15px;
-}
-
-/* ================= CODE ================= */
-
-.codeBox{
-
-    background:#f0f9ff;
-
-    border:1px solid #bae6fd;
-
-    border-radius:12px;
-
-    padding:15px;
-
-    margin-bottom:20px;
-
-    text-align:center;
-}
-
-.codeBox small{
-    display:block;
-
-    color:#64748b;
-
-    margin-bottom:5px;
-}
-
-.codeValue{
-    font-size:26px;
-
-    font-weight:bold;
-
-    letter-spacing:3px;
-
-    color:#075985;
-}
-
-/* ================= BUTTON ================= */
-
-button{
-    width:100%;
-
-    height:52px;
-
-    border:0;
-
-    border-radius:11px;
-
-    background:#075985;
-
-    color:white;
-
-    font-size:17px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    margin-top:8px;
-}
-
-button:hover{
-    background:#0369a1;
-}
-
-button:disabled{
-    opacity:1;
-
-    cursor:not-allowed;
-}
-
-/* ================= PREVIEW ================= */
-
-.preview{
-    display:none;
-
-    margin-top:10px;
-
-    object-fit:cover;
-
-    border-radius:10px;
-
-    border:1px solid #cbd5e1;
-}
-
-#photoPreview{
-    width:120px;
-    height:120px;
-}
-
-#docPreview{
-    width:100%;
-    max-height:220px;
-}
-
-/* ================= ERROR ================= */
-
-.error{
-
-    color:#dc2626;
-
-    background:#fef2f2;
-
-    border:1px solid #fecaca;
-
-    padding:12px;
-
-    border-radius:10px;
-
-    margin-bottom:18px;
-
-    display:none;
-
-    text-align:center;
-
-    font-weight:bold;
-}
-
-/* =====================================================
-   SUCCESS SCREEN
-===================================================== */
-
-#successScreen{
-
-    display:none;
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:9999;
+    font-family:
+        "Noto Sans Ethiopic",
+        "Poppins",
+        Arial,
+        sans-serif;
 
     background:
+        radial-gradient(
+            circle at 10% 10%,
+            #dbeafe 0,
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            #e0f2fe 0,
+            transparent 28%
+        ),
         linear-gradient(
             135deg,
-            #075985,
-            #0ea5e9
+            #f8fafc,
+            #eef6ff
         );
 
-    align-items:center;
+    color:#0f172a;
 
-    justify-content:center;
-
-    padding:20px;
-
-    text-align:center;
+    padding:25px 12px 40px;
 }
 
-.successCard{
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container{
 
     width:100%;
 
-    max-width:500px;
+    max-width:900px;
 
-    background:white;
+    margin:auto;
 
-    border-radius:25px;
-
-    padding:38px 25px;
-
-    box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.25);
-
-    animation:
-        successIn .5s ease;
 }
 
-@keyframes successIn{
 
-    from{
-        opacity:0;
-        transform:scale(.85);
-    }
+/* =========================================================
+   BRAND
+========================================================= */
 
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-
-/* SUCCESS ICON */
-
-.successIcon{
-
-    width:90px;
-
-    height:90px;
-
-    margin:0 auto 20px;
-
-    border-radius:50%;
-
-    background:#dcfce7;
-
-    color:#16a34a;
+.brand{
 
     display:flex;
 
@@ -320,77 +80,888 @@ button:disabled{
 
     justify-content:center;
 
-    font-size:52px;
+    gap:12px;
 
-    font-weight:bold;
+    margin-bottom:17px;
+
 }
 
-.successCard h2{
+.brandIcon{
 
-    color:#15803d;
+    width:48px;
 
-    font-size:26px;
+    height:48px;
 
-    margin-bottom:12px;
-}
+    display:flex;
 
-.successCard p{
+    align-items:center;
 
-    color:#64748b;
-
-    line-height:1.7;
-
-    margin-bottom:20px;
-}
-
-.successCode{
-
-    background:#f0f9ff;
-
-    border:2px solid #bae6fd;
+    justify-content:center;
 
     border-radius:15px;
 
-    padding:16px;
+    background:
+        linear-gradient(
+            135deg,
+            #075985,
+            #0284c7
+        );
 
-    margin-bottom:20px;
+    color:white;
+
+    font-size:22px;
+
+    box-shadow:
+        0 10px 25px
+        rgba(7,89,133,.22);
+
 }
 
-.successCode small{
+.brandText{
 
-    display:block;
+    font-family:"Poppins",sans-serif;
+
+    color:#075985;
+
+    font-size:17px;
+
+    font-weight:800;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:190px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:35px 22px;
+
+    color:white;
+
+    border-radius:
+        28px 28px 0 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #042f4b,
+            #075985 45%,
+            #0284c7 75%,
+            #0ea5e9
+        );
+
+    box-shadow:
+        0 18px 50px
+        rgba(15,23,42,.15);
+
+}
+
+.header::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
+
+    right:-110px;
+
+    top:-170px;
+
+    border-radius:50%;
+
+    border:
+        45px solid
+        rgba(255,255,255,.07);
+
+}
+
+.header::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    left:-120px;
+
+    bottom:-150px;
+
+    border-radius:50%;
+
+    border:
+        35px solid
+        rgba(255,255,255,.06);
+
+}
+
+.headerContent{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:650px;
+
+}
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding:7px 14px;
+
+    border-radius:999px;
+
+    background:
+        rgba(255,255,255,.13);
+
+    border:
+        1px solid
+        rgba(255,255,255,.23);
+
+    backdrop-filter:blur(8px);
+
+    font-family:"Poppins",sans-serif;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    letter-spacing:.7px;
+
+    text-transform:uppercase;
+
+    margin-bottom:14px;
+
+}
+
+.header h1{
+
+    font-size:30px;
+
+    line-height:1.4;
+
+    font-weight:800;
+
+    margin-bottom:9px;
+
+}
+
+.header p{
+
+    font-size:13px;
+
+    line-height:1.9;
+
+    opacity:.92;
+
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progressArea{
+
+    background:white;
+
+    padding:
+        18px 25px 20px;
+
+    border-left:
+        1px solid #e2e8f0;
+
+    border-right:
+        1px solid #e2e8f0;
+
+}
+
+.progressTop{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:9px;
+
+    font-family:"Poppins",sans-serif;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    color:#64748b;
+
+}
+
+#progressText{
+
+    color:#075985;
+
+}
+
+.progressBar{
+
+    width:100%;
+
+    height:9px;
+
+    background:#e2e8f0;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+}
+
+.progressFill{
+
+    width:10%;
+
+    height:100%;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #075985,
+            #0284c7,
+            #38bdf8
+        );
+
+    transition:
+        width .4s ease;
+
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form{
+
+    background:white;
+
+    padding:28px;
+
+    border-radius:
+        0 0 28px 28px;
+
+    box-shadow:
+        0 20px 55px
+        rgba(15,23,42,.10);
+
+}
+
+
+/* =========================================================
+   CODE BOX
+========================================================= */
+
+.codeBox{
+
+    position:relative;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    padding:20px;
+
+    margin-bottom:26px;
+
+    border-radius:17px;
+
+    border:
+        1px solid #bae6fd;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0f9ff,
+            #eff6ff
+        );
+
+}
+
+.codeLabel{
+
+    font-family:"Poppins",sans-serif;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
 
     color:#64748b;
 
     margin-bottom:7px;
+
 }
 
-.successCode strong{
+.codeValue{
+
+    font-family:"Poppins",sans-serif;
+
+    font-size:27px;
+
+    font-weight:800;
+
+    letter-spacing:4px;
 
     color:#075985;
 
-    font-size:34px;
-
-    letter-spacing:4px;
 }
 
-.profileBtn{
 
-    background:#075985;
+/* =========================================================
+   ERROR
+========================================================= */
 
-    margin-top:0;
+.error{
+
+    display:none;
+
+    padding:14px 16px;
+
+    margin-bottom:20px;
+
+    border-radius:13px;
+
+    border:1px solid #fecaca;
+
+    background:#fef2f2;
+
+    color:#b91c1c;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    line-height:1.6;
+
+    text-align:center;
+
 }
 
-.homeBtn{
 
-    background:#e2e8f0;
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+
+    margin-bottom:31px;
+
+}
+
+.sectionHeader{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:18px;
+
+    padding-bottom:13px;
+
+    border-bottom:
+        1px solid #e2e8f0;
+
+}
+
+.sectionNumber{
+
+    width:37px;
+
+    height:37px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e0f2fe,
+            #dbeafe
+        );
+
+    color:#075985;
+
+    font-family:"Poppins",sans-serif;
+
+    font-size:11px;
+
+    font-weight:800;
+
+}
+
+.sectionTitle{
+
+    font-family:"Poppins",sans-serif;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    color:#0f172a;
+
+}
+
+.sectionSubtitle{
+
+    margin-top:2px;
+
+    color:#94a3b8;
+
+    font-size:10px;
+
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:
+        0 16px;
+
+}
+
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
+.group{
+
+    margin-bottom:17px;
+
+}
+
+label{
+
+    display:block;
+
+    margin-bottom:7px;
 
     color:#334155;
 
-    margin-top:10px;
+    font-family:
+        "Poppins",
+        "Noto Sans Ethiopic",
+        sans-serif;
+
+    font-size:11px;
+
+    font-weight:700;
+
 }
 
-/* ================= LOADING ================= */
+.required{
+
+    color:#ef4444;
+
+    margin-left:2px;
+
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+input,
+select{
+
+    width:100%;
+
+    height:50px;
+
+    padding:0 14px;
+
+    border:
+        1px solid #cbd5e1;
+
+    border-radius:12px;
+
+    outline:none;
+
+    background:#fff;
+
+    color:#0f172a;
+
+    font-family:
+        "Noto Sans Ethiopic",
+        "Poppins",
+        Arial,
+        sans-serif;
+
+    font-size:13px;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        transform .2s ease;
+
+}
+
+input::placeholder{
+
+    color:#a1acba;
+
+}
+
+input:hover,
+select:hover{
+
+    border-color:#94a3b8;
+
+}
+
+input:focus,
+select:focus{
+
+    border-color:#0ea5e9;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(14,165,233,.10);
+
+    transform:
+        translateY(-1px);
+
+}
+
+select{
+
+    cursor:pointer;
+
+}
+
+
+/* =========================================================
+   FILE UPLOAD
+========================================================= */
+
+.uploadBox{
+
+    padding:16px;
+
+    border:
+        2px dashed #cbd5e1;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #f0f9ff
+        );
+
+    transition:.25s ease;
+
+}
+
+.uploadBox:hover{
+
+    border-color:#38bdf8;
+
+    background:#f0f9ff;
+
+}
+
+.uploadBox input[type="file"]{
+
+    height:auto;
+
+    padding:0;
+
+    border:0;
+
+    background:transparent;
+
+    box-shadow:none;
+
+    cursor:pointer;
+
+}
+
+.uploadBox input[type="file"]:focus{
+
+    transform:none;
+
+    box-shadow:none;
+
+}
+
+.help{
+
+    margin-top:8px;
+
+    font-size:9px;
+
+    color:#94a3b8;
+
+}
+
+
+/* =========================================================
+   PREVIEW
+========================================================= */
+
+.preview{
+
+    display:none;
+
+    object-fit:cover;
+
+    margin-top:13px;
+
+    border:
+        1px solid #cbd5e1;
+
+    border-radius:13px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(15,23,42,.08);
+
+}
+
+#photoPreview{
+
+    width:125px;
+
+    height:125px;
+
+}
+
+#docPreview{
+
+    width:100%;
+
+    max-height:220px;
+
+}
+
+
+/* =========================================================
+   AGREEMENT
+========================================================= */
+
+.agreement{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:11px;
+
+    padding:16px;
+
+    margin:
+        4px 0 22px;
+
+    border:
+        1px solid #e2e8f0;
+
+    border-radius:14px;
+
+    background:#f8fafc;
+
+}
+
+.agreement input[type="checkbox"]{
+
+    width:18px;
+
+    height:18px;
+
+    flex-shrink:0;
+
+    margin-top:2px;
+
+    cursor:pointer;
+
+    accent-color:#075985;
+
+}
+
+.agreement label{
+
+    margin:0;
+
+    font-size:10px;
+
+    font-weight:500;
+
+    line-height:1.8;
+
+    color:#64748b;
+
+    cursor:pointer;
+
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.actions{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 2fr;
+
+    gap:12px;
+
+}
+
+button{
+
+    width:100%;
+
+    height:53px;
+
+    border:0;
+
+    border-radius:13px;
+
+    font-family:
+        "Poppins",
+        "Noto Sans Ethiopic",
+        sans-serif;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+
+}
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+.clearBtn{
+
+    color:#475569;
+
+    background:#f1f5f9;
+
+    border:
+        1px solid #e2e8f0;
+
+}
+
+.clearBtn:hover{
+
+    background:#e2e8f0;
+
+}
+
+.registerBtn{
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #075985,
+            #0284c7,
+            #0ea5e9
+        );
+
+    box-shadow:
+        0 9px 22px
+        rgba(7,89,133,.22);
+
+}
+
+.registerBtn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 14px 30px
+        rgba(7,89,133,.28);
+
+}
+
+button:disabled{
+
+    cursor:not-allowed;
+
+    opacity:.75;
+
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
 
 .loadingBox{
 
@@ -400,16 +971,18 @@ button:disabled{
 
     justify-content:center;
 
-    gap:12px;
+    gap:10px;
+
 }
 
 .spinner{
 
-    width:24px;
+    width:22px;
 
-    height:24px;
+    height:22px;
 
-    border:3px solid
+    border:
+        3px solid
         rgba(255,255,255,.35);
 
     border-top-color:white;
@@ -417,7 +990,8 @@ button:disabled{
     border-radius:50%;
 
     animation:
-        spin .8s linear infinite;
+        spin .75s linear infinite;
+
 }
 
 @keyframes spin{
@@ -425,120 +999,622 @@ button:disabled{
     to{
         transform:rotate(360deg);
     }
+
 }
 
-/* ================= MOBILE ================= */
 
-@media(max-width:600px){
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    padding:
+        20px 5px 4px;
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    font-family:"Poppins",sans-serif;
+
+    font-size:9px;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   SUCCESS SCREEN
+========================================================= */
+
+#successScreen{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:99999;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:16px;
+
+    overflow:auto;
+
+    background:
+        linear-gradient(
+            135deg,
+            #042f4b,
+            #075985 50%,
+            #0ea5e9
+        );
+
+}
+
+.successCard{
+
+    width:100%;
+
+    max-width:520px;
+
+    padding:
+        38px 26px 28px;
+
+    text-align:center;
+
+    background:white;
+
+    border-radius:27px;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.30);
+
+    animation:
+        successIn .5s ease;
+
+}
+
+@keyframes successIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(25px)
+            scale(.92);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+.successIcon{
+
+    width:92px;
+
+    height:92px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:
+        0 auto 20px;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dcfce7,
+            #bbf7d0
+        );
+
+    color:#16a34a;
+
+    font-size:49px;
+
+    font-weight:800;
+
+    box-shadow:
+        0 12px 30px
+        rgba(22,163,74,.16);
+
+}
+
+.successCard h2{
+
+    margin-bottom:10px;
+
+    color:#15803d;
+
+    font-size:25px;
+
+    font-weight:800;
+
+    line-height:1.5;
+
+}
+
+.successCard p{
+
+    margin-bottom:21px;
+
+    color:#64748b;
+
+    font-size:12px;
+
+    line-height:1.9;
+
+}
+
+.successCode{
+
+    padding:17px;
+
+    margin-bottom:18px;
+
+    border:
+        2px solid #bae6fd;
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0f9ff,
+            #eff6ff
+        );
+
+}
+
+.successCode small{
+
+    display:block;
+
+    margin-bottom:7px;
+
+    color:#64748b;
+
+    font-family:"Poppins",sans-serif;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    letter-spacing:.7px;
+
+    text-transform:uppercase;
+
+}
+
+.successCode strong{
+
+    color:#075985;
+
+    font-family:"Poppins",sans-serif;
+
+    font-size:31px;
+
+    font-weight:800;
+
+    letter-spacing:4px;
+
+}
+
+.profileBtn{
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #075985,
+            #0284c7
+        );
+
+    box-shadow:
+        0 9px 22px
+        rgba(7,89,133,.20);
+
+}
+
+.profileBtn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.homeBtn{
+
+    margin-top:10px;
+
+    color:#334155;
+
+    background:#f1f5f9;
+
+    border:
+        1px solid #e2e8f0;
+
+}
+
+.homeBtn:hover{
+
+    background:#e2e8f0;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:650px){
 
     body{
-        padding:10px;
+
+        padding:
+            12px 7px 25px;
+
     }
 
-    .grid{
-        grid-template-columns:1fr;
-        gap:0;
+    .brand{
+
+        margin-bottom:11px;
+
     }
 
-    .form{
-        padding:18px;
+    .brandIcon{
+
+        width:42px;
+
+        height:42px;
+
+        font-size:19px;
+
+    }
+
+    .brandText{
+
+        font-size:14px;
+
+    }
+
+    .header{
+
+        min-height:175px;
+
+        padding:
+            27px 15px;
+
+        border-radius:
+            20px 20px 0 0;
+
     }
 
     .header h1{
-        font-size:25px;
+
+        font-size:23px;
+
+    }
+
+    .header p{
+
+        font-size:11px;
+
+    }
+
+    .progressArea{
+
+        padding:
+            16px;
+
+    }
+
+    .form{
+
+        padding:
+            19px 15px;
+
+        border-radius:
+            0 0 20px 20px;
+
+    }
+
+    .grid{
+
+        grid-template-columns:1fr;
+
+        gap:0;
+
+    }
+
+    .actions{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .clearBtn{
+
+        order:2;
+
+    }
+
+    .registerBtn{
+
+        order:1;
+
+    }
+
+    .sectionTitle{
+
+        font-size:14px;
+
+    }
+
+    input,
+    select{
+
+        height:48px;
+
+    }
+
+    .codeValue{
+
+        font-size:22px;
+
     }
 
     .successCard{
-        padding:32px 20px;
+
+        padding:
+            30px 18px 24px;
+
+        border-radius:22px;
+
+    }
+
+    .successIcon{
+
+        width:78px;
+
+        height:78px;
+
+        font-size:42px;
+
     }
 
     .successCard h2{
-        font-size:23px;
+
+        font-size:21px;
+
     }
 
     .successCode strong{
-        font-size:30px;
+
+        font-size:25px;
+
     }
 
 }
 
-</style>
 
-</head>
+/* =========================================================
+   SMALL PHONES
+========================================================= */
 
-<body>
+@media(max-width:380px){
+
+    .header h1{
+
+        font-size:20px;
+
+    }
+
+    .header p{
+
+        font-size:10px;
+
+    }
+
+    .form{
+
+        padding:
+            17px 12px;
+
+    }
+
+    input,
+    select{
+
+        height:46px;
+
+        font-size:12px;
+
+    }
+
+    button{
+
+        height:50px;
+
+        font-size:12px;
+
+    }
+
+}
+
+</style></head><body><div class="container"><!-- =====================================================
+     BRAND
+====================================================== -->
+
+<div class="brand">
+
+    <div class="brandIcon">
+        ✈
+    </div>
+
+    <div class="brandText">
+        Foreign Registration System
+    </div>
+
+</div>
 
 
-<div class="container">
+<!-- =====================================================
+     HEADER
+====================================================== -->
 
-    <!-- HEADER -->
+<div class="header">
 
-    <div class="header">
+    <div class="headerContent">
+
+        <div class="badge">
+            ● Registration Portal
+        </div>
 
         <h1>
-            Registration Form
+            የውጭ ሀገር መመዝገቢያ
         </h1>
 
         <p>
-            የተጠቃሚ መረጃ መመዝገቢያ
+            ለውጭ ሀገር ሥራ፣ ጉዞ እና
+            የቪዛ ሂደት የመጀመሪያ
+            መረጃ መመዝገቢያ
         </p>
 
     </div>
 
-
-    <!-- FORM -->
-
-    <div class="form">
+</div>
 
 
-        <!-- CODE -->
+<!-- =====================================================
+     PROGRESS
+====================================================== -->
 
-        <div class="codeBox">
+<div class="progressArea">
 
-            <small>
-                Registration Code
-            </small>
+    <div class="progressTop">
 
-            <div
-                class="codeValue"
-                id="registrationCode"
-            >
-                Loading...
-            </div>
+        <span>
+            Registration Progress
+        </span>
 
-        </div>
+        <span id="progressText">
+            5%
+        </span>
 
+    </div>
 
-        <!-- ERROR -->
+    <div class="progressBar">
 
         <div
-            class="error"
-            id="errorBox"
-        ></div>
+            class="progressFill"
+            id="progressFill">
+        </div>
+
+    </div>
+
+</div>
 
 
-        <form id="registrationForm">
+<!-- =====================================================
+     FORM
+====================================================== -->
+
+<div class="form">
 
 
-            <!-- NAME -->
+    <!-- REGISTRATION CODE -->
+
+    <div class="codeBox">
+
+        <div class="codeLabel">
+            Registration Code
+        </div>
+
+        <div
+            class="codeValue"
+            id="registrationCode">
+            Loading...
+        </div>
+
+    </div>
+
+
+    <!-- ERROR -->
+
+    <div
+        class="error"
+        id="errorBox">
+    </div>
+
+
+    <form id="registrationForm">
+
+
+        <!-- =================================================
+             PERSONAL INFORMATION
+        ================================================= -->
+
+        <div class="section">
+
+            <div class="sectionHeader">
+
+                <div class="sectionNumber">
+                    01
+                </div>
+
+                <div>
+
+                    <div class="sectionTitle">
+                        Personal Information
+                    </div>
+
+                    <div class="sectionSubtitle">
+                        የግል መረጃ
+                    </div>
+
+                </div>
+
+            </div>
+
 
             <div class="group">
 
                 <label>
                     Full Name
+                    <span class="required">*</span>
                 </label>
 
                 <input
                     id="name"
                     type="text"
                     required
-                    placeholder="ሙሉ ስም"
-                >
+                    autocomplete="name"
+                    placeholder="ሙሉ ስም ያስገቡ">
 
             </div>
 
-
-            <!-- GENDER / AGE -->
 
             <div class="grid">
 
@@ -546,23 +1622,23 @@ button:disabled{
 
                     <label>
                         Gender
+                        <span class="required">*</span>
                     </label>
 
                     <select
                         id="gender"
-                        required
-                    >
+                        required>
 
                         <option value="">
-                            Select
+                            Select Gender
                         </option>
 
                         <option value="ወንድ">
-                            ወንድ
+                            ወንድ / Male
                         </option>
 
                         <option value="ሴት">
-                            ሴት
+                            ሴት / Female
                         </option>
 
                     </select>
@@ -574,6 +1650,7 @@ button:disabled{
 
                     <label>
                         Age
+                        <span class="required">*</span>
                     </label>
 
                     <input
@@ -582,33 +1659,170 @@ button:disabled{
                         min="1"
                         max="120"
                         required
-                    >
+                        placeholder="ዕድሜ">
 
                 </div>
 
             </div>
 
 
-            <!-- DOB -->
+            <div class="grid">
 
-            <div class="group">
+                <div class="group">
 
-                <label>
-                    Date of Birth
-                </label>
+                    <label>
+                        Date of Birth
+                        <span class="required">*</span>
+                    </label>
 
-                <input
-                    id="dob"
-                    type="date"
-                    required
-                >
+                    <input
+                        id="dob"
+                        type="date"
+                        required>
+
+                </div>
+
+
+                <div class="group">
+
+                    <label>
+                        Birth Country
+                    </label>
+
+                    <input
+                        id="birth"
+                        value="ኢትዮጵያ"
+                        placeholder="የትውልድ ሀገር">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CONTACT INFORMATION
+        ================================================= -->
+
+        <div class="section">
+
+            <div class="sectionHeader">
+
+                <div class="sectionNumber">
+                    02
+                </div>
+
+                <div>
+
+                    <div class="sectionTitle">
+                        Contact Information
+                    </div>
+
+                    <div class="sectionSubtitle">
+                        የመገናኛ መረጃ
+                    </div>
+
+                </div>
 
             </div>
 
 
-            <!-- ELMIS / PASSPORT -->
+            <div class="grid">
+
+                <div class="group">
+
+                    <label>
+                        Phone Number
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        id="phone"
+                        type="tel"
+                        required
+                        autocomplete="tel"
+                        placeholder="+251 9XXXXXXXX">
+
+                </div>
+
+
+                <div class="group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        id="email"
+                        type="email"
+                        autocomplete="email"
+                        placeholder="example@email.com">
+
+                </div>
+
+            </div>
+
+
+            <div class="group">
+
+                <label>
+                    Address
+                </label>
+
+                <input
+                    id="address"
+                    placeholder="ከተማ / ክልል">
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PASSPORT
+        ================================================= -->
+
+        <div class="section">
+
+            <div class="sectionHeader">
+
+                <div class="sectionNumber">
+                    03
+                </div>
+
+                <div>
+
+                    <div class="sectionTitle">
+                        Passport & Identification
+                    </div>
+
+                    <div class="sectionSubtitle">
+                        ፓስፖርት እና መለያ መረጃ
+                    </div>
+
+                </div>
+
+            </div>
+
 
             <div class="grid">
+
+                <div class="group">
+
+                    <label>
+                        Passport Number
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        id="passport"
+                        required
+                        autocomplete="off"
+                        placeholder="Passport Number">
+
+                </div>
+
 
                 <div class="group">
 
@@ -618,8 +1832,25 @@ button:disabled{
 
                     <input
                         id="elmis"
-                        placeholder="ELMIS-XXXXXX"
-                    >
+                        autocomplete="off"
+                        placeholder="ELMIS-XXXXXX">
+
+                </div>
+
+            </div>
+
+
+            <div class="grid">
+
+                <div class="group">
+
+                    <label>
+                        Passport Issue Date
+                    </label>
+
+                    <input
+                        id="passportIssue"
+                        type="date">
 
                 </div>
 
@@ -627,55 +1858,175 @@ button:disabled{
                 <div class="group">
 
                     <label>
-                        Passport Number
+                        Passport Expiry Date
                     </label>
 
                     <input
-                        id="passport"
-                        placeholder="Passport Number"
-                    >
+                        id="passportExpiry"
+                        type="date">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             EMPLOYMENT
+        ================================================= -->
+
+        <div class="section">
+
+            <div class="sectionHeader">
+
+                <div class="sectionNumber">
+                    04
+                </div>
+
+                <div>
+
+                    <div class="sectionTitle">
+                        Employment Information
+                    </div>
+
+                    <div class="sectionSubtitle">
+                        የሥራ መረጃ
+                    </div>
 
                 </div>
 
             </div>
 
 
-            <!-- PHONE -->
+            <div class="grid">
 
-            <div class="group">
+                <div class="group">
 
-                <label>
-                    Phone
-                </label>
+                    <label>
+                        Job / Profession
+                    </label>
 
-                <input
-                    id="phone"
-                    type="tel"
-                    placeholder="Phone Number"
-                >
+                    <input
+                        id="job"
+                        placeholder="ለምሳሌ Waiter">
+
+                </div>
+
+
+                <div class="group">
+
+                    <label>
+                        Experience
+                    </label>
+
+                    <select id="experience">
+
+                        <option value="">
+                            Select Experience
+                        </option>
+
+                        <option value="No Experience">
+                            No Experience
+                        </option>
+
+                        <option value="1-2 Years">
+                            1–2 Years
+                        </option>
+
+                        <option value="3-5 Years">
+                            3–5 Years
+                        </option>
+
+                        <option value="5+ Years">
+                            5+ Years
+                        </option>
+
+                    </select>
+
+                </div>
 
             </div>
 
+        </div>
 
-            <!-- BIRTH -->
 
-            <div class="group">
+        <!-- =================================================
+             DESTINATION
+        ================================================= -->
 
-                <label>
-                    Birth Country
-                </label>
+        <div class="section">
 
-                <input
-                    id="birth"
-                    value="ኢትዮጵያ"
-                >
+            <div class="sectionHeader">
+
+                <div class="sectionNumber">
+                    05
+                </div>
+
+                <div>
+
+                    <div class="sectionTitle">
+                        Destination & Visa
+                    </div>
+
+                    <div class="sectionSubtitle">
+                        የመድረሻ ሀገር እና ቪዛ
+                    </div>
+
+                </div>
 
             </div>
 
-
-            <!-- VISA / COUNTRY -->
 
             <div class="grid">
+
+                <div class="group">
+
+                    <label>
+                        Destination Country
+                        <span class="required">*</span>
+                    </label>
+
+                    <select
+                        id="country"
+                        required>
+
+                        <option value="">
+                            Select Country
+                        </option>
+
+                        <option value="Canada">
+                            🇨🇦 Canada
+                        </option>
+
+                        <option value="Saudi Arabia">
+                            🇸🇦 Saudi Arabia
+                        </option>
+
+                        <option value="Kuwait">
+                            🇰🇼 Kuwait
+                        </option>
+
+                        <option value="United Arab Emirates">
+                            🇦🇪 United Arab Emirates
+                        </option>
+
+                        <option value="Qatar">
+                            🇶🇦 Qatar
+                        </option>
+
+                        <option value="Oman">
+                            🇴🇲 Oman
+                        </option>
+
+                        <option value="Other">
+                            Other Country
+                        </option>
+
+                    </select>
+
+                </div>
+
 
                 <div class="group">
 
@@ -689,23 +2040,44 @@ button:disabled{
                             Select Visa
                         </option>
 
-                        <option value="ስራ ቪዛ">
-                            ስራ ቪዛ
+                        <option value="Work Visa">
+                            የሥራ ቪዛ
                         </option>
 
-                        <option value="የቱሪስት ቪዛ">
+                        <option value="Tourist Visa">
                             የቱሪስት ቪዛ
                         </option>
 
-                        <option value="የቤተሰብ ቪዛ">
+                        <option value="Family Visa">
                             የቤተሰብ ቪዛ
                         </option>
 
-                        <option value="የተማሪ ቪዛ">
+                        <option value="Student Visa">
                             የተማሪ ቪዛ
                         </option>
 
+                        <option value="Business Visa">
+                            የንግድ ቪዛ
+                        </option>
+
                     </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="grid">
+
+                <div class="group">
+
+                    <label>
+                        Preferred Departure
+                    </label>
+
+                    <input
+                        id="departure"
+                        type="date">
 
                 </div>
 
@@ -713,148 +2085,237 @@ button:disabled{
                 <div class="group">
 
                     <label>
-                        Destination
+                        Preferred Job
                     </label>
 
                     <input
-                        id="country"
-                        placeholder="ለምሳሌ ካናዳ 🇨🇦"
-                    >
+                        id="preferredJob"
+                        placeholder="የሚፈልጉት የሥራ ዘርፍ">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PHOTOS
+        ================================================= -->
+
+        <div class="section">
+
+            <div class="sectionHeader">
+
+                <div class="sectionNumber">
+                    06
+                </div>
+
+                <div>
+
+                    <div class="sectionTitle">
+                        Photos & Documents
+                    </div>
+
+                    <div class="sectionSubtitle">
+                        ፎቶ እና ሰነዶች
+                    </div>
 
                 </div>
 
             </div>
 
 
-            <!-- PROFILE PHOTO -->
+            <div class="grid">
 
-            <div class="group">
 
-                <label>
-                    Profile Photo
-                </label>
+                <div class="group">
 
-                <input
-                    id="photo"
-                    type="file"
-                    accept="image/*"
-                >
+                    <label>
+                        Profile Photo
+                    </label>
 
-                <img
-                    id="photoPreview"
-                    class="preview"
-                    alt="Profile Preview"
-                >
+                    <div class="uploadBox">
+
+                        <input
+                            id="photo"
+                            type="file"
+                            accept="image/jpeg,image/png,image/webp">
+
+                        <div class="help">
+                            JPG / PNG / WEBP
+                        </div>
+
+                        <img
+                            id="photoPreview"
+                            class="preview"
+                            alt="Profile Preview">
+
+                    </div>
+
+                </div>
+
+
+                <div class="group">
+
+                    <label>
+                        Passport / Document
+                    </label>
+
+                    <div class="uploadBox">
+
+                        <input
+                            id="doc"
+                            type="file"
+                            accept="image/jpeg,image/png,image/webp">
+
+                        <div class="help">
+                            Passport or document image
+                        </div>
+
+                        <img
+                            id="docPreview"
+                            class="preview"
+                            alt="Document Preview">
+
+                    </div>
+
+                </div>
 
             </div>
 
-
-            <!-- DOCUMENT -->
-
-            <div class="group">
-
-                <label>
-                    Document Photo
-                </label>
-
-                <input
-                    id="doc"
-                    type="file"
-                    accept="image/*"
-                >
-
-                <img
-                    id="docPreview"
-                    class="preview"
-                    alt="Document Preview"
-                >
-
-            </div>
+        </div>
 
 
-            <!-- REGISTER BUTTON -->
+        <!-- =================================================
+             AGREEMENT
+        ================================================= -->
+
+        <div class="agreement">
+
+            <input
+                id="agreement"
+                type="checkbox"
+                required>
+
+            <label for="agreement">
+
+                ያስገባሁት መረጃ ትክክለኛ
+                መሆኑን አረጋግጣለሁ።
+                የተሳሳተ መረጃ ካለ ለሚከሰተው
+                ችግር እኔ ኃላፊ ነኝ።
+
+            </label>
+
+        </div>
+
+
+        <!-- =================================================
+             BUTTONS
+        ================================================= -->
+
+        <div class="actions">
 
             <button
-                id="registerBtn"
-                type="submit"
-            >
-                Register
+                class="clearBtn"
+                type="button"
+                onclick="clearForm()">
+
+                Clear Form
+
             </button>
 
 
-        </form>
+            <button
+                class="registerBtn"
+                id="registerBtn"
+                type="submit">
+
+                Register Application
+
+            </button>
+
+        </div>
+
+
+    </form>
+
+
+    <div class="footer">
+
+        Foreign Registration System
+
+        <br>
+
+        DEMO / TESTING INTERFACE —
+        NOT AN OFFICIAL GOVERNMENT WEBSITE
 
     </div>
 
+
 </div>
 
-
-<!-- =====================================================
+</div><!-- =========================================================
      SUCCESS SCREEN
-===================================================== -->
+========================================================= --><div id="successScreen"><div class="successCard">
 
-<div id="successScreen">
+    <div class="successIcon">
+        ✓
+    </div>
 
-    <div class="successCard">
+    <h2>
+        ምዝገባዎ ተሳክቷል!
+    </h2>
 
-        <div class="successIcon">
-            ✓
-        </div>
+    <p>
 
+        Registration Successful
 
-        <h2>
-            ምዝገባዎ በተሳካ ሁኔታ
-            ተሳክቷል!
-        </h2>
+        <br>
 
+        የሰጡት መረጃ በዚህ መሳሪያ
+        ላይ ተመዝግቧል።
 
-        <p>
-            Registration Successful
-            <br>
-            መረጃዎ በትክክል ተመዝግቧል።
-        </p>
+    </p>
 
 
-        <div class="successCode">
+    <div class="successCode">
 
-            <small>
-                Your Registration Code
-            </small>
+        <small>
+            Your Registration Code
+        </small>
 
-            <strong
-                id="successCode"
-            ></strong>
-
-        </div>
-
-
-        <button
-            class="profileBtn"
-            type="button"
-            onclick="goToProfile()"
-        >
-            View Personal Information
-        </button>
-
-
-        <button
-            class="homeBtn"
-            type="button"
-            onclick="goHome()"
-        >
-            Back to Code Verification
-        </button>
+        <strong id="successCode"></strong>
 
     </div>
 
+
+    <button
+        class="profileBtn"
+        type="button"
+        onclick="goToProfile()">
+
+        View Personal Information
+
+    </button>
+
+
+    <button
+        class="homeBtn"
+        type="button"
+        onclick="goHome()">
+
+        Back to Code Verification
+
+    </button>
+
 </div>
 
+</div><script>
 
-<script>
-
-/* =====================================================
+/* =========================================================
    GET REGISTRATION CODE
-===================================================== */
+========================================================= */
 
 const registrationCode =
     localStorage.getItem("vcode");
@@ -869,6 +2330,11 @@ const errorBox =
         "errorBox"
     );
 
+const registrationForm =
+    document.getElementById(
+        "registrationForm"
+    );
+
 
 if(!registrationCode){
 
@@ -879,13 +2345,9 @@ if(!registrationCode){
         "block";
 
     errorBox.textContent =
-        "❌ Code አልተገኘም። እባክዎ Index ገጽ ላይ Code ያስገቡ።";
+        "❌ Registration Code አልተገኘም። Index ገጽ ላይ Code ያስገቡ።";
 
-    document
-    .getElementById(
-        "registrationForm"
-    )
-    .style.display =
+    registrationForm.style.display =
         "none";
 
 }else{
@@ -896,9 +2358,9 @@ if(!registrationCode){
 }
 
 
-/* =====================================================
-   IMAGE → BASE64
-===================================================== */
+/* =========================================================
+   IMAGE TO BASE64
+========================================================= */
 
 function imageToBase64(file){
 
@@ -910,6 +2372,7 @@ function imageToBase64(file){
                 resolve("");
 
                 return;
+
             }
 
             const reader =
@@ -937,85 +2400,215 @@ function imageToBase64(file){
 }
 
 
-/* =====================================================
-   PHOTO PREVIEW
-===================================================== */
+/* =========================================================
+   IMAGE PREVIEW
+========================================================= */
 
-document
-.getElementById("photo")
-.addEventListener(
-    "change",
-    function(){
+function setupPreview(
+    inputId,
+    previewId
+){
 
-        const file =
-            this.files[0];
+    const input =
+        document.getElementById(
+            inputId
+        );
 
-        const preview =
-            document.getElementById(
-                "photoPreview"
-            );
+    const preview =
+        document.getElementById(
+            previewId
+        );
 
-        if(!file){
+
+    input.addEventListener(
+        "change",
+        function(){
+
+            const file =
+                this.files[0];
+
+            if(!file){
+
+                preview.style.display =
+                    "none";
+
+                preview.removeAttribute(
+                    "src"
+                );
+
+                return;
+
+            }
+
+
+            if(!file.type.startsWith("image/")){
+
+                this.value = "";
+
+                preview.style.display =
+                    "none";
+
+                showError(
+                    "❌ እባክዎ የምስል ፋይል ብቻ ይምረጡ።"
+                );
+
+                return;
+
+            }
+
+
+            const url =
+                URL.createObjectURL(
+                    file
+                );
+
+            preview.src = url;
 
             preview.style.display =
+                "block";
+
+            errorBox.style.display =
                 "none";
 
-            return;
         }
+    );
 
-        preview.src =
-            URL.createObjectURL(file);
+}
 
-        preview.style.display =
-            "block";
+setupPreview(
+    "photo",
+    "photoPreview"
+);
+
+setupPreview(
+    "doc",
+    "docPreview"
+);
+
+
+/* =========================================================
+   ERROR FUNCTION
+========================================================= */
+
+function showError(message){
+
+    errorBox.style.display =
+        "block";
+
+    errorBox.textContent =
+        message;
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+const progressFill =
+    document.getElementById(
+        "progressFill"
+    );
+
+const progressText =
+    document.getElementById(
+        "progressText"
+    );
+
+
+const progressFields = [
+
+    "name",
+    "gender",
+    "age",
+    "dob",
+    "phone",
+    "passport",
+    "country"
+
+];
+
+
+function updateProgress(){
+
+    let completed = 0;
+
+
+    progressFields.forEach(
+        function(id){
+
+            const field =
+                document.getElementById(
+                    id
+                );
+
+            if(
+                field &&
+                field.value.trim() !== ""
+            ){
+
+                completed++;
+
+            }
+
+        }
+    );
+
+
+    let percent =
+        Math.round(
+            (completed /
+            progressFields.length) * 100
+        );
+
+
+    if(percent < 5){
+
+        percent = 5;
+
+    }
+
+
+    progressFill.style.width =
+        percent + "%";
+
+    progressText.textContent =
+        percent + "%";
+
+}
+
+
+document
+.querySelectorAll(
+    "#registrationForm input, #registrationForm select"
+)
+.forEach(
+    function(field){
+
+        field.addEventListener(
+            "input",
+            updateProgress
+        );
+
+        field.addEventListener(
+            "change",
+            updateProgress
+        );
 
     }
 );
 
 
-/* =====================================================
-   DOCUMENT PREVIEW
-===================================================== */
+/* =========================================================
+   FORM SUBMIT
+========================================================= */
 
-document
-.getElementById("doc")
-.addEventListener(
-    "change",
-    function(){
-
-        const file =
-            this.files[0];
-
-        const preview =
-            document.getElementById(
-                "docPreview"
-            );
-
-        if(!file){
-
-            preview.style.display =
-                "none";
-
-            return;
-        }
-
-        preview.src =
-            URL.createObjectURL(file);
-
-        preview.style.display =
-            "block";
-
-    }
-);
-
-
-/* =====================================================
-   REGISTER
-===================================================== */
-
-document
-.getElementById("registrationForm")
-.addEventListener(
+registrationForm.addEventListener(
     "submit",
     async function(e){
 
@@ -1024,7 +2617,38 @@ document
 
         if(!registrationCode){
 
+            showError(
+                "❌ Registration Code አልተገኘም።"
+            );
+
             return;
+
+        }
+
+
+        if(!registrationForm.checkValidity()){
+
+            registrationForm.reportValidity();
+
+            return;
+
+        }
+
+
+        const agreement =
+            document.getElementById(
+                "agreement"
+            );
+
+
+        if(!agreement.checked){
+
+            showError(
+                "❌ እባክዎ የመረጃውን ትክክለኛነት ያረጋግጡ።"
+            );
+
+            return;
+
         }
 
 
@@ -1034,9 +2658,13 @@ document
             );
 
 
-        /* ==========================
+        errorBox.style.display =
+            "none";
+
+
+        /* ===============================
            LOADING
-        ========================== */
+        =============================== */
 
         registerBtn.disabled =
             true;
@@ -1058,9 +2686,10 @@ document
 
         try{
 
-            /* ==========================
-               GET FILES
-            ========================== */
+
+            /* ===============================
+               FILES
+            =============================== */
 
             const photoFile =
                 document
@@ -1073,9 +2702,9 @@ document
                 .files[0];
 
 
-            /* ==========================
-               CONVERT IMAGES
-            ========================== */
+            /* ===============================
+               BASE64
+            =============================== */
 
             const photo =
                 await imageToBase64(
@@ -1088,9 +2717,9 @@ document
                 );
 
 
-            /* ==========================
-               USER DATA
-            ========================== */
+            /* ===============================
+               USER OBJECT
+            =============================== */
 
             const user = {
 
@@ -1098,66 +2727,67 @@ document
                     registrationCode,
 
                 name:
-                    document
-                    .getElementById("name")
-                    .value
-                    .trim(),
+                    getValue("name"),
 
                 gender:
-                    document
-                    .getElementById("gender")
-                    .value,
+                    getValue("gender"),
 
                 age:
-                    document
-                    .getElementById("age")
-                    .value,
+                    getValue("age"),
 
                 dob:
-                    document
-                    .getElementById("dob")
-                    .value,
-
-                elmis:
-                    document
-                    .getElementById("elmis")
-                    .value
-                    .trim(),
-
-                passport:
-                    document
-                    .getElementById("passport")
-                    .value
-                    .trim(),
-
-                phone:
-                    document
-                    .getElementById("phone")
-                    .value
-                    .trim(),
+                    getValue("dob"),
 
                 birth:
-                    document
-                    .getElementById("birth")
-                    .value
-                    .trim(),
+                    getValue("birth"),
 
-                visa:
-                    document
-                    .getElementById("visa")
-                    .value,
+                phone:
+                    getValue("phone"),
+
+                email:
+                    getValue("email"),
+
+                address:
+                    getValue("address"),
+
+                passport:
+                    getValue("passport"),
+
+                elmis:
+                    getValue("elmis"),
+
+                passportIssue:
+                    getValue("passportIssue"),
+
+                passportExpiry:
+                    getValue("passportExpiry"),
+
+                job:
+                    getValue("job"),
+
+                experience:
+                    getValue("experience"),
 
                 country:
-                    document
-                    .getElementById("country")
-                    .value
-                    .trim(),
+                    getValue("country"),
+
+                visa:
+                    getValue("visa"),
+
+                departure:
+                    getValue("departure"),
+
+                preferredJob:
+                    getValue("preferredJob"),
 
                 photo:
                     photo,
 
                 doc:
                     doc,
+
+                status:
+                    "Registered",
 
                 createdAt:
                     new Date()
@@ -1166,9 +2796,9 @@ document
             };
 
 
-            /* ==========================
-               SAVE USER
-            ========================== */
+            /* ===============================
+               SAVE USER BY CODE
+            =============================== */
 
             localStorage.setItem(
 
@@ -1180,9 +2810,9 @@ document
             );
 
 
-            /* ==========================
+            /* ===============================
                CURRENT USER
-            ========================== */
+            =============================== */
 
             localStorage.setItem(
 
@@ -1193,36 +2823,35 @@ document
             );
 
 
-            /* ==========================
+            /* ===============================
                KEEP CODE
-            ========================== */
+            =============================== */
 
             localStorage.setItem(
-
                 "vcode",
-
                 registrationCode
-
             );
 
 
-            /*
-               Small delay so the user
-               sees the loading animation.
-            */
+            /* ===============================
+               LOADING DELAY
+            =============================== */
 
             await new Promise(
-                resolve =>
+                function(resolve){
+
                     setTimeout(
                         resolve,
                         1800
-                    )
+                    );
+
+                }
             );
 
 
-            /* ==========================
-               SHOW SUCCESS SCREEN
-            ========================== */
+            /* ===============================
+               SUCCESS
+            =============================== */
 
             document
             .getElementById(
@@ -1244,19 +2873,15 @@ document
 
             console.error(error);
 
-
-            errorBox.style.display =
-                "block";
-
-            errorBox.textContent =
-                "❌ Registration failed. Please try again.";
-
+            showError(
+                "❌ Registration failed. Please try again."
+            );
 
             registerBtn.disabled =
                 false;
 
             registerBtn.textContent =
-                "Register";
+                "Register Application";
 
         }
 
@@ -1264,9 +2889,84 @@ document
 );
 
 
-/* =====================================================
-   VIEW PERSONAL INFORMATION
-===================================================== */
+/* =========================================================
+   GET VALUE
+========================================================= */
+
+function getValue(id){
+
+    const element =
+        document.getElementById(id);
+
+    if(!element){
+
+        return "";
+
+    }
+
+    return element.value.trim();
+
+}
+
+
+/* =========================================================
+   CLEAR FORM
+========================================================= */
+
+function clearForm(){
+
+    const confirmed =
+        confirm(
+            "Are you sure you want to clear the form?"
+        );
+
+
+    if(!confirmed){
+
+        return;
+
+    }
+
+
+    registrationForm.reset();
+
+
+    document
+    .getElementById(
+        "birth"
+    )
+    .value =
+        "ኢትዮጵያ";
+
+
+    document
+    .getElementById(
+        "photoPreview"
+    )
+    .style.display =
+        "none";
+
+
+    document
+    .getElementById(
+        "docPreview"
+    )
+    .style.display =
+        "none";
+
+
+    errorBox.style.display =
+        "none";
+
+
+    updateProgress();
+
+}
+
+
+/* =========================================================
+   PERSONAL INFORMATION
+========================================================= */
 
 function goToProfile(){
 
@@ -1276,9 +2976,9 @@ function goToProfile(){
 }
 
 
-/* =====================================================
-   BACK HOME
-===================================================== */
+/* =========================================================
+   HOME
+========================================================= */
 
 function goHome(){
 
@@ -1287,8 +2987,11 @@ function goHome(){
 
 }
 
-</script>
 
-</body>
+/* =========================================================
+   INITIAL
+========================================================= */
 
-</html>
+updateProgress();
+
+</script></body></html>
