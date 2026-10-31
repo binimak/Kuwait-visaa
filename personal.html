@@ -1,274 +1,626 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#092b52">
-
-<title>Kuwait Visa | Personal Dashboard</title>
+<title>Kuwait Visa | Applicant Portal</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
+:root{
+ --navy:#092b52;
+ --blue:#1264a3;
+ --light:#f2f6fc;
+ --text:#193450;
+ --muted:#7d8da1;
+ --green:#13a875;
+ --border:#e8eef5;
+}
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Inter,Arial,sans-serif;
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ font-family:Inter,Arial,sans-serif;
 }
 
 body{
-    background:#f1f5fa;
-    color:#172b45;
-    min-height:100vh;
+ background:var(--light);
+ color:var(--text);
+ min-height:100vh;
 }
 
+button{cursor:pointer}
+
+/* HEADER */
+
 .header{
-    background:linear-gradient(135deg,#071d38,#104d80);
-    color:white;
-    padding:25px 20px 55px;
-    border-radius:0 0 28px 28px;
+ background:linear-gradient(135deg,#061a32,#0b3968,#1265a3);
+ color:white;
+ padding:22px 20px 75px;
+ border-radius:0 0 30px 30px;
 }
 
 .header-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:12px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ max-width:850px;
+ margin:auto;
 }
 
 .brand{
-    font-size:20px;
-    font-weight:800;
-    letter-spacing:.5px;
+ display:flex;
+ align-items:center;
+ gap:11px;
+ font-size:19px;
+ font-weight:800;
+ letter-spacing:.5px;
 }
 
-.status{
-    background:#d9fbe9;
-    color:#087b49;
-    padding:8px 13px;
-    border-radius:30px;
-    font-size:11px;
-    font-weight:800;
+.brand-icon{
+ width:43px;
+ height:43px;
+ display:grid;
+ place-items:center;
+ background:rgba(255,255,255,.14);
+ border:1px solid rgba(255,255,255,.2);
+ border-radius:13px;
+ font-size:21px;
 }
 
-.header h1{
-    font-size:24px;
-    margin-top:30px;
+.demo-badge{
+ background:#d8f9e9;
+ color:#08774d;
+ padding:8px 12px;
+ border-radius:30px;
+ font-size:10px;
+ font-weight:800;
 }
 
-.header p{
-    font-size:13px;
-    color:#c8d9eb;
-    margin-top:8px;
+.header-content{
+ max-width:850px;
+ margin:34px auto 0;
 }
+
+.header-content h1{
+ font-size:27px;
+ font-weight:800;
+}
+
+.header-content p{
+ font-size:12px;
+ color:#c4d8ec;
+ margin-top:9px;
+}
+
+/* MAIN */
 
 .container{
-    max-width:650px;
-    margin:-30px auto 35px;
-    padding:0 15px;
+ max-width:850px;
+ margin:-43px auto 30px;
+ padding:0 15px;
 }
 
-.profile-card{
-    background:white;
-    border-radius:20px;
-    padding:22px;
-    box-shadow:0 8px 30px rgba(15,42,75,.09);
-    text-align:center;
+/* WELCOME CARD */
+
+.welcome-card{
+ background:white;
+ padding:19px;
+ border-radius:20px;
+ box-shadow:0 9px 30px rgba(10,39,72,.09);
+ display:flex;
+ align-items:center;
+ gap:16px;
 }
 
 .profile-img{
-    width:112px;
-    height:125px;
-    object-fit:cover;
-    border-radius:15px;
-    border:4px solid #e4edf8;
-    background:#edf2f8;
+ width:88px;
+ height:98px;
+ object-fit:cover;
+ border-radius:14px;
+ border:3px solid #e9f1fa;
+ background:#edf3f9;
 }
 
-.profile-card h2{
-    font-size:20px;
-    margin-top:13px;
-    color:#102d4d;
+.profile-details{
+ flex:1;
+ min-width:0;
 }
 
-.profile-card .passport{
-    color:#718198;
-    font-size:12px;
-    margin-top:6px;
+.profile-details h2{
+ font-size:18px;
+ color:var(--navy);
+ overflow-wrap:anywhere;
 }
+
+.profile-details p{
+ font-size:11px;
+ color:var(--muted);
+ margin-top:7px;
+}
+
+.verified{
+ display:inline-flex;
+ align-items:center;
+ gap:5px;
+ background:#e2f8ee;
+ color:#078553;
+ padding:6px 9px;
+ border-radius:20px;
+ font-size:9px;
+ font-weight:800;
+ margin-top:10px;
+}
+
+/* ACTIONS */
+
+.action-row{
+ display:flex;
+ gap:9px;
+ margin-top:15px;
+}
+
+.action-btn{
+ flex:1;
+ border:0;
+ padding:12px 9px;
+ border-radius:11px;
+ font-size:11px;
+ font-weight:700;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ gap:7px;
+}
+
+.print-btn{
+ background:var(--navy);
+ color:white;
+}
+
+.refresh-btn{
+ background:#e4effa;
+ color:#13558b;
+}
+
+/* GENERAL SECTION */
 
 .section{
-    background:white;
-    margin-top:18px;
-    padding:21px;
-    border-radius:18px;
-    box-shadow:0 5px 20px rgba(15,42,75,.055);
+ background:white;
+ margin-top:17px;
+ padding:20px;
+ border-radius:18px;
+ box-shadow:0 5px 22px rgba(15,42,75,.045);
+}
+
+.section-heading{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:10px;
+ padding-bottom:15px;
+ border-bottom:1px solid var(--border);
+ margin-bottom:16px;
 }
 
 .section-title{
-    font-size:15px;
-    font-weight:800;
-    color:#103c69;
-    padding-bottom:15px;
-    border-bottom:1px solid #edf1f6;
-    margin-bottom:15px;
+ font-size:14px;
+ font-weight:800;
+ color:#103c69;
+ display:flex;
+ align-items:center;
+ gap:9px;
 }
 
+.section-title i{
+ color:#1870b2;
+}
+
+/* APPLICATION OVERVIEW */
+
+.overview-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:11px;
+}
+
+.overview-item{
+ padding:14px;
+ background:#f5f8fc;
+ border-radius:12px;
+ min-width:0;
+}
+
+.overview-item small{
+ color:var(--muted);
+ font-size:10px;
+ font-weight:700;
+}
+
+.overview-item h3{
+ font-size:13px;
+ margin-top:8px;
+ color:#173d61;
+ overflow-wrap:anywhere;
+}
+
+/* PROGRESS */
+
+.progress-number{
+ font-size:24px;
+ font-weight:800;
+ color:#1165a4;
+}
+
+.progress-track{
+ height:9px;
+ background:#eaf0f6;
+ border-radius:20px;
+ overflow:hidden;
+ margin-top:13px;
+}
+
+.progress-fill{
+ height:100%;
+ width:65%;
+ background:linear-gradient(90deg,#1264a3,#20a9d4);
+ border-radius:20px;
+}
+
+.progress-caption{
+ display:flex;
+ justify-content:space-between;
+ font-size:10px;
+ color:var(--muted);
+ margin-top:9px;
+}
+
+/* TIMELINE */
+
+.timeline{
+ margin-top:10px;
+}
+
+.timeline-item{
+ display:flex;
+ gap:13px;
+ position:relative;
+ padding-bottom:22px;
+}
+
+.timeline-item:last-child{
+ padding-bottom:0;
+}
+
+.timeline-icon{
+ width:29px;
+ height:29px;
+ min-width:29px;
+ border-radius:50%;
+ background:#e5f1fc;
+ color:#1767a6;
+ display:grid;
+ place-items:center;
+ font-size:12px;
+ z-index:1;
+}
+
+.timeline-icon.completed{
+ background:#dff7eb;
+ color:#0a9960;
+}
+
+.timeline-text h4{
+ font-size:12px;
+ color:#244462;
+}
+
+.timeline-text p{
+ font-size:10px;
+ color:var(--muted);
+ margin-top:5px;
+ line-height:1.5;
+}
+
+.timeline-item:not(:last-child):after{
+ content:"";
+ position:absolute;
+ left:14px;
+ top:30px;
+ height:calc(100% - 29px);
+ border-left:2px dashed #d9e4ef;
+}
+
+/* INFORMATION GRID */
+
 .info-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:16px 12px;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:11px;
 }
 
 .info-item{
-    background:#f6f9fd;
-    padding:13px;
-    border-radius:12px;
-    min-width:0;
+ background:#f5f8fc;
+ padding:13px;
+ border-radius:12px;
+ min-width:0;
 }
 
 .info-item .label{
-    font-size:10px;
-    color:#7c8da3;
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:.5px;
+ font-size:9px;
+ color:#8392a5;
+ font-weight:700;
+ letter-spacing:.5px;
+ text-transform:uppercase;
 }
 
 .info-item .value{
-    font-size:13px;
-    font-weight:700;
-    color:#1c3553;
-    margin-top:7px;
-    overflow-wrap:anywhere;
+ font-size:12px;
+ font-weight:700;
+ color:#203e5d;
+ margin-top:8px;
+ overflow-wrap:anywhere;
 }
+
+/* COUNTRY */
 
 .country-card{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    background:linear-gradient(120deg,#edf6ff,#f7fbff);
-    padding:16px;
-    border-radius:13px;
-}
-
-.country-card strong{
-    color:#104b7c;
-    font-size:16px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ padding:17px;
+ border-radius:14px;
+ background:linear-gradient(120deg,#eaf4ff,#f6fbff);
 }
 
 .country-card span{
-    font-size:11px;
-    color:#718198;
+ font-size:10px;
+ color:#75889e;
 }
+
+.country-card strong{
+ display:block;
+ color:#10548c;
+ font-size:18px;
+ margin-top:6px;
+}
+
+.flag{
+ font-size:37px;
+}
+
+/* DOCUMENT */
 
 .document-box{
-    background:#f5f8fc;
-    border:1px dashed #c6d5e6;
-    padding:12px;
-    border-radius:14px;
-}
-
-.document-box img{
-    display:block;
-    width:100%;
-    max-height:650px;
-    object-fit:contain;
-    border-radius:9px;
-    background:white;
+ padding:12px;
+ background:#f5f8fc;
+ border:1px dashed #c5d5e5;
+ border-radius:14px;
 }
 
 .doc-label{
-    font-size:12px;
-    font-weight:700;
-    color:#315575;
-    margin-bottom:12px;
+ font-size:11px;
+ font-weight:700;
+ color:#315575;
+ margin-bottom:12px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
 }
+
+.document-image{
+ width:100%;
+ max-height:600px;
+ object-fit:contain;
+ border-radius:9px;
+ background:white;
+ display:block;
+ cursor:zoom-in;
+}
+
+.no-document{
+ text-align:center;
+ padding:35px 10px;
+ color:#8999ac;
+ font-size:12px;
+}
+
+.doc-hint{
+ text-align:center;
+ font-size:10px;
+ color:#8595a8;
+ margin-top:10px;
+}
+
+/* CONTACT / SUPPORT */
+
+.support-card{
+ background:linear-gradient(120deg,#0a3158,#125b91);
+ color:white;
+ border-radius:15px;
+ padding:19px;
+}
+
+.support-card h3{
+ font-size:14px;
+}
+
+.support-card p{
+ font-size:11px;
+ line-height:1.7;
+ color:#d0e2f3;
+ margin-top:8px;
+}
+
+.support-card .support-note{
+ font-size:9px;
+ color:#b9d2e8;
+ margin-top:12px;
+}
+
+/* FOOTER */
 
 .footer{
-    text-align:center;
-    color:#8795a8;
-    font-size:11px;
-    padding:25px 10px;
+ text-align:center;
+ padding:24px 10px;
+ color:#8b9aae;
+ font-size:10px;
+ line-height:1.8;
 }
 
+/* IMAGE MODAL */
+
+.modal{
+ position:fixed;
+ inset:0;
+ background:rgba(2,15,31,.95);
+ z-index:2000;
+ display:none;
+ justify-content:center;
+ align-items:center;
+ padding:15px;
+}
+
+.modal.active{
+ display:flex;
+}
+
+.modal img{
+ max-width:100%;
+ max-height:88vh;
+ object-fit:contain;
+ border-radius:10px;
+}
+
+.close-modal{
+ position:absolute;
+ top:20px;
+ right:22px;
+ background:white;
+ border:0;
+ width:39px;
+ height:39px;
+ border-radius:50%;
+ font-size:18px;
+}
+
+/* CONGRATULATIONS */
+
 .congrats-overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(4,22,43,.94);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:1000;
-    padding:20px;
-    animation:fadeOut 1s ease 3.2s forwards;
+ position:fixed;
+ inset:0;
+ background:rgba(4,22,43,.95);
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ z-index:3000;
+ padding:20px;
+ animation:fadeOut 1s ease 3.2s forwards;
 }
 
 .congrats-content{
-    text-align:center;
-    color:white;
-    animation:pop .7s ease;
+ text-align:center;
+ color:white;
+ animation:pop .7s ease;
 }
 
 .check-circle{
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    background:#17b978;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:48px;
-    margin:0 auto 22px;
-    box-shadow:0 0 0 12px rgba(23,185,120,.15);
-    animation:pulse 1.3s infinite;
+ width:85px;
+ height:85px;
+ border-radius:50%;
+ background:#17b978;
+ display:grid;
+ place-items:center;
+ font-size:43px;
+ margin:0 auto 22px;
+ box-shadow:0 0 0 12px rgba(23,185,120,.15);
+ animation:pulse 1.3s infinite;
 }
 
 .congrats-content h1{
-    font-size:29px;
-    font-weight:800;
-    margin-bottom:12px;
+ font-size:27px;
+ margin-bottom:12px;
 }
 
 .congrats-content p{
-    font-size:13px;
-    color:#d3e2f1;
-    line-height:1.7;
+ font-size:12px;
+ color:#d3e2f1;
+ line-height:1.8;
 }
 
 .confetti{
-    position:fixed;
-    top:-15px;
-    width:8px;
-    height:13px;
-    animation:fall 3s linear forwards;
-    z-index:1001;
-    pointer-events:none;
+ position:fixed;
+ top:-15px;
+ width:8px;
+ height:13px;
+ animation:fall 3s linear forwards;
+ z-index:3001;
+ pointer-events:none;
 }
 
 @keyframes pop{
-    from{transform:scale(.6);opacity:0}
-    to{transform:scale(1);opacity:1}
+ from{transform:scale(.6);opacity:0}
+ to{transform:scale(1);opacity:1}
 }
 
 @keyframes pulse{
-    50%{transform:scale(1.08)}
+ 50%{transform:scale(1.08)}
 }
 
 @keyframes fadeOut{
-    to{opacity:0;visibility:hidden;pointer-events:none}
+ to{opacity:0;visibility:hidden;pointer-events:none}
 }
 
 @keyframes fall{
-    to{transform:translateY(110vh) rotate(720deg);opacity:0}
+ to{transform:translateY(110vh) rotate(720deg);opacity:0}
 }
 
-@media(max-width:420px){
-    .header h1{font-size:21px}
-    .info-grid{gap:10px}
-    .section{padding:17px}
+/* PRINT */
+
+@media print{
+ body{background:white}
+ .header{
+  padding:15px;
+  border-radius:0;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+ }
+ .container{
+  margin:10px auto;
+  max-width:100%;
+ }
+ .section,.welcome-card{
+  box-shadow:none;
+  border:1px solid #e5eaf0;
+  break-inside:avoid;
+ }
+ .action-row,.footer,.modal,.congrats-overlay{
+  display:none!important;
+ }
+ .document-image{
+  max-height:500px;
+ }
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+ .header-content h1{font-size:23px}
+ .brand{font-size:16px}
+ .demo-badge{font-size:9px;padding:7px}
+ .welcome-card{padding:15px;gap:12px}
+ .profile-img{width:76px;height:88px}
+ .profile-details h2{font-size:15px}
+ .section{padding:16px}
+ .info-grid{gap:9px}
+ .info-item{padding:11px}
+ .info-item .value{font-size:11px}
+ .overview-item{padding:12px}
 }
 </style>
 </head>
@@ -276,185 +628,568 @@ body{
 <body>
 
 <header class="header">
-    <div class="header-top">
-        <div class="brand">KUWAIT VISA</div>
-        <div class="status">● DEMO PROFILE</div>
-    </div>
 
-    <h1>Personal Information</h1>
-    <p>Visa applicant information dashboard</p>
+ <div class="header-top">
+  <div class="brand">
+   <div class="brand-icon">
+    <i class="fa-solid fa-passport"></i>
+   </div>
+   KUWAIT VISA
+  </div>
+
+  <div class="demo-badge">
+   <i class="fa-solid fa-circle-check"></i>
+   DEMO PORTAL
+  </div>
+ </div>
+
+ <div class="header-content">
+  <h1>Applicant Dashboard</h1>
+  <p>Personal information and application overview</p>
+ </div>
+
 </header>
 
-<main class="container">
+<main class="container" id="dashboard">
 
-    <section class="profile-card">
-        <img id="photo" class="profile-img" alt="Profile Photo">
-        <h2 id="name">Loading...</h2>
-        <div class="passport" id="passportTop"></div>
-    </section>
+ <!-- PROFILE -->
 
-    <section class="section">
-        <div class="section-title">Personal Details</div>
+ <section class="welcome-card">
 
-        <div class="info-grid">
+  <img id="photo" class="profile-img"
+       alt="Applicant Photo">
 
-            <div class="info-item">
-                <div class="label">Full Name</div>
-                <div class="value" id="nameInfo">—</div>
-            </div>
+  <div class="profile-details">
+   <h2 id="name">Loading...</h2>
+   <p>Passport: <strong id="passportTop">—</strong></p>
 
-            <div class="info-item">
-                <div class="label">Gender</div>
-                <div class="value" id="gender">—</div>
-            </div>
+   <div class="verified">
+    <i class="fa-solid fa-shield-halved"></i>
+    DEMO PROFILE
+   </div>
+  </div>
 
-            <div class="info-item">
-                <div class="label">Passport Number</div>
-                <div class="value" id="passport">—</div>
-            </div>
+ </section>
 
-            <div class="info-item">
-                <div class="label">Place of Birth</div>
-                <div class="value" id="birth">—</div>
-            </div>
+ <!-- ACTION BUTTONS -->
 
-            <div class="info-item">
-                <div class="label">Visa Type</div>
-                <div class="value" id="visa">—</div>
-            </div>
+ <div class="action-row">
+  <button class="action-btn print-btn" onclick="window.print()">
+   <i class="fa-solid fa-file-pdf"></i>
+   Print / Save PDF
+  </button>
 
-            <div class="info-item">
-                <div class="label">Destination Country</div>
-                <div class="value" id="country">—</div>
-            </div>
+  <button class="action-btn refresh-btn" onclick="location.reload()">
+   <i class="fa-solid fa-rotate"></i>
+   Refresh
+  </button>
+ </div>
 
-        </div>
-    </section>
+ <!-- APPLICATION OVERVIEW -->
 
-    <section class="section">
-        <div class="section-title">Destination Information</div>
+ <section class="section">
 
-        <div class="country-card">
-            <div>
-                <span>Destination Country</span>
-                <div style="margin-top:7px">
-                    <strong id="countryCard">Kuwait</strong>
-                </div>
-            </div>
-            <div style="font-size:32px">🇰🇼</div>
-        </div>
-    </section>
+  <div class="section-heading">
+   <div class="section-title">
+    <i class="fa-solid fa-chart-pie"></i>
+    Application Overview
+   </div>
+  </div>
 
-    <section class="section">
-        <div class="section-title">Applicant Document</div>
+  <div class="overview-grid">
 
-        <div class="document-box">
-            <div class="doc-label">Document Photo</div>
-            <img id="doc" alt="Document Photo">
-        </div>
-    </section>
+   <div class="overview-item">
+    <small>APPLICATION NUMBER</small>
+    <h3 id="applicationNo">Not assigned</h3>
+   </div>
+
+   <div class="overview-item">
+    <small>APPLICATION DATE</small>
+    <h3 id="applicationDate">Not provided</h3>
+   </div>
+
+   <div class="overview-item">
+    <small>APPLICATION STATUS</small>
+    <h3 id="appStatus">DEMO / INFORMATION RECEIVED</h3>
+   </div>
+
+   <div class="overview-item">
+    <small>VISA CATEGORY</small>
+    <h3 id="visaOverview">—</h3>
+   </div>
+
+  </div>
+
+ </section>
+
+ <!-- PROGRESS -->
+
+ <section class="section">
+
+  <div class="section-heading">
+   <div class="section-title">
+    <i class="fa-solid fa-bars-progress"></i>
+    Application Progress
+   </div>
+
+   <span class="progress-number" id="progressNumber">65%</span>
+  </div>
+
+  <div class="progress-track">
+   <div class="progress-fill" id="progressFill"></div>
+  </div>
+
+  <div class="progress-caption">
+   <span>Application process</span>
+   <span id="progressLabel">Demo progress</span>
+  </div>
+
+  <div class="timeline">
+
+   <div class="timeline-item">
+    <div class="timeline-icon completed">
+     <i class="fa-solid fa-check"></i>
+    </div>
+    <div class="timeline-text">
+     <h4>Applicant Information</h4>
+     <p>Personal information displayed in this demo profile.</p>
+    </div>
+   </div>
+
+   <div class="timeline-item">
+    <div class="timeline-icon completed">
+     <i class="fa-solid fa-file-lines"></i>
+    </div>
+    <div class="timeline-text">
+     <h4>Document Information</h4>
+     <p>Applicant document information section.</p>
+    </div>
+   </div>
+
+   <div class="timeline-item">
+    <div class="timeline-icon">
+     <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <div class="timeline-text">
+     <h4>Verification</h4>
+     <p>Actual verification must be confirmed by the responsible authority.</p>
+    </div>
+   </div>
+
+   <div class="timeline-item">
+    <div class="timeline-icon">
+     <i class="fa-solid fa-stamp"></i>
+    </div>
+    <div class="timeline-text">
+     <h4>Final Decision</h4>
+     <p>Awaiting official confirmation outside this demo interface.</p>
+    </div>
+   </div>
+
+  </div>
+
+ </section>
+
+ <!-- PERSONAL DETAILS -->
+
+ <section class="section">
+
+  <div class="section-heading">
+   <div class="section-title">
+    <i class="fa-solid fa-user"></i>
+    Personal Information
+   </div>
+  </div>
+
+  <div class="info-grid">
+
+   <div class="info-item">
+    <div class="label">Full Name</div>
+    <div class="value" id="nameInfo">—</div>
+   </div>
+
+   <div class="info-item">
+    <div class="label">Gender</div>
+    <div class="value" id="gender">—</div>
+   </div>
+
+   <div class="info-item">
+    <div class="label">Date of Birth</div>
+    <div class="value" id="birth">—</div>
+   </div>
+
+   <div class="info-item">
+    <div class="label">Passport Number</div>
+    <div class="value" id="passport">—</div>
+   </div>
+
+  </div>
+
+ </section>
+
+ <!-- VISA DETAILS -->
+
+ <section class="section">
+
+  <div class="section-heading">
+   <div class="section-title">
+    <i class="fa-solid fa-plane-departure"></i>
+    Visa Information
+   </div>
+  </div>
+
+  <div class="info-grid">
+
+   <div class="info-item">
+    <div class="label">Visa Type</div>
+    <div class="value" id="visa">—</div>
+   </div>
+
+   <div class="info-item">
+    <div class="label">Destination Country</div>
+    <div class="value" id="country">—</div>
+   </div>
+
+   <div class="info-item">
+    <div class="label">Application Reference</div>
+    <div class="value" id="reference">—</div>
+   </div>
+
+   <div class="info-item">
+    <div class="label">Applicant Category</div>
+    <div class="value">Individual Applicant</div>
+   </div>
+
+  </div>
+
+ </section>
+
+ <!-- DESTINATION -->
+
+ <section class="section">
+
+  <div class="section-heading">
+   <div class="section-title">
+    <i class="fa-solid fa-location-dot"></i>
+    Destination Information
+   </div>
+  </div>
+
+  <div class="country-card">
+   <div>
+    <span>DESTINATION COUNTRY</span>
+    <strong id="countryCard">Kuwait</strong>
+   </div>
+   <div class="flag" id="countryFlag">🇰🇼</div>
+  </div>
+
+ </section>
+
+ <!-- DOCUMENT -->
+
+ <section class="section">
+
+  <div class="section-heading">
+   <div class="section-title">
+    <i class="fa-solid fa-folder-open"></i>
+    Applicant Documents
+   </div>
+  </div>
+
+  <div class="document-box">
+
+   <div class="doc-label">
+    <span><i class="fa-solid fa-image"></i> Document Preview</span>
+    <span>DEMO</span>
+   </div>
+
+   <img id="doc" class="document-image"
+        alt="Applicant Document"
+        style="display:none"
+        onclick="openDocument(this.src)">
+
+   <div id="noDocument" class="no-document">
+    <i class="fa-solid fa-file-circle-exclamation"
+       style="font-size:30px"></i>
+    <p style="margin-top:12px">No document photo available</p>
+   </div>
+
+   <p class="doc-hint">
+    Tap the document image to view it in full screen.
+   </p>
+
+  </div>
+
+ </section>
+
+ <!-- SUPPORT -->
+
+ <section class="section">
+
+  <div class="support-card">
+
+   <h3>
+    <i class="fa-solid fa-headset"></i>
+    Applicant Support
+   </h3>
+
+   <p>
+    For questions about your application, contact the
+    responsible visa service provider or relevant official authority.
+   </p>
+
+   <div class="support-note">
+    This is a demonstration interface and is not an official
+    Kuwait government visa verification service.
+   </div>
+
+  </div>
+
+ </section>
 
 </main>
 
 <footer class="footer">
-    Kuwait Visa Dashboard — Demo Interface
+ <strong>KUWAIT VISA</strong><br>
+ Personal Applicant Dashboard<br>
+ © 2026 — Demo Interface
 </footer>
 
-<script>
-const user = JSON.parse(localStorage.getItem("user") || "null");
-const code = localStorage.getItem("vcode");
+<!-- IMAGE MODAL -->
 
-if(!user){
-    document.body.innerHTML = `
-    <div style="
-        min-height:100vh;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        text-align:center;
-        padding:25px;
-        font-family:Arial;
-        background:#f1f5fa;
-    ">
-        <div>
-            <h2 style="color:#173d65">No Applicant Data Found</h2>
-            <p style="margin-top:12px;color:#66788e">
-                Please return to the main page and enter your demo code.
-            </p>
-            <button onclick="location.href='index.html'"
-            style="
-                margin-top:20px;
-                padding:13px 25px;
-                border:0;
-                border-radius:10px;
-                background:#104b7c;
-                color:white;
-                font-weight:bold;
-            ">Back to Home</button>
-        </div>
-    </div>`;
+<div class="modal" id="imageModal"
+     onclick="closeDocument()">
+
+ <button class="close-modal"
+         onclick="closeDocument()">
+  <i class="fa-solid fa-xmark"></i>
+ </button>
+
+ <img id="modalImage" alt="Full Document Preview">
+
+</div>
+
+<script>
+
+/* LOAD APPLICANT DATA */
+
+let user = null;
+let code = null;
+
+try{
+ user = JSON.parse(localStorage.getItem("user") || "null");
+ code = localStorage.getItem("vcode");
+}catch(error){
+ user = null;
+}
+
+/* NO DATA */
+
+if(!user || typeof user !== "object"){
+
+ document.body.innerHTML = `
+ <div style="
+ min-height:100vh;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ text-align:center;
+ padding:25px;
+ background:#f1f5fa;
+ font-family:Arial">
+
+ <div>
+ <i class="fa-solid fa-user-slash"
+ style="font-size:48px;color:#104b7c"></i>
+
+ <h2 style="margin-top:20px;color:#173d65">
+ No Applicant Data Found
+ </h2>
+
+ <p style="margin-top:12px;color:#66788e;font-size:13px">
+ Please return to the main page and enter your demo code.
+ </p>
+
+ <button onclick="location.href='index.html'"
+ style="
+ margin-top:20px;
+ padding:13px 25px;
+ border:0;
+ border-radius:10px;
+ background:#104b7c;
+ color:white;
+ font-weight:bold">
+ Back to Home
+ </button>
+ </div>
+ </div>`;
+
 }else{
 
-    function setText(id,value){
-        document.getElementById(id).textContent = value || "—";
-    }
+ /* TEXT HELPER */
 
-    const photo = document.getElementById("photo");
-    photo.src = user.photo || "";
+ function setText(id,value){
+  const element = document.getElementById(id);
+  if(element){
+   element.textContent =
+    value !== undefined && value !== null && value !== ""
+    ? value : "—";
+  }
+ }
 
-    const doc = document.getElementById("doc");
+ /* PROFILE */
 
-    if(user.doc){
-        doc.src = user.doc;
-    }else{
-        doc.alt = "No document photo available";
-        doc.style.display = "none";
-        document.querySelector(".document-box").innerHTML =
-        '<p style="color:#718198;font-size:13px;text-align:center">No document photo available</p>';
-    }
+ const photo = document.getElementById("photo");
 
-    setText("name",user.name);
-    setText("nameInfo",user.name);
-    setText("gender",user.gender);
-    setText("passport",user.passport);
-    setText("passportTop",user.passport);
-    setText("birth",user.birth);
-    setText("visa",user.visa);
-    setText("country",user.country);
-    setText("countryCard",user.country);
+ if(user.photo){
+  photo.src = user.photo;
+ }else{
+  photo.style.display = "none";
+ }
 
-    // Congratulations animation
-    if(code){
-        const overlay = document.createElement("div");
-        overlay.className = "congrats-overlay";
+ setText("name",user.name);
+ setText("nameInfo",user.name);
+ setText("gender",user.gender);
+ setText("passport",user.passport);
+ setText("passportTop",user.passport);
+ setText("birth",user.birth);
 
-        overlay.innerHTML = `
-            <div class="congrats-content">
-                <div class="check-circle">✓</div>
-                <h1>Congratulations!</h1>
-                <p>Your demo access code has been accepted.<br>
-                Your personal dashboard is ready.</p>
-            </div>
-        `;
+ /* VISA */
 
-        document.body.appendChild(overlay);
+ setText("visa",user.visa);
+ setText("visaOverview",user.visa);
+ setText("country",user.country);
+ setText("countryCard",user.country);
 
-        // Confetti animation
-        for(let i=0;i<45;i++){
-            const piece = document.createElement("div");
-            piece.className = "confetti";
-            piece.style.left = Math.random()*100 + "%";
-            piece.style.background =
-                ["#20c997","#ffc107","#42a5f5","#ff6384","#ffffff"][i%5];
-            piece.style.animationDelay = Math.random()*1.5 + "s";
-            document.body.appendChild(piece);
+ /* OPTIONAL APPLICATION DATA */
 
-            setTimeout(()=>piece.remove(),4500);
-        }
+ setText("applicationNo",user.applicationNo || "Not assigned");
+ setText("applicationDate",user.applicationDate || "Not provided");
+ setText("appStatus",user.status || "DEMO / INFORMATION RECEIVED");
+ setText("reference",user.reference || user.passport);
 
-        setTimeout(()=>overlay.remove(),4200);
-    }
+ /* PROGRESS */
+
+ let progress = Number(user.progress);
+
+ if(!Number.isFinite(progress)){
+  progress = 65;
+ }
+
+ progress = Math.max(0,Math.min(100,progress));
+
+ setText("progressNumber",progress + "%");
+
+ document.getElementById("progressFill").style.width =
+  progress + "%";
+
+ setText("progressLabel","Demo progress");
+
+ /* DESTINATION FLAG */
+
+ const countryName = String(user.country || "Kuwait").toLowerCase();
+
+ let flag = "🌍";
+
+ if(countryName.includes("kuwait")) flag = "🇰🇼";
+ if(countryName.includes("saudi")) flag = "🇸🇦";
+ if(countryName.includes("qatar")) flag = "🇶🇦";
+ if(countryName.includes("uae") || countryName.includes("emirates")) flag = "🇦🇪";
+ if(countryName.includes("jordan")) flag = "🇯🇴";
+
+ document.getElementById("countryFlag").textContent = flag;
+
+ /* DOCUMENT */
+
+ const doc = document.getElementById("doc");
+
+ if(user.doc){
+
+  doc.src = user.doc;
+  doc.style.display = "block";
+
+  document.getElementById("noDocument").style.display = "none";
+
+ }else{
+
+  doc.style.display = "none";
+
+ }
+
+ /* IMAGE MODAL */
+
+ window.openDocument = function(src){
+
+  document.getElementById("modalImage").src = src;
+
+  document.getElementById("imageModal")
+   .classList.add("active");
+
+ };
+
+ window.closeDocument = function(){
+
+  document.getElementById("imageModal")
+   .classList.remove("active");
+
+ };
+
+ /* CONGRATULATIONS */
+
+ if(code){
+
+  const overlay = document.createElement("div");
+
+  overlay.className = "congrats-overlay";
+
+  overlay.innerHTML = `
+   <div class="congrats-content">
+
+    <div class="check-circle">✓</div>
+
+    <h1>Congratulations!</h1>
+
+    <p>
+     Your demo access code has been accepted.<br>
+     Your personal dashboard is ready.
+    </p>
+
+   </div>
+  `;
+
+  document.body.appendChild(overlay);
+
+  for(let i=0;i<45;i++){
+
+   const piece = document.createElement("div");
+
+   piece.className = "confetti";
+
+   piece.style.left = Math.random()*100 + "%";
+
+   piece.style.background = [
+    "#20c997",
+    "#ffc107",
+    "#42a5f5",
+    "#ff6384",
+    "#ffffff"
+   ][i%5];
+
+   piece.style.animationDelay =
+    Math.random()*1.5 + "s";
+
+   document.body.appendChild(piece);
+
+   setTimeout(()=>piece.remove(),4500);
+
+  }
+
+  setTimeout(()=>overlay.remove(),4200);
+
+ }
+
 }
+
 </script>
 
 </body>
