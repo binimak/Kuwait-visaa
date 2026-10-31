@@ -1,1481 +1,461 @@
 <!DOCTYPE html>
-<html lang="am">
-
+<html lang="en">
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#092b52">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
->
+<title>Kuwait Visa | Personal Dashboard</title>
 
-<meta
-    name="description"
-    content="Personal Information Demo"
->
-
-<title>Personal Information — Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-}
-
-html,
-body{
-    width:100%;
-    min-height:100%;
+    font-family:Inter,Arial,sans-serif;
 }
 
 body{
-    font-family:
-        Arial,
-        "Noto Sans Ethiopic",
-        sans-serif;
-
-    background:#eef5f9;
-
-    color:#172033;
-
-    -webkit-font-smoothing:antialiased;
-
-    padding:8px;
+    background:#f1f5fa;
+    color:#172b45;
+    min-height:100vh;
 }
-
-
-/* =====================================================
-   MAIN PAGE
-===================================================== */
-
-.page{
-
-    width:100%;
-
-    max-width:560px;
-
-    min-height:calc(100dvh - 16px);
-
-    margin:0 auto;
-
-    background:#fff;
-
-    border-radius:22px;
-
-    overflow:hidden;
-
-    box-shadow:
-        0 8px 28px
-        rgba(15,23,42,.12);
-
-    display:flex;
-
-    flex-direction:column;
-}
-
-
-/* =====================================================
-   DEMO NOTICE
-===================================================== */
-
-.demo{
-
-    background:#fff7ed;
-
-    color:#9a3412;
-
-    border-bottom:
-        1px solid #fed7aa;
-
-    text-align:center;
-
-    font-size:10px;
-
-    font-weight:bold;
-
-    letter-spacing:.4px;
-
-    padding:6px 10px;
-}
-
-
-/* =====================================================
-   HEADER
-===================================================== */
 
 .header{
+    background:linear-gradient(135deg,#071d38,#104d80);
+    color:white;
+    padding:25px 20px 55px;
+    border-radius:0 0 28px 28px;
+}
 
-    background:
-        linear-gradient(
-            135deg,
-            #075985 0%,
-            #0284c7 55%,
-            #0ea5e9 100%
-        );
+.header-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+}
 
-    color:#fff;
+.brand{
+    font-size:20px;
+    font-weight:800;
+    letter-spacing:.5px;
+}
 
-    text-align:center;
-
-    padding:
-        17px
-        15px
-        16px;
+.status{
+    background:#d9fbe9;
+    color:#087b49;
+    padding:8px 13px;
+    border-radius:30px;
+    font-size:11px;
+    font-weight:800;
 }
 
 .header h1{
-
-    font-size:29px;
-
-    line-height:1.05;
-
-    font-weight:800;
-
-    margin-bottom:5px;
+    font-size:24px;
+    margin-top:30px;
 }
 
 .header p{
-
-    font-size:14px;
-
-    line-height:1.3;
-
-    opacity:.96;
+    font-size:13px;
+    color:#c8d9eb;
+    margin-top:8px;
 }
 
+.container{
+    max-width:650px;
+    margin:-30px auto 35px;
+    padding:0 15px;
+}
 
-/* =====================================================
-   PROFILE
-===================================================== */
-
-.profile{
-
+.profile-card{
+    background:white;
+    border-radius:20px;
+    padding:22px;
+    box-shadow:0 8px 30px rgba(15,42,75,.09);
     text-align:center;
-
-    padding:
-        12px
-        15px
-        9px;
 }
 
-.avatar{
-
-    width:76px;
-
-    height:76px;
-
-    margin:0 auto 7px;
-
-    border-radius:50%;
-
-    overflow:hidden;
-
-    background:#e2e8f0;
-
-    border:
-        3px solid #fff;
-
-    box-shadow:
-        0 4px 15px
-        rgba(15,23,42,.15);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-}
-
-.avatar img{
-
-    width:100%;
-
-    height:100%;
-
+.profile-img{
+    width:112px;
+    height:125px;
     object-fit:cover;
-
-    display:none;
+    border-radius:15px;
+    border:4px solid #e4edf8;
+    background:#edf2f8;
 }
 
-.avatar .default{
-
-    font-size:38px;
-
-    line-height:1;
+.profile-card h2{
+    font-size:20px;
+    margin-top:13px;
+    color:#102d4d;
 }
 
-.name{
-
-    font-size:22px;
-
-    font-weight:800;
-
-    color:#172033;
-
-    line-height:1.15;
-
-    margin-bottom:3px;
+.profile-card .passport{
+    color:#718198;
+    font-size:12px;
+    margin-top:6px;
 }
 
-.code{
-
-    color:#64748b;
-
-    font-size:13px;
+.section{
+    background:white;
+    margin-top:18px;
+    padding:21px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(15,42,75,.055);
 }
 
-.code strong{
-
-    color:#0284c7;
-
+.section-title{
     font-size:15px;
-
-    letter-spacing:1px;
+    font-weight:800;
+    color:#103c69;
+    padding-bottom:15px;
+    border-bottom:1px solid #edf1f6;
+    margin-bottom:15px;
 }
 
-
-/* =====================================================
-   DIVIDER
-===================================================== */
-
-.divider{
-
-    height:1px;
-
-    background:#e2e8f0;
-
-    margin:
-        0
-        15px
-        8px;
-}
-
-
-/* =====================================================
-   INFORMATION GRID
-===================================================== */
-
-.info{
-
-    padding:
-        0
-        12px;
-
+.info-grid{
     display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:7px;
+    grid-template-columns:1fr 1fr;
+    gap:16px 12px;
 }
 
-.card{
-
+.info-item{
+    background:#f6f9fd;
+    padding:13px;
+    border-radius:12px;
     min-width:0;
-
-    background:#f8fafc;
-
-    border:
-        1px solid #e2e8f0;
-
-    border-radius:11px;
-
-    padding:
-        8px
-        10px;
-
-    min-height:56px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
 }
 
-.card.full{
-
-    grid-column:
-        1 / -1;
-}
-
-.icon{
-
-    flex:
-        0 0 31px;
-
-    width:31px;
-
-    height:31px;
-
-    border-radius:9px;
-
-    background:#e0f2fe;
-
-    color:#0284c7;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:16px;
-}
-
-.card:nth-child(2) .icon{
-    background:#ecfdf5;
-    color:#059669;
-}
-
-.card:nth-child(3) .icon{
-    background:#fff7ed;
-    color:#ea580c;
-}
-
-.card:nth-child(4) .icon{
-    background:#f3e8ff;
-    color:#9333ea;
-}
-
-.card:nth-child(5) .icon{
-    background:#e0f2fe;
-    color:#2563eb;
-}
-
-.card:nth-child(6) .icon{
-    background:#ecfdf5;
-    color:#16a34a;
-}
-
-.card:nth-child(7) .icon{
-    background:#fff7ed;
-    color:#ea580c;
-}
-
-.card:nth-child(8) .icon{
-    background:#f3e8ff;
-    color:#9333ea;
-}
-
-.card:nth-child(9) .icon{
-    background:#fef2f2;
-    color:#dc2626;
-}
-
-.card-content{
-
-    min-width:0;
-
-    flex:1;
-}
-
-.label{
-
-    color:#64748b;
-
+.info-item .label{
     font-size:10px;
-
-    margin-bottom:2px;
-
-    line-height:1.1;
+    color:#7c8da3;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.5px;
 }
 
-.value{
-
-    color:#172033;
-
+.info-item .value{
     font-size:13px;
-
     font-weight:700;
-
-    line-height:1.2;
-
+    color:#1c3553;
+    margin-top:7px;
     overflow-wrap:anywhere;
 }
 
-
-/* =====================================================
-   PHOTOS
-===================================================== */
-
-.photos{
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:8px;
-
-    padding:
-        9px
-        12px
-        5px;
-}
-
-.photo-box{
-
-    min-width:0;
-
-    text-align:center;
-}
-
-.photo-title{
-
-    color:#334155;
-
-    font-size:11px;
-
-    font-weight:700;
-
-    margin-bottom:4px;
-}
-
-.photo-frame{
-
-    width:100%;
-
-    height:82px;
-
-    border-radius:10px;
-
-    overflow:hidden;
-
-    background:#f1f5f9;
-
-    border:
-        1px solid #dbe3eb;
-
+.country-card{
     display:flex;
-
     align-items:center;
-
-    justify-content:center;
+    justify-content:space-between;
+    gap:12px;
+    background:linear-gradient(120deg,#edf6ff,#f7fbff);
+    padding:16px;
+    border-radius:13px;
 }
 
-.photo-frame img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    display:none;
+.country-card strong{
+    color:#104b7c;
+    font-size:16px;
 }
 
-.photo-placeholder{
-
-    color:#94a3b8;
-
+.country-card span{
     font-size:11px;
+    color:#718198;
 }
 
-
-/* =====================================================
-   FOOTER / ACTIONS
-===================================================== */
-
-.actions{
-
-    padding:
-        6px
-        12px
-        12px;
+.document-box{
+    background:#f5f8fc;
+    border:1px dashed #c6d5e6;
+    padding:12px;
+    border-radius:14px;
 }
 
-.action-btn{
-
-    width:100%;
-
-    height:40px;
-
-    border:0;
-
-    border-radius:9px;
-
-    background:#0284c7;
-
-    color:#fff;
-
-    font-size:13px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    margin-bottom:6px;
-}
-
-.action-btn:active{
-
-    transform:scale(.99);
-}
-
-.delete-btn{
-
-    background:#fff;
-
-    color:#dc2626;
-
-    border:
-        1px solid #fecaca;
-}
-
-.back{
-
+.document-box img{
     display:block;
+    width:100%;
+    max-height:650px;
+    object-fit:contain;
+    border-radius:9px;
+    background:white;
+}
 
-    text-align:center;
-
-    text-decoration:none;
-
-    color:#0284c7;
-
+.doc-label{
     font-size:12px;
-
     font-weight:700;
-
-    padding:2px 0 4px;
+    color:#315575;
+    margin-bottom:12px;
 }
 
-
-/* =====================================================
-   HIDDEN DOWNLOAD AREA
-===================================================== */
-
-#printArea{
-
-    display:none;
+.footer{
+    text-align:center;
+    color:#8795a8;
+    font-size:11px;
+    padding:25px 10px;
 }
 
-
-/* =====================================================
-   SMALL PHONES
-===================================================== */
-
-@media(max-width:390px){
-
-    body{
-        padding:4px;
-    }
-
-    .page{
-        min-height:calc(100dvh - 8px);
-        border-radius:17px;
-    }
-
-    .header{
-        padding:
-            13px
-            12px;
-    }
-
-    .header h1{
-        font-size:25px;
-    }
-
-    .header p{
-        font-size:12px;
-    }
-
-    .profile{
-        padding:
-            8px
-            12px
-            6px;
-    }
-
-    .avatar{
-        width:65px;
-        height:65px;
-    }
-
-    .avatar .default{
-        font-size:32px;
-    }
-
-    .name{
-        font-size:19px;
-    }
-
-    .info{
-        gap:5px;
-        padding:
-            0
-            8px;
-    }
-
-    .card{
-        min-height:51px;
-        padding:
-            6px
-            7px;
-            gap:6px;
-    }
-
-    .icon{
-        flex-basis:27px;
-        width:27px;
-        height:27px;
-        font-size:14px;
-    }
-
-    .label{
-        font-size:9px;
-    }
-
-    .value{
-        font-size:12px;
-    }
-
-    .photos{
-        padding:
-            7px
-            8px
-            4px;
-    }
-
-    .photo-frame{
-        height:70px;
-    }
-
-    .actions{
-        padding:
-            4px
-            8px
-            8px;
-    }
-
-    .action-btn{
-        height:36px;
-        font-size:12px;
-    }
-
+.congrats-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(4,22,43,.94);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+    padding:20px;
+    animation:fadeOut 1s ease 3.2s forwards;
 }
 
-
-/* =====================================================
-   VERY SHORT SCREEN
-===================================================== */
-
-@media(max-height:700px){
-
-    .header{
-        padding:
-            10px
-            12px;
-    }
-
-    .header h1{
-        font-size:24px;
-    }
-
-    .profile{
-        padding:
-            7px
-            12px
-            5px;
-    }
-
-    .avatar{
-        width:58px;
-        height:58px;
-        margin-bottom:4px;
-    }
-
-    .avatar .default{
-        font-size:28px;
-    }
-
-    .name{
-        font-size:18px;
-    }
-
-    .card{
-        min-height:47px;
-        padding:5px 7px;
-    }
-
-    .photo-frame{
-        height:60px;
-    }
-
-    .actions{
-        padding-bottom:6px;
-    }
-
+.congrats-content{
+    text-align:center;
+    color:white;
+    animation:pop .7s ease;
 }
 
-
-/* =====================================================
-   PRINT / SCREENSHOT CLEAN MODE
-===================================================== */
-
-@media print{
-
-    body{
-        background:#fff;
-        padding:0;
-    }
-
-    .page{
-        max-width:none;
-        min-height:100vh;
-        box-shadow:none;
-        border-radius:0;
-    }
-
-    .demo,
-    .actions,
-    .back{
-        display:none;
-    }
-
+.check-circle{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:#17b978;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:48px;
+    margin:0 auto 22px;
+    box-shadow:0 0 0 12px rgba(23,185,120,.15);
+    animation:pulse 1.3s infinite;
 }
 
+.congrats-content h1{
+    font-size:29px;
+    font-weight:800;
+    margin-bottom:12px;
+}
+
+.congrats-content p{
+    font-size:13px;
+    color:#d3e2f1;
+    line-height:1.7;
+}
+
+.confetti{
+    position:fixed;
+    top:-15px;
+    width:8px;
+    height:13px;
+    animation:fall 3s linear forwards;
+    z-index:1001;
+    pointer-events:none;
+}
+
+@keyframes pop{
+    from{transform:scale(.6);opacity:0}
+    to{transform:scale(1);opacity:1}
+}
+
+@keyframes pulse{
+    50%{transform:scale(1.08)}
+}
+
+@keyframes fadeOut{
+    to{opacity:0;visibility:hidden;pointer-events:none}
+}
+
+@keyframes fall{
+    to{transform:translateY(110vh) rotate(720deg);opacity:0}
+}
+
+@media(max-width:420px){
+    .header h1{font-size:21px}
+    .info-grid{gap:10px}
+    .section{padding:17px}
+}
 </style>
-
 </head>
-
 
 <body>
 
-
-<div class="page">
-
-
-    <!-- DEMO NOTICE -->
-
-    <div class="demo">
-         AN OFFICIAL GOVERNMENT WEBSITE
+<header class="header">
+    <div class="header-top">
+        <div class="brand">KUWAIT VISA</div>
+        <div class="status">● DEMO PROFILE</div>
     </div>
 
+    <h1>Personal Information</h1>
+    <p>Visa applicant information dashboard</p>
+</header>
 
-    <!-- HEADER -->
+<main class="container">
 
-    <header class="header">
-
-        <h1>
-            Personal Information
-        </h1>
-
-        <p>
-            የግል መረጃ
-        </p>
-
-    </header>
-
-
-    <!-- PROFILE -->
-
-    <section class="profile">
-
-        <div class="avatar">
-
-            <span
-                class="default"
-                id="defaultAvatar"
-            >
-                👤
-            </span>
-
-            <img
-                id="profileImage"
-                alt="Profile Photo"
-            >
-
-        </div>
-
-
-        <div
-            class="name"
-            id="userName"
-        >
-            Loading...
-        </div>
-
-
-        <div class="code">
-
-            Code:
-
-            <strong id="userCode">
-                ------
-            </strong>
-
-        </div>
-
+    <section class="profile-card">
+        <img id="photo" class="profile-img" alt="Profile Photo">
+        <h2 id="name">Loading...</h2>
+        <div class="passport" id="passportTop"></div>
     </section>
 
+    <section class="section">
+        <div class="section-title">Personal Details</div>
 
-    <div class="divider"></div>
+        <div class="info-grid">
 
-
-    <!-- INFORMATION -->
-
-    <section class="info">
-
-
-        <!-- Gender -->
-
-        <div class="card">
-
-            <div class="icon">
-                👤
+            <div class="info-item">
+                <div class="label">Full Name</div>
+                <div class="value" id="nameInfo">—</div>
             </div>
 
-            <div class="card-content">
-
-                <div class="label">
-                    Gender
-                </div>
-
-                <div
-                    class="value"
-                    id="gender"
-                >
-                    —
-                </div>
-
+            <div class="info-item">
+                <div class="label">Gender</div>
+                <div class="value" id="gender">—</div>
             </div>
 
-        </div>
-
-
-        <!-- Age -->
-
-        <div class="card">
-
-            <div class="icon">
-                🎂
+            <div class="info-item">
+                <div class="label">Passport Number</div>
+                <div class="value" id="passport">—</div>
             </div>
 
-            <div class="card-content">
+            <div class="info-item">
+                <div class="label">Place of Birth</div>
+                <div class="value" id="birth">—</div>
+            </div>
 
-                <div class="label">
-                    Age
-                </div>
+            <div class="info-item">
+                <div class="label">Visa Type</div>
+                <div class="value" id="visa">—</div>
+            </div>
 
-                <div
-                    class="value"
-                    id="age"
-                >
-                    —
-                </div>
-
+            <div class="info-item">
+                <div class="label">Destination Country</div>
+                <div class="value" id="country">—</div>
             </div>
 
         </div>
-
-
-        <!-- Date of Birth -->
-
-        <div class="card">
-
-            <div class="icon">
-                📅
-            </div>
-
-            <div class="card-content">
-
-                <div class="label">
-                    Date of Birth
-                </div>
-
-                <div
-                    class="value"
-                    id="dob"
-                >
-                    —
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ELMIS -->
-
-        <div class="card">
-
-            <div class="icon">
-                🪪
-            </div>
-
-            <div class="card-content">
-
-                <div class="label">
-                    ELMIS Number
-                </div>
-
-                <div
-                    class="value"
-                    id="elmis"
-                >
-                    —
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- Passport -->
-
-        <div class="card">
-
-            <div class="icon">
-                🛂
-            </div>
-
-            <div class="card-content">
-
-                <div class="label">
-                    Passport Number
-                </div>
-
-                <div
-                    class="value"
-                    id="passport"
-                >
-                    —
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- Phone -->
-
-        <div class="card">
-
-            <div class="icon">
-                📱
-            </div>
-
-            <div class="card-content">
-
-                <div class="label">
-                    Phone
-                </div>
-
-                <div
-                    class="value"
-                    id="phone"
-                >
-                    —
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- Birth Country -->
-
-        <div class="card">
-
-            <div class="icon">
-                🌍
-            </div>
-
-            <div class="card-content">
-
-                <div class="label">
-                    Birth Country
-                </div>
-
-                <div
-                    class="value"
-                    id="birth"
-                >
-                    —
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- Visa -->
-
-        <div class="card">
-
-            <div class="icon">
-                💼
-            </div>
-
-            <div class="card-content">
-
-                <div class="label">
-                    Visa Type
-                </div>
-
-                <div
-                    class="value"
-                    id="visa"
-                >
-                    —
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- Destination -->
-
-        <div class="card full">
-
-            <div class="icon">
-                📍
-            </div>
-
-            <div class="card-content">
-
-                <div class="label">
-                    Destination
-                </div>
-
-                <div
-                    class="value"
-                    id="country"
-                >
-                    —
-                </div>
-
-            </div>
-
-        </div>
-
-
     </section>
 
+    <section class="section">
+        <div class="section-title">Destination Information</div>
 
-    <!-- PHOTOS -->
-
-    <section class="photos">
-
-
-        <div class="photo-box">
-
-            <div class="photo-title">
-                Profile Photo
+        <div class="country-card">
+            <div>
+                <span>Destination Country</span>
+                <div style="margin-top:7px">
+                    <strong id="countryCard">Kuwait</strong>
+                </div>
             </div>
-
-            <div class="photo-frame">
-
-                <span
-                    class="photo-placeholder"
-                    id="profilePlaceholder"
-                >
-                    No Photo
-                </span>
-
-                <img
-                    id="profilePhoto"
-                    alt="Profile Photo"
-                >
-
-            </div>
-
+            <div style="font-size:32px">🇰🇼</div>
         </div>
-
-
-        <div class="photo-box">
-
-            <div class="photo-title">
-                Document Photo
-            </div>
-
-            <div class="photo-frame">
-
-                <span
-                    class="photo-placeholder"
-                    id="documentPlaceholder"
-                >
-                    No Document
-                </span>
-
-                <img
-                    id="documentPhoto"
-                    alt="Document Photo"
-                >
-
-            </div>
-
-        </div>
-
-
     </section>
 
+    <section class="section">
+        <div class="section-title">Applicant Document</div>
 
-    <!-- ACTIONS -->
-
-    <section class="actions">
-
-        <button
-            class="action-btn"
-            type="button"
-            onclick="window.print()"
-        >
-            🖨️ View / Print Information
-        </button>
-
-
-        <button
-            class="action-btn delete-btn"
-            type="button"
-            onclick="deleteInformation()"
-        >
-            🗑️ Delete My Information
-        </button>
-
-
-        <a
-            class="back"
-            href="index.html"
-        >
-            ← Back to Code Verification
-        </a>
-
+        <div class="document-box">
+            <div class="doc-label">Document Photo</div>
+            <img id="doc" alt="Document Photo">
+        </div>
     </section>
 
+</main>
 
-</div>
-
+<footer class="footer">
+    Kuwait Visa Dashboard — Demo Interface
+</footer>
 
 <script>
+const user = JSON.parse(localStorage.getItem("user") || "null");
+const code = localStorage.getItem("vcode");
 
-/* =====================================================
-   GET CURRENT CODE
-===================================================== */
-
-const code =
-    localStorage.getItem("vcode");
-
-
-/* =====================================================
-   GET USER DATA
-===================================================== */
-
-let user = null;
-
-
-/*
-   First try currentUser
-*/
-
-const currentUser =
-    localStorage.getItem("currentUser");
-
-
-if(currentUser){
-
-    try{
-
-        user =
-            JSON.parse(currentUser);
-
-    }catch(error){
-
-        user = null;
-
-    }
-
-}
-
-
-/*
-   If currentUser does not exist,
-   find user by code.
-*/
-
-if(!user && code){
-
-    const saved =
-        localStorage.getItem(
-            "user_" + code
-        );
-
-    if(saved){
-
-        try{
-
-            user =
-                JSON.parse(saved);
-
-        }catch(error){
-
-            user = null;
-
-        }
-
-    }
-
-}
-
-
-/* =====================================================
-   SHOW USER
-===================================================== */
-
-if(user){
-
-    showUser(user);
-
+if(!user){
+    document.body.innerHTML = `
+    <div style="
+        min-height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        padding:25px;
+        font-family:Arial;
+        background:#f1f5fa;
+    ">
+        <div>
+            <h2 style="color:#173d65">No Applicant Data Found</h2>
+            <p style="margin-top:12px;color:#66788e">
+                Please return to the main page and enter your demo code.
+            </p>
+            <button onclick="location.href='index.html'"
+            style="
+                margin-top:20px;
+                padding:13px 25px;
+                border:0;
+                border-radius:10px;
+                background:#104b7c;
+                color:white;
+                font-weight:bold;
+            ">Back to Home</button>
+        </div>
+    </div>`;
 }else{
 
-    document
-        .getElementById("userName")
-        .textContent =
-        "No Information";
+    function setText(id,value){
+        document.getElementById(id).textContent = value || "—";
+    }
 
-    document
-        .getElementById("userCode")
-        .textContent =
-        code || "------";
+    const photo = document.getElementById("photo");
+    photo.src = user.photo || "";
 
+    const doc = document.getElementById("doc");
+
+    if(user.doc){
+        doc.src = user.doc;
+    }else{
+        doc.alt = "No document photo available";
+        doc.style.display = "none";
+        document.querySelector(".document-box").innerHTML =
+        '<p style="color:#718198;font-size:13px;text-align:center">No document photo available</p>';
+    }
+
+    setText("name",user.name);
+    setText("nameInfo",user.name);
+    setText("gender",user.gender);
+    setText("passport",user.passport);
+    setText("passportTop",user.passport);
+    setText("birth",user.birth);
+    setText("visa",user.visa);
+    setText("country",user.country);
+    setText("countryCard",user.country);
+
+    // Congratulations animation
+    if(code){
+        const overlay = document.createElement("div");
+        overlay.className = "congrats-overlay";
+
+        overlay.innerHTML = `
+            <div class="congrats-content">
+                <div class="check-circle">✓</div>
+                <h1>Congratulations!</h1>
+                <p>Your demo access code has been accepted.<br>
+                Your personal dashboard is ready.</p>
+            </div>
+        `;
+
+        document.body.appendChild(overlay);
+
+        // Confetti animation
+        for(let i=0;i<45;i++){
+            const piece = document.createElement("div");
+            piece.className = "confetti";
+            piece.style.left = Math.random()*100 + "%";
+            piece.style.background =
+                ["#20c997","#ffc107","#42a5f5","#ff6384","#ffffff"][i%5];
+            piece.style.animationDelay = Math.random()*1.5 + "s";
+            document.body.appendChild(piece);
+
+            setTimeout(()=>piece.remove(),4500);
+        }
+
+        setTimeout(()=>overlay.remove(),4200);
+    }
 }
-
-
-/* =====================================================
-   SHOW USER FUNCTION
-===================================================== */
-
-function showUser(data){
-
-    /* Code */
-
-    document
-        .getElementById("userCode")
-        .textContent =
-        data.code || code || "------";
-
-
-    /* Name */
-
-    document
-        .getElementById("userName")
-        .textContent =
-        data.name || "—";
-
-
-    /* Gender */
-
-    document
-        .getElementById("gender")
-        .textContent =
-        data.gender || "—";
-
-
-    /* Age */
-
-    document
-        .getElementById("age")
-        .textContent =
-        data.age || "—";
-
-
-    /* DOB */
-
-    document
-        .getElementById("dob")
-        .textContent =
-        data.dob || "—";
-
-
-    /* ELMIS */
-
-    document
-        .getElementById("elmis")
-        .textContent =
-        data.elmis || "—";
-
-
-    /* Passport */
-
-    document
-        .getElementById("passport")
-        .textContent =
-        data.passport || "—";
-
-
-    /* Phone */
-
-    document
-        .getElementById("phone")
-        .textContent =
-        data.phone || "—";
-
-
-    /* Birth Country */
-
-    document
-        .getElementById("birth")
-        .textContent =
-        data.birth || "—";
-
-
-    /* Visa */
-
-    document
-        .getElementById("visa")
-        .textContent =
-        data.visa || "—";
-
-
-    /* Destination */
-
-    document
-        .getElementById("country")
-        .textContent =
-        data.country || "—";
-
-
-    /* =================================================
-       PROFILE PHOTO
-    ================================================= */
-
-    if(data.photo){
-
-        const avatar =
-            document.getElementById(
-                "profileImage"
-            );
-
-        avatar.src =
-            data.photo;
-
-        avatar.style.display =
-            "block";
-
-        document
-            .getElementById(
-                "defaultAvatar"
-            )
-            .style.display =
-            "none";
-
-
-        const profilePhoto =
-            document.getElementById(
-                "profilePhoto"
-            );
-
-        profilePhoto.src =
-            data.photo;
-
-        profilePhoto.style.display =
-            "block";
-
-        document
-            .getElementById(
-                "profilePlaceholder"
-            )
-            .style.display =
-            "none";
-
-    }
-
-
-    /* =================================================
-       DOCUMENT PHOTO
-    ================================================= */
-
-    if(data.doc){
-
-        const documentPhoto =
-            document.getElementById(
-                "documentPhoto"
-            );
-
-        documentPhoto.src =
-            data.doc;
-
-        documentPhoto.style.display =
-            "block";
-
-        document
-            .getElementById(
-                "documentPlaceholder"
-            )
-            .style.display =
-            "none";
-
-    }
-
-}
-
-
-/* =====================================================
-   DELETE INFORMATION
-===================================================== */
-
-function deleteInformation(){
-
-    if(!code){
-
-        alert(
-            "No registration code found."
-        );
-
-        return;
-
-    }
-
-
-    const confirmed =
-        confirm(
-            "Are you sure you want to delete this registration?"
-        );
-
-
-    if(!confirmed){
-
-        return;
-
-    }
-
-
-    localStorage.removeItem(
-        "user_" + code
-    );
-
-
-    localStorage.removeItem(
-        "currentUser"
-    );
-
-
-    localStorage.removeItem(
-        "vcode"
-    );
-
-
-    alert(
-        "Registration information deleted."
-    );
-
-
-    window.location.href =
-        "index.html";
-
-}
-
 </script>
 
-
 </body>
-
 </html>
