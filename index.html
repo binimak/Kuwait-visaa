@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f5f7fc">
-<title>Kuwait Visa</title>
+<title>Kuwait Visa - Demo</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -14,6 +14,7 @@ body{font-family:Arial,sans-serif;background:#f5f7fc;color:#205477}
 button,input{font:inherit}
 a{text-decoration:none;color:inherit}
 
+/* HEADER */
 .header{
 height:85px;background:white;position:sticky;top:0;z-index:50;
 display:flex;align-items:center;justify-content:space-between;
@@ -30,8 +31,16 @@ padding:18px;border-radius:15px;z-index:100;box-shadow:0 5px 25px #0002
 .menu.open{display:block}
 .menu a{display:block;padding:12px;border-bottom:1px solid #eee}
 
+/* DEMO NOTICE */
+.demo-notice{
+margin:15px auto;max-width:1250px;padding:12px 18px;
+border-radius:12px;background:#fff3d8;border:1px solid #e9cc8c;
+color:#795719;font-size:14px;text-align:center
+}
+
+/* HERO */
 .hero{
-min-height:690px;margin:45px 2.5%;border-radius:35px;
+min-height:690px;margin:35px 2.5%;border-radius:35px;
 background:linear-gradient(180deg,#0001,#002d4c99),
 url("https://images.squarespace-cdn.com/content/v1/614b82c7abff113c87396f92/71f7cf5b-6d94-4747-9f1d-9a8475bb0692/drone-photo-kuwait-city-kuwait-tower-from-sky.jpg");
 background-size:cover;background-position:center;
@@ -51,6 +60,7 @@ background:linear-gradient(100deg,#9c8975,#253a3c);
 border:1px solid white;color:white;font-size:23px;font-weight:bold
 }
 
+/* STATS */
 .stats{display:grid;gap:25px;margin:50px 2.5%}
 .stat{
 min-height:300px;border-radius:30px;background:linear-gradient(135deg,#e8f8fc,#fff);
@@ -63,12 +73,15 @@ display:grid;place-items:center;font-size:35px;margin-bottom:15px
 .stat h2{font-size:27px;margin-bottom:15px}
 .stat-number{font-size:60px;font-weight:bold;color:#087eae}
 .stat-number small{font-size:20px}
-.stat p{font-size:23px;margin-top:10px}
+.stat p{font-size:20px;margin-top:10px}
 
-.visa-picker,.instructions,.submit-wrap{
+/* VISA TYPE */
+.visa-picker,.instructions{
 margin:55px 2.5%;background:white;border-radius:30px;padding:25px
 }
-.type-tabs{display:grid;grid-template-columns:repeat(4,1fr);margin:-25px -25px 25px}
+.type-tabs{
+display:grid;grid-template-columns:repeat(4,1fr);margin:-25px -25px 25px
+}
 .type-tab{
 height:85px;border:0;background:white;color:#77a6c0;font-size:35px;cursor:pointer
 }
@@ -80,6 +93,7 @@ background:linear-gradient(140deg,#e8f8fc,#fff);padding:35px
 .description h2{font-size:clamp(32px,5vw,50px);color:#087eae;margin-bottom:20px}
 .description p{font-size:20px;line-height:1.7;font-weight:600}
 
+/* INSTRUCTIONS */
 .instructions h2{font-size:clamp(32px,5vw,50px);color:#087eae;margin-bottom:25px}
 .visit-tabs{display:flex;justify-content:center;gap:15px;margin-bottom:30px}
 .visit{
@@ -96,34 +110,79 @@ border-radius:40px;padding:12px 25px;cursor:pointer
 .card li{font-size:18px;line-height:1.7;margin:8px 0}
 .card li:before{content:"✔";color:#0ba4c7;margin-right:8px}
 
-.submit-wrap{padding:30px}
-.submit,.code-button{
-border:0;border-radius:40px;padding:16px 45px;
-background:linear-gradient(100deg,#12618e,#08a5d0);
-color:white;font-size:21px;font-weight:bold;cursor:pointer
+/* CODE PANEL */
+.submit-wrap{
+margin:55px 2.5%;background:white;border-radius:30px;padding:30px
 }
-#message{margin-top:15px}
 .code-panel{
-display:none;margin-top:25px;padding:28px;
+display:block;width:100%;padding:28px;
 background:linear-gradient(140deg,#e8f8fc,#fff);
 border:1px solid #d5eaf0;border-radius:22px
 }
 .code-panel h2{font-size:29px;color:#087eae;margin-bottom:12px}
-.code-panel p{font-size:16px;line-height:1.6}
+.code-panel p{font-size:16px;line-height:1.7}
 .code-label{display:block;font-weight:bold;margin:20px 0 9px}
 .code-input{
-width:100%;height:60px;padding:12px 15px;border:1px solid #cfe3eb;
-border-radius:12px;font-size:22px;letter-spacing:4px;outline-color:#0aa3ce
+width:100%;height:60px;padding:12px 15px;
+border:1px solid #cfe3eb;border-radius:12px;
+font-size:22px;letter-spacing:4px;outline-color:#0aa3ce
 }
-.code-button{width:100%;margin-top:18px}
+.code-button{
+width:100%;margin-top:18px;border:0;border-radius:40px;
+padding:16px 30px;background:linear-gradient(100deg,#12618e,#08a5d0);
+color:white;font-size:21px;font-weight:bold;cursor:pointer
+}
 #msg{min-height:22px;margin-top:12px;font-weight:bold}
 
+/* SUCCESS ANIMATION */
+.success-overlay{
+position:fixed;inset:0;z-index:9999;
+background:rgba(5,25,43,.94);
+display:none;align-items:center;justify-content:center;
+padding:20px;backdrop-filter:blur(10px)
+}
+.success-overlay.show{
+display:flex;animation:fadeIn .5s ease
+}
+.success-box{
+width:100%;max-width:420px;background:white;
+border-radius:28px;padding:40px 25px;text-align:center;
+animation:popUp .7s cubic-bezier(.2,.8,.2,1)
+}
+.success-icon{
+width:95px;height:95px;margin:0 auto 22px;
+border-radius:50%;background:#e2f8ee;color:#16a36a;
+display:grid;place-items:center;font-size:55px;
+animation:successPulse 1.2s infinite
+}
+.success-box h2{color:#087eae;font-size:29px;margin-bottom:12px}
+.success-box p{color:#526778;line-height:1.7;font-size:16px}
+.loading-line{
+height:6px;background:#e7eef3;border-radius:20px;
+overflow:hidden;margin-top:25px
+}
+.loading-progress{
+height:100%;width:0;
+background:linear-gradient(90deg,#12618e,#08a5d0);
+border-radius:20px;animation:progress 2.5s linear forwards
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes popUp{
+from{opacity:0;transform:translateY(40px) scale(.8)}
+to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes successPulse{50%{transform:scale(1.08)}}
+@keyframes progress{to{width:100%}}
+
+/* APP PANEL */
 .app-panel{
 margin:55px 2.5%;padding:40px;border-radius:30px;
 background:linear-gradient(120deg,#e7f8fc,#fff)
 }
 .app-panel h2{font-size:32px;color:#087eae;margin:10px 0}
 .app-panel p{font-size:18px}
+
+/* FOOTER */
 footer{padding:35px 8% 50px}
 .footer-brand{font-size:27px;color:#155b86;font-weight:bold}
 .footer-cols{display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-top:25px}
@@ -131,6 +190,7 @@ footer{padding:35px 8% 50px}
 .footer-cols a{display:block;margin:13px 0}
 .social{display:flex;gap:25px;font-size:27px;margin-top:25px}
 
+/* DARK MODE */
 body.dark{background:#101e2b;color:#d8eaf2}
 body.dark .header,body.dark .visa-picker,body.dark .instructions,
 body.dark .submit-wrap,body.dark .menu,body.dark .card{background:#172d40}
@@ -140,20 +200,21 @@ body.dark .type-tab,body.dark .visit,body.dark .code-input{
 background:#172d40;color:#d8eaf2
 }
 body.dark .type-tab.active,body.dark .visit.active{background:#087eae;color:white}
+body.dark .brand,body.dark .action{color:#d8eaf2}
+body.dark .code-input{border-color:#45677e}
 
+/* RESPONSIVE */
 @media(min-width:850px){
-.hero{max-width:1300px;margin:45px auto}
+.hero{max-width:1300px;margin:35px auto}
 .stats{max-width:1300px;margin:50px auto;grid-template-columns:repeat(3,1fr)}
 .stat{min-height:330px}
-.visa-picker,.instructions,.submit-wrap,.app-panel{
-max-width:1300px;margin:55px auto
-}
+.visa-picker,.instructions,.submit-wrap,.app-panel{max-width:1300px;margin:55px auto}
 .cards{grid-template-columns:repeat(2,1fr)}
 }
-
 @media(max-width:600px){
 .header{height:75px;padding:0 18px}
 .brand{font-size:23px}
+.demo-notice{margin:12px 15px;font-size:12px}
 .hero{margin:25px 15px;min-height:680px}
 .hero-content{padding:8%}
 .stats{margin:35px 15px}
@@ -166,7 +227,6 @@ max-width:1300px;margin:55px auto
 .visit{padding:11px 18px;font-size:16px}
 .card img{height:220px}
 .card li{font-size:16px}
-.submit{width:100%}
 .code-panel{padding:22px 17px}
 .app-panel{margin:35px 15px;padding:30px}
 .footer-cols{gap:15px}
@@ -178,7 +238,6 @@ max-width:1300px;margin:55px auto
 
 <header class="header">
 <a class="brand" href="#home">Kuwait<small>Visa</small></a>
-
 <div class="actions">
 <button class="action" id="language">ع</button>
 <button class="action" id="theme">☾</button>
@@ -186,10 +245,15 @@ max-width:1300px;margin:55px auto
 </div>
 </header>
 
+<div class="demo-notice">
+DEMO WEBSITE — Unofficial demonstration. Not a government visa verification service.
+</div>
+
 <nav class="menu" id="menu">
 <a href="#home">Home</a>
 <a href="#visa">Visa Type</a>
 <a href="#instructions">Visa Instructions</a>
+<a href="#codeSection">Visa Code</a>
 <a href="#support">Contact Us</a>
 </nav>
 
@@ -198,42 +262,43 @@ max-width:1300px;margin:55px auto
 <section class="hero" id="home">
 <div class="hero-content">
 <h1>Apply for your visa in a few simple steps..</h1>
-
 <div class="steps">
 <div class="step"><span class="step-icon">♙</span>Create your account</div>
 <div class="step"><span class="step-icon">▤</span>Complete your profile</div>
 <div class="step"><span class="step-icon">☑</span>Submit your visa application</div>
-<div class="step"><span class="step-icon">♧</span>Track real-time updates</div>
+<div class="step"><span class="step-icon">♧</span>Track application updates</div>
 </div>
-
-<a class="apply" href="#visa">Apply Now →</a>
+<a class="apply" href="#codeSection">Apply Now →</a>
 </div>
 </section>
 
 <section class="stats">
+
 <article class="stat">
 <div class="stat-icon">♧</div>
 <h2>Tourist Visa</h2>
 <div class="stat-number">95 <small>Thousand</small></div>
-<p>Visas issued in 2025</p>
+<p>Sample statistics</p>
 </article>
 
 <article class="stat">
 <div class="stat-icon">♙</div>
 <h2>Family Visa</h2>
 <div class="stat-number">74 <small>Thousand</small></div>
-<p>Visas issued in 2025</p>
+<p>Sample statistics</p>
 </article>
 
 <article class="stat">
 <div class="stat-icon">♟</div>
 <h2>Business Visa</h2>
 <div class="stat-number">25 <small>Thousand</small></div>
-<p>Visas issued in 2025</p>
+<p>Sample statistics</p>
 </article>
+
 </section>
 
 <section class="visa-picker" id="visa">
+
 <div class="type-tabs">
 <button class="type-tab active" data-type="tourist">♙</button>
 <button class="type-tab" data-type="family">♙♙</button>
@@ -247,9 +312,11 @@ max-width:1300px;margin:55px auto
 This visa is issued to individuals who wish to visit the State of Kuwait for tourism and entertainment.
 </p>
 </div>
+
 </section>
 
 <section class="instructions" id="instructions">
+
 <h2>Visa Instructions</h2>
 
 <div class="visit-tabs">
@@ -304,15 +371,22 @@ This visa is issued to individuals who wish to visit the State of Kuwait for tou
 </div>
 </section>
 
-<section class="submit-wrap">
-<button class="submit" id="submit">Submit</button>
-<p id="message" aria-live="polite"></p>
+<!-- CODE PANEL ALWAYS VISIBLE -->
 
-<div class="code-panel" id="applicationCode">
+<section class="submit-wrap" id="codeSection">
+
+<div class="code-panel">
+
 <h2>Visa Information</h2>
-<p>Enter your registered 9-digit visa code to continue to your personal information.</p>
 
-<label class="code-label" for="code">Visa Number / Application Code</label>
+<p>
+Enter your registered 9-digit demo code to continue
+to your personal information.
+</p>
+
+<label class="code-label" for="code">
+Visa Number / Application Code
+</label>
 
 <input
 type="text"
@@ -329,6 +403,7 @@ autocomplete="off"
 <button class="code-button" id="continueButton" type="button">
 Continue →
 </button>
+
 </div>
 </section>
 
@@ -341,8 +416,9 @@ Continue →
 </main>
 
 <footer id="support">
+
 <div class="footer-brand">Kuwait Visa</div>
-<p style="margin-top:10px">Beta Version 0.4.29</p>
+<p style="margin-top:10px">Demo Version 0.4.29</p>
 
 <div class="footer-cols">
 <div>
@@ -352,7 +428,6 @@ Continue →
 <a href="#support">FAQ</a>
 <a href="#support">Contact Us</a>
 </div>
-
 <div>
 <h3>Information</h3>
 <a href="#home">About Kuwait</a>
@@ -367,56 +442,93 @@ Continue →
 <a href="#">▷</a>
 <a href="#">f</a>
 </div>
+
 </footer>
+
+<!-- CONGRATULATIONS ANIMATION -->
+
+<div class="success-overlay" id="successOverlay">
+
+<div class="success-box">
+
+<div class="success-icon">✓</div>
+
+<h2>Congratulations!</h2>
+
+<p>
+Your demo code has been successfully accepted.
+You are now being redirected to your personal information page.
+</p>
+
+<div class="loading-line">
+<div class="loading-progress"></div>
+</div>
+
+<p style="margin-top:15px;font-size:14px">
+Please wait...
+</p>
+
+</div>
+
+</div>
 
 <script>
 
 /* VISA INFORMATION */
 
 const descriptions={
+
 tourist:[
 "Tourist Visa",
 "This visa is issued to individuals who wish to visit the State of Kuwait for tourism and entertainment. It allows visitors to explore the country for the period specified in their permit."
 ],
+
 family:[
 "Family Visa",
 "This visa is issued to individuals who wish to visit family members residing in the State of Kuwait, subject to applicable requirements."
 ],
+
 business:[
 "Business Visa",
 "This visa is issued to individuals visiting Kuwait for business meetings and approved commercial purposes."
 ],
+
 government:[
 "Government Visa",
 "This visa is issued to individuals travelling to Kuwait for official government purposes."
 ]
+
 };
 
 
-/* DEMO USER RECORDS
-   Replace this example with authorized records.
-   Each code must contain exactly 9 digits.
-*/
+/* DEMO USER RECORDS */
 
 const users={
+
 "123456789":{
+
 name:"SOLOMON ABABA DESTA",
 gender:"Male",
 passport:"EP123456",
 birth:"Ethiopia",
 visa:"Kuwait Work Visa",
 country:"Kuwait",
-photo:"https://res.cloudinary.com/dwclusteb/image/upload/v1793352582/IMG_20261030_005846_888_a7d4to.jpg ",
-doc:"https://res.cloudinary.com/dwclusteb/image/upload/v1793440528/55e36b9dbce209adba6d11d06cd09f82_vzk3lg.jpg",
+
+photo:"https://res.cloudinary.com/dwclusteb/image/upload/v1793352582/IMG_20261030_005846_888_a7d4to.jpg",
+
+doc:"https://res.cloudinary.com/dwclusteb/image/upload/v1793440528/55e36b9dbce209adba6d11d06cd09f82_vzk3lg.jpg"
 
 }
+
 };
 
 
 /* VISA TYPE BUTTONS */
 
 document.querySelectorAll(".type-tab").forEach(button=>{
+
 button.addEventListener("click",()=>{
+
 document.querySelectorAll(".type-tab").forEach(item=>{
 item.classList.remove("active");
 });
@@ -426,15 +538,20 @@ button.classList.add("active");
 const selected=descriptions[button.dataset.type];
 
 document.getElementById("visaTitle").textContent=selected[0];
+
 document.getElementById("visaDescription").textContent=selected[1];
+
 });
+
 });
 
 
 /* SINGLE / MULTIPLE VISIT */
 
 document.querySelectorAll(".visit").forEach(button=>{
+
 button.addEventListener("click",()=>{
+
 document.querySelectorAll(".visit").forEach(item=>{
 item.classList.remove("active");
 });
@@ -442,109 +559,141 @@ item.classList.remove("active");
 button.classList.add("active");
 
 document.querySelectorAll(".entry").forEach(item=>{
-item.textContent=button.dataset.mode==="single"
+
+item.textContent=
+button.dataset.mode==="single"
 ?"Single entry"
 :"Multiple entries";
+
 });
+
 });
+
 });
 
 
 /* DARK MODE */
 
 document.getElementById("theme").onclick=()=>{
+
 document.body.classList.toggle("dark");
 
 document.getElementById("theme").textContent=
 document.body.classList.contains("dark")?"☀":"☾";
+
 };
 
 
 /* MENU */
 
 document.getElementById("hamburger").onclick=()=>{
+
 document.getElementById("menu").classList.toggle("open");
+
 };
 
 document.querySelectorAll(".menu a").forEach(link=>{
+
 link.onclick=()=>{
+
 document.getElementById("menu").classList.remove("open");
+
 };
+
 });
 
 
 /* LANGUAGE PREVIEW */
 
 document.getElementById("language").onclick=()=>{
+
 alert("Language selector preview: English / العربية");
+
 };
 
 
-/* SUBMIT BUTTON: SHOW CODE PANEL */
+/* NUMBERS ONLY */
 
-document.getElementById("submit").onclick=()=>{
-const message=document.getElementById("message");
-const section=document.getElementById("applicationCode");
+const codeInput=document.getElementById("code");
 
-message.textContent="Please enter your 9-digit code.";
-message.style.color="#087eae";
+codeInput.addEventListener("input",function(){
 
-section.style.display="block";
-
-section.scrollIntoView({
-behavior:"smooth",
-block:"center"
-});
-
-document.getElementById("code").focus();
-};
-
-
-/* ALLOW NUMBERS ONLY */
-
-document.getElementById("code").addEventListener("input",function(){
 this.value=this.value.replace(/\D/g,"").slice(0,9);
+
+document.getElementById("msg").textContent="";
+
 });
 
 
-/* CHECK CODE */
+/* CHECK DEMO CODE AND SHOW ANIMATION */
+
+let isRedirecting=false;
 
 function checkCode(){
 
-const input=document.getElementById("code");
+if(isRedirecting)return;
+
+const code=codeInput.value.trim();
+
 const msg=document.getElementById("msg");
-const code=input.value.trim();
 
 if(!/^\d{9}$/.test(code)){
+
 msg.style.color="red";
 msg.textContent="Please enter a valid 9-digit code.";
 return;
+
 }
 
 const user=users[code];
 
 if(!user){
+
 msg.style.color="red";
-msg.textContent="Invalid code. Please check your code.";
+msg.textContent="Invalid demo code. Please check your code.";
 return;
+
 }
 
-/* SAVE RECORD FOR PERSONAL.HTML */
+/* SAVE DEMO RECORD */
+
+try{
 
 localStorage.setItem("user",JSON.stringify({
+
 ...user,
 doc:user.doc||"",
 doc2:user.doc2||""
+
 }));
 
 localStorage.setItem("vcode",code);
 
-msg.style.color="green";
-msg.textContent="Code accepted. Redirecting...";
+}catch(error){
+
+msg.style.color="red";
+msg.textContent="Unable to save information.";
+return;
+
+}
+
+/* SUCCESS ANIMATION */
+
+isRedirecting=true;
+
+document.getElementById("continueButton").disabled=true;
+
+document.getElementById("successOverlay").classList.add("show");
+
+document.body.style.overflow="hidden";
+
+/* REDIRECT TO PERSONAL HTML */
 
 setTimeout(()=>{
+
 window.location.href="personal.html";
-},500);
+
+},2500);
 
 }
 
@@ -556,10 +705,14 @@ document.getElementById("continueButton").onclick=checkCode;
 
 /* ENTER KEY */
 
-document.getElementById("code").addEventListener("keydown",event=>{
+codeInput.addEventListener("keydown",event=>{
+
 if(event.key==="Enter"){
+
 checkCode();
+
 }
+
 });
 
 </script>
