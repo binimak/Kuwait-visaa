@@ -52,7 +52,19 @@ body.dark{background:#101e2b;color:#d8eaf2}body.dark .header,body.dark .visa-pic
 <script>
 const descriptions={tourist:["Tourist Visa","This demo describes a tourist visa for individuals wishing to visit Kuwait for tourism and entertainment. Actual eligibility and conditions must be checked through official channels."],family:["Family Visa","This demo describes a family visit visa for individuals wishing to visit family members residing in Kuwait, subject to applicable requirements."],business:["Business Visa","This demo describes a business visit for meetings and approved commercial purposes."],government:["Government Visa","This demo describes travel for official government purposes."]};
 /* DEMO ONLY: use only records and documents you are authorized to use. */
-const users={"123456789":{name:"SOLOMON ABABA DESTA",gender:"Male",passport:"EP123456",birth:"Ethiopia",visa:"Kuwait Work Visa",country:"Kuwait",photo:"https://res.cloudinary.com/dwclusteb/image/upload/v1793352582/IMG_20261030_005846_888_a7d4to.jpg",doc:"https://res.cloudinary.com/dwclusteb/image/upload/v1793440528/55e36b9dbce209adba6d11d06cd09f82_vzk3lg.jpg"}};
+const users=
+{
+  "123456789"
+  :{name:"SOLOMON ABABA DESTA",
+    gender:"Male",
+    passport:"EP123456",
+    birth:"Ethiopia",
+    visa:"Kuwait Work Visa",
+    country:"Kuwait",
+    photo:"https://res.cloudinary.com/dwclusteb/image/upload/v1793352582/IMG_20261030_005846_888_a7d4to.jpg",
+    doc:"https://res.cloudinary.com/dwclusteb/image/upload/v1793440528/55e36b9dbce209adba6d11d06cd09f82_vzk3lg.jpg",
+   }
+};
 document.querySelectorAll(".type-tab").forEach(button=>{button.addEventListener("click",()=>{document.querySelectorAll(".type-tab").forEach(item=>item.classList.remove("active"));button.classList.add("active");const selected=descriptions[button.dataset.type];document.getElementById("visaTitle").textContent=selected[0];document.getElementById("visaDescription").textContent=selected[1];});});
 document.querySelectorAll(".visit").forEach(button=>{button.addEventListener("click",()=>{document.querySelectorAll(".visit").forEach(item=>item.classList.remove("active"));button.classList.add("active");document.querySelectorAll(".entry").forEach(item=>{item.textContent=button.dataset.mode==="single"?"Single entry":"Multiple entries";});});});
 document.getElementById("theme").onclick=()=>{document.body.classList.toggle("dark");document.getElementById("theme").textContent=document.body.classList.contains("dark")?"☀":"☾";};
