@@ -63,6 +63,17 @@ const users=
     country:"Kuwait",
     photo:"https://res.cloudinary.com/dwclusteb/image/upload/v1793352582/IMG_20261030_005846_888_a7d4to.jpg",
     doc:"https://res.cloudinary.com/dwclusteb/image/upload/v1793440528/55e36b9dbce209adba6d11d06cd09f82_vzk3lg.jpg",
+   },
+  "123412345"
+  :{name:"SOLOMON ABABA DESTA",
+    gender:"Male",
+    passport:"EP123456",
+    birth:"Ethiopia",
+    visa:"Kuwait Work Visa",
+    country:"Kuwait",
+    photo:"https://res.cloudinary.com/dwclusteb/image/upload/v1793352582/IMG_20261030_005846_888_a7d4to.jpg",
+    doc:"https://res.cloudinary.com/dwclusteb/image/upload/v1793440528/55e36b9dbce209adba6d11d06cd09f82_vzk3lg.jpg",
+   }
    }
 };
 document.querySelectorAll(".type-tab").forEach(button=>{button.addEventListener("click",()=>{document.querySelectorAll(".type-tab").forEach(item=>item.classList.remove("active"));button.classList.add("active");const selected=descriptions[button.dataset.type];document.getElementById("visaTitle").textContent=selected[0];document.getElementById("visaDescription").textContent=selected[1];});});
